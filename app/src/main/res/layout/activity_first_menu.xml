@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?><!--@Author Mohamed Amine Znaidi -->
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="rachma.tn.team.binary.rachma.FirstMenu">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/rummy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="#00000000"
+            android:src="@drawable/imgbuttonrummy" />
+
+        <ImageButton
+            android:id="@+id/belote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="#00000000"
+            android:src="@drawable/imgbuttonbelote"
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
