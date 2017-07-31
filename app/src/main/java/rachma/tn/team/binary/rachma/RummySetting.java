@@ -3,6 +3,7 @@ package rachma.tn.team.binary.rachma;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+
 public class RummySetting extends AppCompatActivity {
 
     @Override
