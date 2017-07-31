@@ -1,0 +1,16 @@
+package rachma.tn.team.binary.rachma;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+
+//Author Marwen Doukh
+
+public class RummyScoreboard extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rummy_scoreboard);
+    }
+}

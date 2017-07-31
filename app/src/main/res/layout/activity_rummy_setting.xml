@@ -69,15 +69,23 @@
                 android:id="@+id/player3Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Player 3 name" />
+                android:hint="Player 3 name"
+                android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/player4Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Player 4 name" />
+                android:hint="Player 4 name"
+                android:visibility="invisible" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="done" />
 
     </LinearLayout>
 

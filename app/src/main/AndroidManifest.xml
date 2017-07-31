@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RummySetting" />
-        <activity android:name=".BeloteSetting"></activity>
+        <activity android:name=".BeloteSetting" />
+        <activity android:name=".RummyScoreboard"></activity>
     </application>
 
 </manifest>
