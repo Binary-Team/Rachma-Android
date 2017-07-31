@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 
 public class RummySetting extends AppCompatActivity {
 
+    Integer playersNumber = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rummy_setting);
+
     }
 }
