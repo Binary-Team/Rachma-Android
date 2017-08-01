@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma.Controller;
+package rachma.tn.team.binary.rachma.Adapter;
 
 /**
  * Created by Marwen on 01/08/17.

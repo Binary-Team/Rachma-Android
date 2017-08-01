@@ -12,7 +12,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-import rachma.tn.team.binary.rachma.Controller.RummyScoreboardAdapter;
+import rachma.tn.team.binary.rachma.Adapter.RummyScoreboardAdapter;
 
 
 //Author Marwen Doukh
