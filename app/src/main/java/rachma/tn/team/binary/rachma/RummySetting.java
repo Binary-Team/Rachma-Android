@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 //Author Marwen Doukh
@@ -14,7 +15,8 @@ public class RummySetting extends AppCompatActivity {
 
     Integer playersNumber = 2;
     TextView playersNumberTV;
-    Button increasePlayersNumber, decreasePlayersNumber, done;
+    ImageButton increasePlayersNumber, decreasePlayersNumber;
+    Button done;
     EditText player1Name, player2Name, player3Name, player4Name;
 
     @Override
@@ -34,8 +36,8 @@ public class RummySetting extends AppCompatActivity {
 
         // Increase/Decrease players number
         playersNumberTV = (TextView) findViewById(R.id.playersNumber);
-        increasePlayersNumber = (Button) findViewById(R.id.increasePlayersNumber);
-        decreasePlayersNumber = (Button) findViewById(R.id.decreasePlayersNumber);
+        increasePlayersNumber = (ImageButton) findViewById(R.id.increasePlayersNumber);
+        decreasePlayersNumber = (ImageButton) findViewById(R.id.decreasePlayersNumber);
 
         increasePlayersNumber.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,14 +107,14 @@ public class RummySetting extends AppCompatActivity {
             case 2:
                 player1Name.setVisibility(View.VISIBLE);
                 player2Name.setVisibility(View.VISIBLE);
-                player3Name.setVisibility(View.INVISIBLE);
-                player4Name.setVisibility(View.INVISIBLE);
+                player3Name.setVisibility(View.GONE);
+                player4Name.setVisibility(View.GONE);
                 break;
             case 3:
                 player1Name.setVisibility(View.VISIBLE);
                 player2Name.setVisibility(View.VISIBLE);
                 player3Name.setVisibility(View.VISIBLE);
-                player4Name.setVisibility(View.INVISIBLE);
+                player4Name.setVisibility(View.GONE);
                 break;
             case 4:
                 player1Name.setVisibility(View.VISIBLE);
