@@ -14,8 +14,9 @@ import android.widget.TextView;
 public class RummySetting extends AppCompatActivity {
 
     Integer playersNumber = 2;
-    TextView playersNumberTV;
-    ImageButton increasePlayersNumber, decreasePlayersNumber;
+    Integer finalScore = 500;
+    TextView playersNumberTV, finalScoreTV;
+    ImageButton increasePlayersNumber, decreasePlayersNumber, increaseFinalScore, decreaseFinalScore;
     Button done;
     EditText player1Name, player2Name, player3Name, player4Name;
 
@@ -32,6 +33,7 @@ public class RummySetting extends AppCompatActivity {
 
 
         done = (Button) findViewById(R.id.done);
+
 
 
         // Increase/Decrease players number
@@ -60,6 +62,32 @@ public class RummySetting extends AppCompatActivity {
 
             }
         });
+
+
+        // final score
+
+        finalScoreTV = (TextView) findViewById(R.id.finalScore);
+        increaseFinalScore = (ImageButton) findViewById(R.id.increaseFinalScore);
+        decreaseFinalScore = (ImageButton) findViewById(R.id.decreaseFinalScore);
+
+        increaseFinalScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finalScore += 50;
+                finalScoreTV.setText(finalScore.toString());
+
+            }
+        });
+
+        decreaseFinalScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (finalScore > 100)
+                    finalScore -= 50;
+                finalScoreTV.setText(finalScore.toString());
+            }
+        });
+
 
 
         // move to Rummy scoreboard
