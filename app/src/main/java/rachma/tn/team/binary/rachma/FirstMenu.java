@@ -27,7 +27,7 @@ public class FirstMenu extends AppCompatActivity {
         beloteBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent belotesetting = new Intent(getApplication(), RummySetting.class);
+                Intent belotesetting = new Intent(getApplication(), BeloteSetting.class);
                 startActivity(belotesetting);
             }
         });
