@@ -42,7 +42,7 @@ public class BeloteSetting extends AppCompatActivity {
         increaseGamesNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (gamesNumber >= 1 && gamesNumber <= 5) {
+                if (gamesNumber >= 1 && gamesNumber < 5) {
                     gamesNumber++;
                 } else {
                     gamesNumber = 1;
@@ -54,7 +54,7 @@ public class BeloteSetting extends AppCompatActivity {
         decreaseGamesNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (gamesNumber >= 1 && gamesNumber <= 5) {
+                if (gamesNumber > 1 && gamesNumber <= 5) {
                     gamesNumber--;
                 } else {
                     gamesNumber = 5;
