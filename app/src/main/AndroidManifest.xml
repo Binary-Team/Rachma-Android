@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".RummySetting" />
         <activity android:name=".BeloteSetting" />
-        <activity android:name=".RummyScoreboard"></activity>
+        <activity android:name=".RummyScoreboard" />
+        <activity android:name=".BeloteScoreBoard"></activity>
     </application>
 
 </manifest>
