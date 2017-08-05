@@ -19,7 +19,7 @@ import rachma.tn.team.binary.rachma.Adapter.RummyScoreboardAdapter;
 
 public class BeloteScoreBoard extends AppCompatActivity {
     String team1Player1, team1Player2, team2Player1, team2Player2;
-    Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0;
+    Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0, ScoreTeam1Entred, ScoreTeam2Entred;
     List<String> scoreListTeam1 = new ArrayList<>();
     List<String> scoreListTeam2 = new ArrayList<>();
     private RecyclerView recyclerView1, recyclerView2;
@@ -78,8 +78,17 @@ public class BeloteScoreBoard extends AppCompatActivity {
         addScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
-                Integer ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
+                if (scoreTeam1.getText().toString().length() > 0) {
+                    ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
+                } else {
+                    ScoreTeam1Entred = 162 - Integer.decode(scoreTeam2.getText().toString());
+                }
+                if (scoreTeam2.getText().toString().length() > 0) {
+                    ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
+                } else {
+                    ScoreTeam2Entred = 162 - Integer.decode(scoreTeam1.getText().toString());
+                }
+
                 ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
                 ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
 
@@ -87,6 +96,9 @@ public class BeloteScoreBoard extends AppCompatActivity {
                 mAdapter1.notifyDataSetChanged();
                 scoreListTeam2.add(ScoreTeam2.toString());
                 mAdapter2.notifyDataSetChanged();
+                scoreTeam1.setText("");
+                scoreTeam2.setText("");
+
             }
         });
 
