@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ import rachma.tn.team.binary.rachma.Adapter.RummyScoreboardAdapter;
 
 public class BeloteScoreBoard extends AppCompatActivity {
     String team1Player1, team1Player2, team2Player1, team2Player2;
-    Integer gamesNumber, pointsPerGame;
+    Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0;
     List<String> scoreListTeam1 = new ArrayList<>();
     List<String> scoreListTeam2 = new ArrayList<>();
     private RecyclerView recyclerView1, recyclerView2;
@@ -29,20 +31,28 @@ public class BeloteScoreBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_belote_score_board);
 
-        //team1Player1 = getIntent().getExtras().getString("player1Team1");
-        // team1Player2 = getIntent().getExtras().getString("palyer2Team1");
-        //team2Player1 = getIntent().getExtras().getString("palyer2Team1");
-        //team2Player2 = getIntent().getExtras().getString("palyer2Team2");
-        // gamesNumber = getIntent().getExtras().getInt("gamesNumber");
-        // pointsPerGame = getIntent().getExtras().getInt("pointsPerGames");
-        //TextView team1player1TV = (TextView) findViewById(R.id.team1player1);
-        //TextView team1player2TV = (TextView) findViewById(R.id.team1player2);
-        //TextView team2player1TV = (TextView) findViewById(R.id.team2player1);
-        //TextView team2player2TV = (TextView) findViewById(R.id.team2player2);
-        //team1player1TV.setText(team1Player1);
-        // team1player2TV.setText(team1Player2);
-        //team2player1TV.setText(team2Player1);
-        //team2player2TV.setText("team2Player2");
+        final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
+        final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
+        //get Player Names
+        team1Player1 = getIntent().getExtras().getString("player1Team1");
+        team1Player2 = getIntent().getExtras().getString("palyer2Team1");
+        team2Player1 = getIntent().getExtras().getString("palyer2Team1");
+        team2Player2 = getIntent().getExtras().getString("palyer2Team2");
+        //Get Games Number
+        gamesNumber = getIntent().getExtras().getInt("gamesNumber");
+        // Get Points Per Game
+        pointsPerGame = getIntent().getExtras().getInt("pointsPerGames");
+        // Show Player Number
+        TextView team1player1TV = (TextView) findViewById(R.id.team1player1);
+        TextView team1player2TV = (TextView) findViewById(R.id.team1player2);
+        TextView team2player1TV = (TextView) findViewById(R.id.team2player1);
+        TextView team2player2TV = (TextView) findViewById(R.id.team2player2);
+        team1player1TV.setText(team1Player1);
+        team1player2TV.setText(team1Player2);
+        team2player1TV.setText(team2Player1);
+        team2player2TV.setText(team2Player2);
+
+
 
 
         // RecyclerView
@@ -68,9 +78,14 @@ public class BeloteScoreBoard extends AppCompatActivity {
         addScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scoreListTeam1.add("score1");
+                Integer ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
+                Integer ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
+                ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
+                ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
+
+                scoreListTeam1.add(ScoreTeam1.toString());
                 mAdapter1.notifyDataSetChanged();
-                scoreListTeam2.add("score1");
+                scoreListTeam2.add(ScoreTeam2.toString());
                 mAdapter2.notifyDataSetChanged();
             }
         });

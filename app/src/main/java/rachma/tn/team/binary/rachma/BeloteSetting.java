@@ -25,7 +25,6 @@ public class BeloteSetting extends AppCompatActivity {
 
         gamesNumberTV = (TextView) findViewById(R.id.gamesNumber);
         pointsPerGameTV = (TextView) findViewById(R.id.pointpergame);
-
         done = (Button) findViewById(R.id.doneBeloteSetting);
 
         player1Team1 = (EditText) findViewById(R.id.team1player1);
