@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.183" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addscorebt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -99,19 +99,28 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView1"
-        android:layout_width="64dp"
-        android:layout_height="274dp"
+        android:layout_width="126dp"
+        android:layout_height="280dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        tools:layout_editor_absoluteX="64dp" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="64dp"
         android:layout_height="273dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="247dp" />
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/scoreTeam2"
