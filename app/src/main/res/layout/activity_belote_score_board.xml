@@ -97,31 +97,6 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
         app:layout_constraintVertical_bias="1.0" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView1"
-        android:layout_width="126dp"
-        android:layout_height="280dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="64dp"
-        android:layout_height="273dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/scoreTeam2"
         android:layout_width="79dp"
@@ -131,11 +106,11 @@
         android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintHorizontal_bias="0.862"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <EditText
         android:id="@+id/scoreTeam1"
@@ -146,11 +121,131 @@
         android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
-        app:layout_constraintVertical_bias="0.464"
-        tools:layout_editor_absoluteX="48dp" />
+        app:layout_constraintVertical_bias="0.087" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.899" />
+
+    <TextView
+        android:id="@+id/gamesWonTeam2"
+        android:layout_width="37dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="monospace"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scoreTeam2"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/gamesWonTeam1"
+        android:layout_width="37dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="monospace"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scoreTeam1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Belote"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTeam2"
+        app:layout_constraintVertical_bias="0.342" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="belote"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/error"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTeam1"
+        app:layout_constraintVertical_bias="0.392" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="74dp"
+        android:layout_height="317dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView1"
+        android:layout_width="74dp"
+        android:layout_height="316dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
 </android.support.constraint.ConstraintLayout>

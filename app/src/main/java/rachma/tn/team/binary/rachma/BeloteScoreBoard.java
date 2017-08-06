@@ -31,6 +31,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_belote_score_board);
 
+        final TextView error = (TextView) findViewById(R.id.error);
+        error.setVisibility(View.INVISIBLE);
         final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
         final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
         //get Player Names
@@ -74,31 +76,46 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setAdapter(mAdapter2);
 
-        Button addScore = (Button) findViewById(R.id.addscorebt);
+        final Button addScore = (Button) findViewById(R.id.addscorebt);
         addScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (scoreTeam1.getText().toString().length() > 0) {
-                    ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
+                if (scoreTeam1.getText().toString().length() == 0 && scoreTeam2.getText().toString().length() == 0) {
+                    error.setVisibility(View.VISIBLE);
+                    error.setText("Write at least one score");
                 } else {
-                    ScoreTeam1Entred = 162 - Integer.decode(scoreTeam2.getText().toString());
+                    //Score Team 1 Configuration
+                    if (scoreTeam1.getText().toString().length() > 0) {
+                        ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
+                    } else {
+                        if (Integer.decode(scoreTeam2.getText().toString()) > 162)
+                            ScoreTeam1Entred = 0;
+                        else
+                            ScoreTeam1Entred = 162 - Integer.decode(scoreTeam2.getText().toString());
+                    }
+
+                    //Score Team2 Configuration
+                    if (scoreTeam2.getText().toString().length() > 0) {
+                        ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
+                    } else {
+                        if (Integer.decode(scoreTeam1.getText().toString()) > 162)
+                            ScoreTeam2Entred = 0;
+                        else
+                            ScoreTeam2Entred = 162 - Integer.decode(scoreTeam1.getText().toString());
+                    }
+
+                    ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
+                    ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
+
+                    scoreListTeam1.add(ScoreTeam1.toString());
+                    mAdapter1.notifyDataSetChanged();
+                    scoreListTeam2.add(ScoreTeam2.toString());
+                    mAdapter2.notifyDataSetChanged();
+                    scoreTeam1.setText("");
+                    scoreTeam2.setText("");
+
+
                 }
-                if (scoreTeam2.getText().toString().length() > 0) {
-                    ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
-                } else {
-                    ScoreTeam2Entred = 162 - Integer.decode(scoreTeam1.getText().toString());
-                }
-
-                ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
-                ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
-
-                scoreListTeam1.add(ScoreTeam1.toString());
-                mAdapter1.notifyDataSetChanged();
-                scoreListTeam2.add(ScoreTeam2.toString());
-                mAdapter2.notifyDataSetChanged();
-                scoreTeam1.setText("");
-                scoreTeam2.setText("");
-
             }
         });
 
