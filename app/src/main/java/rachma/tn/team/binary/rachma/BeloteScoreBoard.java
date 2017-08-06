@@ -19,7 +19,7 @@ import rachma.tn.team.binary.rachma.Adapter.RummyScoreboardAdapter;
 
 public class BeloteScoreBoard extends AppCompatActivity {
     String team1Player1, team1Player2, team2Player1, team2Player2;
-    Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0, ScoreTeam1Entred, ScoreTeam2Entred;
+    Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0, GamesWonTeam1 = 0, GamesWonTeam2 = 0, ScoreTeam1Entred, ScoreTeam2Entred;
     List<String> scoreListTeam1 = new ArrayList<>();
     List<String> scoreListTeam2 = new ArrayList<>();
     private RecyclerView recyclerView1, recyclerView2;
@@ -32,6 +32,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
         setContentView(R.layout.activity_belote_score_board);
 
         final TextView error = (TextView) findViewById(R.id.error);
+        final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
+        final TextView gamesWonTeam2 = (TextView) findViewById(R.id.gamesWonTeam2);
         error.setVisibility(View.INVISIBLE);
         final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
         final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
@@ -106,6 +108,21 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
                     ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
                     ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
+                    //end of a game for team 1
+                    if (ScoreTeam1 >= 2000 && ScoreTeam1 > ScoreTeam2) {
+                        GamesWonTeam1++;
+                        gamesWonTeam1.setText(GamesWonTeam1.toString());
+                        ScoreTeam1 = 0;
+                        ScoreTeam2 = 0;
+                    }
+                    //end of a game for team 2
+                    if (ScoreTeam2 >= 2000 && ScoreTeam2 > ScoreTeam1) {
+                        GamesWonTeam2++;
+                        gamesWonTeam2.setText(GamesWonTeam2.toString());
+                        ScoreTeam1 = 0;
+                        ScoreTeam2 = 0;
+                    }
+
 
                     scoreListTeam1.add(ScoreTeam1.toString());
                     mAdapter1.notifyDataSetChanged();
