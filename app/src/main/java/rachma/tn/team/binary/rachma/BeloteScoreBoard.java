@@ -40,9 +40,9 @@ public class BeloteScoreBoard extends AppCompatActivity {
         final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
         //get Player Names
         team1Player1 = getIntent().getExtras().getString("player1Team1");
-        team1Player2 = getIntent().getExtras().getString("palyer2Team1");
-        team2Player1 = getIntent().getExtras().getString("palyer2Team1");
-        team2Player2 = getIntent().getExtras().getString("palyer2Team2");
+        team1Player2 = getIntent().getExtras().getString("player2Team1");
+        team2Player1 = getIntent().getExtras().getString("player1Team2");
+        team2Player2 = getIntent().getExtras().getString("player2Team2");
         //Get Games Number
         gamesNumber = getIntent().getExtras().getInt("gamesNumber");
         // Get Points Per Game
@@ -126,10 +126,16 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
                     if (GamesWonTeam1 >= gamesNumber) {
                         Intent winner = new Intent(getApplicationContext(), Winner.class);
+                        winner.putExtra("WinnerTeam", "Team1");
+                        winner.putExtra("winner1", team1Player1);
+                        winner.putExtra("winner2", team1Player2);
                         startActivity(winner);
                     }
                     if (GamesWonTeam2 >= gamesNumber) {
                         Intent winner = new Intent(getApplicationContext(), Winner.class);
+                        winner.putExtra("WinnerTeam", "Team2");
+                        winner.putExtra("Winner1", team2Player1);
+                        winner.putExtra("Winner2", team2Player2);
                         startActivity(winner);
                     }
 

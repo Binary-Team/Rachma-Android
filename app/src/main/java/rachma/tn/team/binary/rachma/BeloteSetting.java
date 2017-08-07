@@ -16,7 +16,7 @@ public class BeloteSetting extends AppCompatActivity {
     Button done;
     ImageButton increaseGamesNumber, decreaseGamesNumber, increasePointsPerGame, decreasePointsPerGame;
     EditText player1Team1, player2Team1, player1Team2, player2Team2;
-    Integer pointsPerGame = 2000, gamesNumber = 3;
+    Integer pointsPerGame = 2000, gamesNumber = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,10 +87,10 @@ public class BeloteSetting extends AppCompatActivity {
                 Intent beloteScoreBoard = new Intent(getApplication(), BeloteScoreBoard.class);
                 beloteScoreBoard.putExtra("gamesNumber", gamesNumber);
                 beloteScoreBoard.putExtra("pointsPerGames", pointsPerGame);
-                beloteScoreBoard.putExtra("player1Team1", player1Team1.getText());
-                beloteScoreBoard.putExtra("player2Team1", player2Team1.getText());
-                beloteScoreBoard.putExtra("player1Team2", player1Team2.getText());
-                beloteScoreBoard.putExtra("player1Team2", player2Team2.getText());
+                beloteScoreBoard.putExtra("player1Team1", player1Team1.getText().toString());
+                beloteScoreBoard.putExtra("player2Team1", player2Team1.getText().toString());
+                beloteScoreBoard.putExtra("player1Team2", player1Team2.getText().toString());
+                beloteScoreBoard.putExtra("player2  Team2", player2Team2.getText().toString());
                 startActivity(beloteScoreBoard);
 
 
