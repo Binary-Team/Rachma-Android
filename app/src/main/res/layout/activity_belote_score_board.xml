@@ -128,24 +128,6 @@
         app:layout_constraintVertical_bias="0.098" />
 
     <TextView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="monospace"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
-
-    <TextView
         android:id="@+id/gamesWonTeam2"
         android:layout_width="37dp"
         android:layout_height="29dp"

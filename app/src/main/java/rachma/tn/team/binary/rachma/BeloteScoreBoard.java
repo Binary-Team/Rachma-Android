@@ -1,6 +1,7 @@
 package rachma.tn.team.binary.rachma;
 //Author: Mohamed Amine Znaidi
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +33,9 @@ public class BeloteScoreBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_belote_score_board);
 
-        final TextView error = (TextView) findViewById(R.id.error);
+
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
         final TextView gamesWonTeam2 = (TextView) findViewById(R.id.gamesWonTeam2);
-        error.setVisibility(View.INVISIBLE);
         final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
         final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
         //get Player Names
@@ -83,8 +84,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (scoreTeam1.getText().toString().length() == 0 && scoreTeam2.getText().toString().length() == 0) {
-                    error.setVisibility(View.VISIBLE);
-                    error.setText("Write at least one score");
+                    Toast.makeText(getApplicationContext(), "Put at least one Team Score" +
+                            "", Toast.LENGTH_SHORT).show();
                 } else {
                     //Score Team 1 Configuration
                     if (scoreTeam1.getText().toString().length() > 0) {
@@ -108,19 +109,28 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
                     ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
                     ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
-                    //end of a game for team 1
-                    if (ScoreTeam1 >= 2000 && ScoreTeam1 > ScoreTeam2) {
+                    //end of  game for team 1
+                    if (ScoreTeam1 >= pointsPerGame && ScoreTeam1 > ScoreTeam2) {
                         GamesWonTeam1++;
                         gamesWonTeam1.setText(GamesWonTeam1.toString());
                         ScoreTeam1 = 0;
                         ScoreTeam2 = 0;
                     }
-                    //end of a game for team 2
-                    if (ScoreTeam2 >= 2000 && ScoreTeam2 > ScoreTeam1) {
+                    //end of  game for team 2
+                    if (ScoreTeam2 >= pointsPerGame && ScoreTeam2 > ScoreTeam1) {
                         GamesWonTeam2++;
                         gamesWonTeam2.setText(GamesWonTeam2.toString());
                         ScoreTeam1 = 0;
                         ScoreTeam2 = 0;
+                    }
+
+                    if (GamesWonTeam1 >= gamesNumber) {
+                        Intent winner = new Intent(getApplicationContext(), Winner.class);
+                        startActivity(winner);
+                    }
+                    if (GamesWonTeam2 >= gamesNumber) {
+                        Intent winner = new Intent(getApplicationContext(), Winner.class);
+                        startActivity(winner);
                     }
 
 
