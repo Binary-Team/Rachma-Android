@@ -10,14 +10,14 @@ import java.util.List;
 public class RummyRound {
 
     // round number and Players score
-    HashMap<Integer, List<RummyPlayer>> rounds;
+    List<HashMap<Integer, List<RummyPlayer>>> rounds;
 
 
-    public HashMap<Integer, List<RummyPlayer>> getRounds() {
+    public List<HashMap<Integer, List<RummyPlayer>>> getRounds() {
         return rounds;
     }
 
-    public void setRounds(HashMap<Integer, List<RummyPlayer>> rounds) {
+    public void setRounds(List<HashMap<Integer, List<RummyPlayer>>> rounds) {
         this.rounds = rounds;
     }
 }

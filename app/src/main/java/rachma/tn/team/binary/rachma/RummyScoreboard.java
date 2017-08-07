@@ -53,6 +53,14 @@ public class RummyScoreboard extends AppCompatActivity {
             }
         });
 
+
+        /*
+        for (int i =0; i<rummyRounds.getRounds().size();i++) {
+
+                    System.out.println("round "+rummyRounds.getRounds().get(i));
+                }
+
+                */
     }
 }
 
