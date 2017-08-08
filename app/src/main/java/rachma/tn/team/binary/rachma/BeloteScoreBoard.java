@@ -106,9 +106,28 @@ public class BeloteScoreBoard extends AppCompatActivity {
                         else
                             ScoreTeam2Entred = 162 - Integer.decode(scoreTeam1.getText().toString());
                     }
+                    Integer ScoreTeam1Rounded = 0, ScoreTeam2Rounded = 0;
+                    if (ScoreTeam1Entred % 10 > 7) {
+                        ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
+                    } else if (ScoreTeam1Entred % 10 >= 5 && ScoreTeam1Entred % 10 <= 7) {
+                        ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
+                        ScoreTeam2Rounded += 10;
+                    } else {
+                        ScoreTeam1Rounded = ScoreTeam1Entred - ScoreTeam1Entred % 10;
+                    }
+                    //Round Score Team2
+                    if (ScoreTeam2Entred % 10 > 7) {
+                        ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
+                    } else if (ScoreTeam2Entred % 10 >= 5 && ScoreTeam2Entred % 10 <= 7) {
+                        ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
+                        ScoreTeam1Rounded += 10;
+                    } else {
+                        ScoreTeam2Rounded = ScoreTeam2Entred - ScoreTeam2Entred % 10;
+                    }
 
-                    ScoreTeam1 = ScoreTeam1 + ScoreTeam1Entred;
-                    ScoreTeam2 = ScoreTeam2 + ScoreTeam2Entred;
+
+                    ScoreTeam1 = ScoreTeam1 + ScoreTeam1Rounded;
+                    ScoreTeam2 = ScoreTeam2 + ScoreTeam2Rounded;
                     //end of  game for team 1
                     if (ScoreTeam1 >= pointsPerGame && ScoreTeam1 > ScoreTeam2) {
                         GamesWonTeam1++;
