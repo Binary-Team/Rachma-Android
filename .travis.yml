@@ -12,3 +12,5 @@ android:
     - extra-android-m2repository
 script:
 - chmod +x ./gradlew
+
+after_success: "sbt coveralls"
