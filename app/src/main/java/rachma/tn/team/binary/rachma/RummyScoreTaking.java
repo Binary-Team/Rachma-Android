@@ -1,5 +1,7 @@
 package rachma.tn.team.binary.rachma;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,13 +29,16 @@ public class RummyScoreTaking extends AppCompatActivity {
     Button saveScore;
     Integer playersNumber;
     String player1Name, player2Name, player3Name, player4Name;
-
+    Integer finalScore;
     HashMap<String, Integer> totalScores = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rummy_score_taking);
+
+        // get final score
+        finalScore = getIntent().getExtras().getInt("finalScore");
 
 
         // get players number
@@ -238,6 +243,73 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                 previousRounds.getRounds().add(scoresOfThisRound);
                 rummyRounds.setRounds(previousRounds.getRounds());
+
+
+                System.out.println("final socre is " + finalScore);
+
+                // check if a player loose the game
+
+                if (sortScores().get(0).getValue() >= finalScore) {
+                    // first player loose
+                    firstPlayer.setTextColor(Color.RED);
+                }
+
+                // check 2nd player
+                if (sortScores().get(1).getValue() >= finalScore) {
+                    // second player loose
+                    secondPlayer.setTextColor(Color.RED);
+                }
+
+                // check 3rd player
+                try {
+                    if (sortScores().get(2).getValue() >= finalScore) {
+                        // first player loose
+                        thirdPlayer.setTextColor(Color.RED);
+                    }
+
+                } catch (Exception e) {
+
+                }
+
+                // check 4th player
+                try {
+                    if (sortScores().get(3).getValue() >= finalScore) {
+                        // first player loose
+                        fourthPlayer.setTextColor(Color.RED);
+                    }
+
+                } catch (Exception e) {
+
+                }
+
+
+                // check if the game ended (by checking the second player score)
+
+                switch (playersNumber) {
+
+                    case 2:
+                        if (sortScores().get(0).getValue() >= finalScore) {
+                            Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            startActivity(gameEnded);
+                        }
+
+                        break;
+                    case 3:
+                        if (sortScores().get(1).getValue() >= finalScore) {
+                            Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            startActivity(gameEnded);
+                        }
+
+                        break;
+                    case 4:
+                        if (sortScores().get(2).getValue() >= finalScore) {
+                            Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            startActivity(gameEnded);
+                        }
+
+                        break;
+
+                }
 
 
             }
