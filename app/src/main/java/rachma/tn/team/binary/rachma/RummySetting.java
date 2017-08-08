@@ -97,6 +97,7 @@ public class RummySetting extends AppCompatActivity {
 
                 Intent rummyScoreTaking = new Intent(getApplicationContext(), RummyScoreTaking.class);
                 rummyScoreTaking.putExtra("playersNumber", playersNumber);
+                rummyScoreTaking.putExtra("finalScore", finalScore);
 
                 switch (playersNumber) {
 
