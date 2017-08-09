@@ -22,7 +22,9 @@
         <activity android:name=".rummy.RummyScoreboard" />
         <activity android:name=".belote.BeloteScoreBoard" />
         <activity android:name=".belote.Winner" />
-        <activity android:name=".rummy.RummyScoreTaking" />
+        <activity
+            android:name=".rummy.RummyScoreTaking"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".rummy.RummyGameEnded"></activity>
     </application>
 

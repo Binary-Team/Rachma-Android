@@ -1,205 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="rachma.tn.team.binary.rachma.rummy.RummyScoreTaking">
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:orientation="vertical">
 
-        <!-- Player 1 -->
 
+        <!-- Scoreboard sorted by higher score-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/player1name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/player1Score"
+            <!-- First place -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
-                android:gravity="center"
-                android:hint="@string/score"
-                android:inputType="numberSigned"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary" />
+                android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/player1lost"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/firstPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Second place -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lost" />
+                android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/player1won"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/secondPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Third place -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/won" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/thirdPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <!-- Fourth place -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/fourthPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
-        <!-- Player 2 -->
+        <!-- separate scoreboard and score input -->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="5dp"
+            android:background="@color/white" />
 
-            <TextView
-                android:id="@+id/player2name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/player2Score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
-                android:gravity="center"
-                android:hint="@string/score"
-                android:inputType="numberSigned"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                />
-
-            <CheckBox
-                android:id="@+id/player2lost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lost" />
-
-            <CheckBox
-                android:id="@+id/player2won"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/won" />
-
-        </LinearLayout>
-
-        <!-- Player 3 -->
-
-        <LinearLayout
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/player3name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/player3Score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
-                android:gravity="center"
-                android:hint="@string/score"
-                android:inputType="numberSigned"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:visibility="gone"
+                <!-- players scores input -->
 
-                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/player3lost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lost" />
+                    <!-- Player 1 -->
 
-            <CheckBox
-                android:id="@+id/player3won"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/won" />
+                    <TextView
+                        android:id="@+id/player1name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
 
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <EditText
+                            android:id="@+id/player1Score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_shape"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:hint="@string/score"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/colorPrimary" />
 
 
-        <!-- Player 4 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/player1lost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/lost"
+                            android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/player4name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                        <CheckBox
+                            android:id="@+id/player1won"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/won"
+                            android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/player4Score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
-                android:gravity="center"
-                android:hint="@string/score"
-                android:inputType="numberSigned"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:visibility="gone"
+                    </LinearLayout>
 
-                />
 
-            <CheckBox
-                android:id="@+id/player4lost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lost" />
+                    <!-- Player 2 -->
 
-            <CheckBox
-                android:id="@+id/player4won"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/won" />
+                    <TextView
+                        android:id="@+id/player2name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
 
-        </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <EditText
+                            android:id="@+id/player2Score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_shape"
+                            android:gravity="center"
+                            android:hint="@string/score"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/colorPrimary" />
+
+                        <CheckBox
+                            android:id="@+id/player2lost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/lost"
+                            android:textColor="@color/white" />
+
+                        <CheckBox
+                            android:id="@+id/player2won"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/won"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <!-- Player 3 -->
+
+                    <TextView
+                        android:id="@+id/player3name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <EditText
+                            android:id="@+id/player3Score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_shape"
+                            android:gravity="center"
+                            android:hint="@string/score"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/colorPrimary" />
+
+                        <CheckBox
+                            android:id="@+id/player3lost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/lost"
+                            android:textColor="@color/white" />
+
+                        <CheckBox
+                            android:id="@+id/player3won"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/won"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+
+                    <!-- Player 4 -->
+
+                    <TextView
+                        android:id="@+id/player4name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <EditText
+                            android:id="@+id/player4Score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_shape"
+                            android:gravity="center"
+                            android:hint="@string/score"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/colorPrimary" />
+
+                        <CheckBox
+                            android:id="@+id/player4lost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/lost"
+                            android:textColor="@color/white"
+
+                            />
+
+                        <CheckBox
+                            android:id="@+id/player4won"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:text="@string/won"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- Save score Button -->
+                <Button
+                    android:id="@+id/saveScores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/round_shape"
+                    android:text="@string/save_score" />
+
+            </LinearLayout>
+        </ScrollView>
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/saveScores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save_score" />
-
-    <TextView
-        android:id="@+id/firstPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/secondPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/thirdPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/fourthPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 </LinearLayout>
+

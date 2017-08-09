@@ -378,8 +378,8 @@ public class RummyScoreTaking extends AppCompatActivity {
                             //sort scores
                             scoresSorted = sortScores();
                             //update TextViews
-                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
-                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                            firstPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                            secondPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
                         }
                         break;
                     case 3:
@@ -410,9 +410,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                             //sort scores
                             scoresSorted = sortScores();
                             //update TextViews
-                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            firstPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
                             secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                            thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                            thirdPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
                         }
                         break;
                     case 4:
@@ -445,10 +445,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                             //sort scores
                             scoresSorted = sortScores();
                             //update TextViews
-                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
-                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                            thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
-                            fourthPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
+                            firstPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
+                            secondPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                            thirdPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                            fourthPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
                         }
                         break;
 
@@ -469,31 +469,38 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                 if (sortScores().get(0).getValue() >= finalScore) {
                     // first player loose
-                    firstPlayer.setTextColor(Color.RED);
-                }
-
-                // check 2nd player
-                if (sortScores().get(1).getValue() >= finalScore) {
-                    // second player loose
-                    secondPlayer.setTextColor(Color.RED);
+                    fourthPlayer.setTextColor(Color.RED);
+                    setPlayerBloxInvisible(sortScores().get(0).getKey());
                 }
 
                 // check 3rd player
+                if (sortScores().get(1).getValue() >= finalScore) {
+                    // second player loose
+                    thirdPlayer.setTextColor(Color.RED);
+                    setPlayerBloxInvisible(sortScores().get(1).getKey());
+
+                }
+
+                // check 2nd player
                 try {
                     if (sortScores().get(2).getValue() >= finalScore) {
                         // first player loose
-                        thirdPlayer.setTextColor(Color.RED);
+                        secondPlayer.setTextColor(Color.RED);
+                        setPlayerBloxInvisible(sortScores().get(2).getKey());
+
                     }
 
                 } catch (Exception e) {
 
                 }
 
-                // check 4th player
+                // check 1st player
                 try {
                     if (sortScores().get(3).getValue() >= finalScore) {
                         // first player loose
-                        fourthPlayer.setTextColor(Color.RED);
+                        firstPlayer.setTextColor(Color.RED);
+                        setPlayerBloxInvisible(sortScores().get(3).getKey());
+
                     }
 
                 } catch (Exception e) {
@@ -548,6 +555,44 @@ public class RummyScoreTaking extends AppCompatActivity {
             }
         });
         return list;
+    }
+
+
+    // hide loser zone
+
+    private void setPlayerBloxInvisible(String loserName) {
+        // player1 lost
+        if (player1nameTV.getText().toString().equals(loserName)) {
+            player1nameTV.setVisibility(View.GONE);
+            player1Score.setText("0");
+            player1Score.setVisibility(View.GONE);
+            player1Lost.setVisibility(View.GONE);
+            player1Won.setVisibility(View.GONE);
+        }
+        // player2 lost
+        else if (player2nameTV.getText().toString().equals(loserName)) {
+            player2nameTV.setVisibility(View.GONE);
+            player2Score.setText("0");
+            player2Score.setVisibility(View.GONE);
+            player2Lost.setVisibility(View.GONE);
+            player2Won.setVisibility(View.GONE);
+        }
+        // player3 lost
+        else if (player3nameTV.getText().toString().equals(loserName)) {
+            player3nameTV.setVisibility(View.GONE);
+            player3Score.setText("0");
+            player3Score.setVisibility(View.GONE);
+            player3Lost.setVisibility(View.GONE);
+            player3Won.setVisibility(View.GONE);
+        }
+        // player4 lost
+        else {
+            player4nameTV.setVisibility(View.GONE);
+            player4Score.setText("0");
+            player4Score.setVisibility(View.GONE);
+            player4Lost.setVisibility(View.GONE);
+            player4Won.setVisibility(View.GONE);
+        }
     }
 
 
