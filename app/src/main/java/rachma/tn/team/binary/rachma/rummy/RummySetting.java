@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma;
+package rachma.tn.team.binary.rachma.rummy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import rachma.tn.team.binary.rachma.R;
 
 //Author Marwen Doukh
 
@@ -23,7 +25,7 @@ public class RummySetting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rummy_setting);
+        setContentView(R.layout.rummy_activity_rummy_setting);
 
         // players names
         player1Name = (EditText) findViewById(R.id.player1Name);

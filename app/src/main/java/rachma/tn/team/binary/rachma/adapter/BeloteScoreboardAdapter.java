@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma.Adapter;
+package rachma.tn.team.binary.rachma.adapter;
 
 /**
  * Created by Marwen on 01/08/17.
@@ -16,18 +16,18 @@ import java.util.List;
 import rachma.tn.team.binary.rachma.R;
 
 
-public class RummyScoreboardAdapter extends RecyclerView.Adapter<RummyScoreboardAdapter.MyViewHolder> {
+public class BeloteScoreboardAdapter extends RecyclerView.Adapter<BeloteScoreboardAdapter.MyViewHolder> {
 
 
     private List<String> scoreList;
 
-    public RummyScoreboardAdapter(List<String> scoreList) {
+    public BeloteScoreboardAdapter(List<String> scoreList) {
         this.scoreList = scoreList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.scoreboard_list_row, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.belote_scoreboard_list_row, parent, false);
         return new MyViewHolder(itemView);
     }
 

@@ -6,13 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import rachma.tn.team.binary.rachma.belote.BeloteSetting;
+import rachma.tn.team.binary.rachma.rummy.RummySetting;
+
 //@Author Mohamed Amine Znaidi
-public class FirstMenu extends AppCompatActivity {
+public class ChooseGame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_menu);
+        setContentView(R.layout.activity_choose_game);
         ImageButton rummyBt = (ImageButton) findViewById(R.id.rummy);
         ImageButton beloteBt = (ImageButton) findViewById(R.id.belote);
 

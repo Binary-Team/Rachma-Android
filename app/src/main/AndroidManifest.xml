@@ -10,20 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".FirstMenu">
+        <activity android:name=".ChooseGame">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RummySetting" />
-        <activity android:name=".BeloteSetting" />
-        <activity android:name=".RummyScoreboard" />
-        <activity android:name=".BeloteScoreBoard" />
-        <activity android:name=".Winner" />
-        <activity android:name=".RummyScoreTaking" />
-        <activity android:name=".RummyGameEnded"></activity>
+        <activity android:name=".rummy.RummySetting" />
+        <activity android:name=".belote.BeloteSetting" />
+        <activity android:name=".rummy.RummyScoreboard" />
+        <activity android:name=".belote.BeloteScoreBoard" />
+        <activity android:name=".belote.Winner" />
+        <activity android:name=".rummy.RummyScoreTaking" />
+        <activity android:name=".rummy.RummyGameEnded"></activity>
     </application>
 
 </manifest>

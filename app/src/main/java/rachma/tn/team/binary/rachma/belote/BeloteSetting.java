@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma;
+package rachma.tn.team.binary.rachma.belote;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import rachma.tn.team.binary.rachma.R;
 
 //@Author Mohamed Amine Znaidi
 public class BeloteSetting extends AppCompatActivity {
@@ -21,7 +23,7 @@ public class BeloteSetting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_belote_setting);
+        setContentView(R.layout.belote_activity_belote_setting);
 
         gamesNumberTV = (TextView) findViewById(R.id.gamesNumber);
         pointsPerGameTV = (TextView) findViewById(R.id.pointpergame);

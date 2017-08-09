@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:background="@drawable/scoreboardbackroung"
-    tools:context="rachma.tn.team.binary.rachma.BeloteScoreBoard">
+    tools:context="rachma.tn.team.binary.rachma.belote.BeloteScoreBoard">
 
     <TextView
         android:id="@+id/team2player1"

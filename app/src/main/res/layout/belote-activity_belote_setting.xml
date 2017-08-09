@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="rachma.tn.team.binary.rachma.BeloteSetting">
+    tools:context="rachma.tn.team.binary.rachma.belote.BeloteSetting">
 
     <EditText
         android:id="@+id/team2player2"

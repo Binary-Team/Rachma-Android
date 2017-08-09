@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma;
+package rachma.tn.team.binary.rachma.belote;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import rachma.tn.team.binary.rachma.ChooseGame;
+import rachma.tn.team.binary.rachma.R;
+
 public class Winner extends AppCompatActivity {
     String WinnerTeam, Winner1, Winner2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_winner);
+        setContentView(R.layout.belote_activity_winner);
         WinnerTeam = getIntent().getExtras().getString("WinnerTeam");
         Winner1 = getIntent().getExtras().getString("Winner1");
         Winner2 = getIntent().getExtras().getString("Winner2");
@@ -34,7 +37,7 @@ public class Winner extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent home = new Intent(getApplicationContext(), FirstMenu.class);
+                Intent home = new Intent(getApplicationContext(), ChooseGame.class);
                 startActivity(home);
             }
         });

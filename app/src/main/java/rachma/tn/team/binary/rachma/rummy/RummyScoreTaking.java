@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma;
+package rachma.tn.team.binary.rachma.rummy;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,8 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import rachma.tn.team.binary.rachma.Entity.RummyPlayer;
-import rachma.tn.team.binary.rachma.Entity.RummyRound;
+import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.entity.RummyPlayer;
+import rachma.tn.team.binary.rachma.entity.RummyRound;
 
 public class RummyScoreTaking extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rummy_score_taking);
+        setContentView(R.layout.rummy_activity_rummy_score_taking);
 
         // get final score
         finalScore = getIntent().getExtras().getInt("finalScore");

@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma.Entity;
+package rachma.tn.team.binary.rachma.entity;
 
 /**
  * Created by marwen on 07/08/17.

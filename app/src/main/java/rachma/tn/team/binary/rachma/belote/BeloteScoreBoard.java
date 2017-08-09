@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma;
+package rachma.tn.team.binary.rachma.belote;
 //Author: Mohamed Amine Znaidi
 
 import android.content.Intent;
@@ -17,7 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import rachma.tn.team.binary.rachma.Adapter.RummyScoreboardAdapter;
+import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.adapter.BeloteScoreboardAdapter;
 
 public class BeloteScoreBoard extends AppCompatActivity {
     String team1Player1, team1Player2, team2Player1, team2Player2;
@@ -25,13 +26,13 @@ public class BeloteScoreBoard extends AppCompatActivity {
     List<String> scoreListTeam1 = new ArrayList<>();
     List<String> scoreListTeam2 = new ArrayList<>();
     private RecyclerView recyclerView1, recyclerView2;
-    private RummyScoreboardAdapter mAdapter1, mAdapter2;
+    private BeloteScoreboardAdapter mAdapter1, mAdapter2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_belote_score_board);
+        setContentView(R.layout.belote_activity_belote_score_board);
 
 
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
@@ -62,7 +63,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
         // RecyclerView
         recyclerView1 = (RecyclerView) findViewById(R.id.recyclerView1);
-        mAdapter1 = new RummyScoreboardAdapter(scoreListTeam1);
+        mAdapter1 = new BeloteScoreboardAdapter(scoreListTeam1);
         recyclerView1.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView1.setLayoutManager(mLayoutManager);
@@ -71,7 +72,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView1.setAdapter(mAdapter1);
 
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView);
-        mAdapter2 = new RummyScoreboardAdapter(scoreListTeam2);
+        mAdapter2 = new BeloteScoreboardAdapter(scoreListTeam2);
         recyclerView2.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getApplicationContext());
         recyclerView2.setLayoutManager(mLayoutManager1);

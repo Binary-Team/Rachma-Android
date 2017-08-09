@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/winner"
-    tools:context="rachma.tn.team.binary.rachma.Winner">
+    tools:context="rachma.tn.team.binary.rachma.belote.Winner">
 
     <Button
         android:id="@+id/home"

@@ -1,4 +1,4 @@
-package rachma.tn.team.binary.rachma.Entity;
+package rachma.tn.team.binary.rachma.entity;
 
 import java.util.HashMap;
 import java.util.List;
