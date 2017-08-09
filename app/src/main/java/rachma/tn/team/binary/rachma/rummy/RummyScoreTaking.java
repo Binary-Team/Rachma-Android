@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,6 +34,8 @@ public class RummyScoreTaking extends AppCompatActivity {
     String player1Name, player2Name, player3Name, player4Name;
     Integer finalScore;
     HashMap<String, Integer> totalScores = new HashMap<>();
+    CheckBox player1Lost, player2Lost, player3Lost, player4Lost;
+    CheckBox player1Won, player2Won, player3Won, player4Won;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +70,8 @@ public class RummyScoreTaking extends AppCompatActivity {
                 player2Name = getIntent().getExtras().getString("player2Name");
                 player1nameTV.setText(player1Name);
                 player2nameTV.setText(player2Name);
-                player1Score.setHint(player1Name + " " + player1Score.getHint());
-                player2Score.setHint(player2Name + " " + player2Score.getHint());
+                player1Score.setHint(player1Name + " " + getResources().getString(R.string.score));
+                player2Score.setHint(player2Name + " " + getResources().getString(R.string.score));
 
                 break;
             case 3:
@@ -77,9 +81,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                 player1nameTV.setText(player1Name);
                 player2nameTV.setText(player2Name);
                 player3nameTV.setText(player3Name);
-                player1Score.setHint(player1Name + " " + player1Score.getHint());
-                player2Score.setHint(player2Name + " " + player2Score.getHint());
-                player3Score.setHint(player3Name + " " + player3Score.getHint());
+                player1Score.setHint(player1Name + " " + getResources().getString(R.string.score));
+                player2Score.setHint(player2Name + " " + getResources().getString(R.string.score));
+                player3Score.setHint(player3Name + " " + getResources().getString(R.string.score));
 
                 break;
             case 4:
@@ -91,10 +95,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                 player2nameTV.setText(player2Name);
                 player3nameTV.setText(player3Name);
                 player4nameTV.setText(player4Name);
-                player1Score.setHint(player1Name + " " + player1Score.getHint());
-                player2Score.setHint(player2Name + " " + player2Score.getHint());
-                player3Score.setHint(player3Name + " " + player3Score.getHint());
-                player4Score.setHint(player4Name + " " + player4Score.getHint());
+                player1Score.setHint(player1Name + " " + getResources().getString(R.string.score));
+                player2Score.setHint(player2Name + " " + getResources().getString(R.string.score));
+                player3Score.setHint(player3Name + " " + getResources().getString(R.string.score));
+                player4Score.setHint(player4Name + " " + getResources().getString(R.string.score));
 
                 break;
 
@@ -107,6 +111,20 @@ public class RummyScoreTaking extends AppCompatActivity {
         secondPlayer = (TextView) findViewById(R.id.secondPlayer);
         thirdPlayer = (TextView) findViewById(R.id.thirdPlayer);
         fourthPlayer = (TextView) findViewById(R.id.fourthPlayer);
+
+        // lost checkbox
+        player1Lost = (CheckBox) findViewById(R.id.player1lost);
+        player2Lost = (CheckBox) findViewById(R.id.player2lost);
+        player3Lost = (CheckBox) findViewById(R.id.player3lost);
+        player4Lost = (CheckBox) findViewById(R.id.player4lost);
+
+        // won checkbox
+
+        player1Won = (CheckBox) findViewById(R.id.player1won);
+        player2Won = (CheckBox) findViewById(R.id.player2won);
+        player3Won = (CheckBox) findViewById(R.id.player3won);
+        player4Won = (CheckBox) findViewById(R.id.player4won);
+
 
         // save score Button
         saveScore = (Button) findViewById(R.id.saveScores);
@@ -124,13 +142,22 @@ public class RummyScoreTaking extends AppCompatActivity {
                 // set total score to 0
                 totalScores.put(player1Name, 0);
                 totalScores.put(player2Name, 0);
-
+                //scores
                 player3Score.setVisibility(View.GONE);
                 player4Score.setVisibility(View.GONE);
+                //names
                 player3nameTV.setVisibility(View.GONE);
                 player4nameTV.setVisibility(View.GONE);
+                //scoreboard
                 thirdPlayer.setVisibility(View.GONE);
                 fourthPlayer.setVisibility(View.GONE);
+                //lost
+                player3Lost.setVisibility(View.GONE);
+                player4Lost.setVisibility(View.GONE);
+                player3Lost.setVisibility(View.GONE);
+                //won
+                player3Won.setVisibility(View.GONE);
+                player4Won.setVisibility(View.GONE);
 
                 break;
             case 3:
@@ -141,13 +168,21 @@ public class RummyScoreTaking extends AppCompatActivity {
                 totalScores.put(player1Name, 0);
                 totalScores.put(player2Name, 0);
                 totalScores.put(player3Name, 0);
-
+                //score
                 player3Score.setVisibility(View.VISIBLE);
                 player4Score.setVisibility(View.GONE);
+                //names
                 player3nameTV.setVisibility(View.VISIBLE);
                 player4nameTV.setVisibility(View.GONE);
+                //scorebaord
                 thirdPlayer.setVisibility(View.VISIBLE);
                 fourthPlayer.setVisibility(View.GONE);
+                //lost
+                player3Lost.setVisibility(View.VISIBLE);
+                player4Lost.setVisibility(View.GONE);
+                //won
+                player3Won.setVisibility(View.VISIBLE);
+                player4Won.setVisibility(View.GONE);
                 break;
             case 4:
                 rummyPlayers.add(new RummyPlayer(player1Name, 0));
@@ -159,13 +194,21 @@ public class RummyScoreTaking extends AppCompatActivity {
                 totalScores.put(player2Name, 0);
                 totalScores.put(player3Name, 0);
                 totalScores.put(player4Name, 0);
-
+                //scores
                 player3Score.setVisibility(View.VISIBLE);
                 player4Score.setVisibility(View.VISIBLE);
+                //names
                 player3nameTV.setVisibility(View.VISIBLE);
                 player4nameTV.setVisibility(View.VISIBLE);
+                //scoreboard
                 thirdPlayer.setVisibility(View.VISIBLE);
                 fourthPlayer.setVisibility(View.VISIBLE);
+                //lost
+                player3Lost.setVisibility(View.VISIBLE);
+                player4Lost.setVisibility(View.VISIBLE);
+                //won
+                player3Won.setVisibility(View.VISIBLE);
+                player4Won.setVisibility(View.VISIBLE);
                 break;
 
         }
@@ -175,6 +218,126 @@ public class RummyScoreTaking extends AppCompatActivity {
         round0.add(scoresOfRound0);
         rummyRounds.setRounds(round0);
 
+
+        // autocomplete score when lost checkbox is checked
+
+        player1Lost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player1Lost.isChecked()) {
+                    player1Score.setText("100");
+                    player1Score.setEnabled(false);
+                    player1Won.setChecked(false);
+                } else
+
+                    player1Score.setEnabled(true);
+
+            }
+        });
+
+        player2Lost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player2Lost.isChecked()) {
+                    player2Score.setText("100");
+                    player2Score.setEnabled(false);
+                    player2Won.setChecked(false);
+                } else
+
+                    player2Score.setEnabled(true);
+
+            }
+        });
+
+        player3Lost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player3Lost.isChecked()) {
+                    player3Score.setText("100");
+                    player3Score.setEnabled(false);
+                    player3Won.setChecked(false);
+                } else
+
+                    player3Score.setEnabled(true);
+
+            }
+        });
+
+        player4Lost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player4Lost.isChecked()) {
+                    player4Score.setText("100");
+                    player4Score.setEnabled(false);
+                    player4Won.setChecked(false);
+                } else
+
+                    player4Score.setEnabled(true);
+
+            }
+        });
+
+        // autocomplete score when won checkbox is checked
+
+        player1Won.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player1Won.isChecked()) {
+                    player1Score.setText("-10");
+                    player1Score.setEnabled(false);
+                    player1Lost.setChecked(false);
+                } else
+                    player1Score.setEnabled(true);
+
+            }
+        });
+
+        player2Won.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player2Won.isChecked()) {
+                    player2Score.setText("-10");
+                    player2Score.setEnabled(false);
+                    player2Lost.setChecked(false);
+                } else
+                    player2Score.setEnabled(true);
+
+            }
+        });
+
+        player3Won.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player3Won.isChecked()) {
+                    player3Score.setText("-10");
+                    player3Score.setEnabled(false);
+                    player3Lost.setChecked(false);
+                } else
+                    player3Score.setEnabled(true);
+
+            }
+        });
+
+        player4Won.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (player4Won.isChecked()) {
+                    player4Score.setText("-10");
+                    player4Score.setEnabled(false);
+                    player4Lost.setChecked(false);
+                } else
+                    player4Score.setEnabled(true);
+
+            }
+        });
 
         // save score Button
         saveScore.setOnClickListener(new View.OnClickListener() {
@@ -189,50 +352,104 @@ public class RummyScoreTaking extends AppCompatActivity {
                 switch (playersNumber) {
 
                     case 2:
-                        rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                        //total score
-                        totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                        totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                        //sort scores
-                        scoresSorted = sortScores();
-                        //update TextViews
-                        firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
-                        secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+
+                        // check if there is cheat
+
+                        // cheat1: all the players lost the game
+                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                            // cheat2: all the players won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                            // cheat3: no player won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                            //everything seems ok , save the scores
+                        else {
+                            // add score
+                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                            //total score
+                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                            //sort scores
+                            scoresSorted = sortScores();
+                            //update TextViews
+                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                        }
                         break;
                     case 3:
-                        rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
-                        //total score
-                        totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                        totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                        totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
-                        //sort scores
-                        scoresSorted = sortScores();
-                        //update TextViews
-                        firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
-                        secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                        thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+
+                        // check if there is cheat
+
+                        // cheat1: all the players lost the game
+                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                            // cheat2: all the players won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                            // cheat3: no player won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                            //everything seems ok , save the scores
+                        else {
+                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
+                            //total score
+                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                            totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
+                            //sort scores
+                            scoresSorted = sortScores();
+                            //update TextViews
+                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                            thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                        }
                         break;
                     case 4:
-                        rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
-                        rummyPlayers.add(new RummyPlayer(player4Name, Integer.parseInt(player4Score.getText().toString())));
-                        //total score
-                        totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                        totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                        totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
-                        totalScores.put(player4Name, totalScores.get(player4Name) + Integer.parseInt(player4Score.getText().toString()));
-                        //sort scores
-                        scoresSorted = sortScores();
-                        //update TextViews
-                        firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
-                        secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                        thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
-                        fourthPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
 
+                        // check if there is cheat
+
+                        // cheat1: all the players lost the game
+                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100 && Integer.parseInt(player4Score.getText().toString()) == 100)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                            // cheat2: all the players won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10 && Integer.parseInt(player4Score.getText().toString()) == -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                            // cheat3: no player won the game
+                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                            //everything seems ok , save the scores
+                        else {
+                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
+                            rummyPlayers.add(new RummyPlayer(player4Name, Integer.parseInt(player4Score.getText().toString())));
+                            //total score
+                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                            totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
+                            totalScores.put(player4Name, totalScores.get(player4Name) + Integer.parseInt(player4Score.getText().toString()));
+                            //sort scores
+                            scoresSorted = sortScores();
+                            //update TextViews
+                            firstPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                            thirdPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                            fourthPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
+                        }
                         break;
 
                 }

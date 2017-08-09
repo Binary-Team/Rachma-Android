@@ -10,6 +10,6 @@ public class RummyGameEnded extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rummu_activity_rummy_game_ended);
+        setContentView(R.layout.rummy_activity_rummy_game_ended);
     }
 }

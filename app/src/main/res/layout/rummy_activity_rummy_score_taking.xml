@@ -13,6 +13,8 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <!-- Player 1 -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +36,23 @@
                 android:inputType="numberSigned"
                 android:padding="10dp"
                 android:textColor="@color/colorPrimary" />
+
+            <CheckBox
+                android:id="@+id/player1lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lost" />
+
+            <CheckBox
+                android:id="@+id/player1won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/won" />
+
         </LinearLayout>
+
+
+        <!-- Player 2 -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,10 +75,23 @@
                 android:inputType="numberSigned"
                 android:padding="10dp"
                 android:textColor="@color/colorPrimary"
-
                 />
+
+            <CheckBox
+                android:id="@+id/player2lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lost" />
+
+            <CheckBox
+                android:id="@+id/player2won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/won" />
+
         </LinearLayout>
 
+        <!-- Player 3 -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,9 +117,23 @@
                 android:visibility="gone"
 
                 />
+
+            <CheckBox
+                android:id="@+id/player3lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lost" />
+
+            <CheckBox
+                android:id="@+id/player3won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/won" />
+
         </LinearLayout>
 
 
+        <!-- Player 4 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,6 +158,19 @@
                 android:visibility="gone"
 
                 />
+
+            <CheckBox
+                android:id="@+id/player4lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lost" />
+
+            <CheckBox
+                android:id="@+id/player4won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/won" />
+
         </LinearLayout>
 
 
@@ -122,7 +180,7 @@
         android:id="@+id/saveScores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save score" />
+        android:text="@string/save_score" />
 
     <TextView
         android:id="@+id/firstPlayer"

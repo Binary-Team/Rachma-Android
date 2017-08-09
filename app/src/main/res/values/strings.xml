@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Rachma</string>
-    <string name="score">Score</string>
+    <string name="score">score</string>
+    <string name="save_score">Save score</string>
+    <string name="lost">lost</string>
+    <string name="cheat_all_the_players_lost">Do not cheat ! \nAll the players lost the game ?</string>
+    <string name="cheat_all_the_players_won">Do not cheat ! \nAll the players won the game ?</string>
+    <string name="cheat_no_player_won">Do not cheat ! \nNo player won the game ?</string>
+    <string name="won">won</string>
 </resources>
