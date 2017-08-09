@@ -66,8 +66,8 @@ public class RummyScoreTaking extends AppCompatActivity {
         switch (playersNumber) {
 
             case 2:
-                player1Name = getIntent().getExtras().getString("player1Name");
-                player2Name = getIntent().getExtras().getString("player2Name");
+                player1Name = getIntent().getExtras().getString("firstPlayerName");
+                player2Name = getIntent().getExtras().getString("secondPlayerName");
                 player1nameTV.setText(player1Name);
                 player2nameTV.setText(player2Name);
                 player1Score.setHint(player1Name + " " + getResources().getString(R.string.score));
@@ -75,9 +75,9 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                 break;
             case 3:
-                player1Name = getIntent().getExtras().getString("player1Name");
-                player2Name = getIntent().getExtras().getString("player2Name");
-                player3Name = getIntent().getExtras().getString("player3Name");
+                player1Name = getIntent().getExtras().getString("firstPlayerName");
+                player2Name = getIntent().getExtras().getString("secondPlayerName");
+                player3Name = getIntent().getExtras().getString("thirdPlayerName");
                 player1nameTV.setText(player1Name);
                 player2nameTV.setText(player2Name);
                 player3nameTV.setText(player3Name);
@@ -87,10 +87,10 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                 break;
             case 4:
-                player1Name = getIntent().getExtras().getString("player1Name");
-                player2Name = getIntent().getExtras().getString("player2Name");
-                player3Name = getIntent().getExtras().getString("player3Name");
-                player4Name = getIntent().getExtras().getString("player4Name");
+                player1Name = getIntent().getExtras().getString("firstPlayerName");
+                player2Name = getIntent().getExtras().getString("secondPlayerName");
+                player3Name = getIntent().getExtras().getString("thirdPlayerName");
+                player4Name = getIntent().getExtras().getString("fourthPlayerName");
                 player1nameTV.setText(player1Name);
                 player2nameTV.setText(player2Name);
                 player3nameTV.setText(player3Name);
@@ -515,6 +515,12 @@ public class RummyScoreTaking extends AppCompatActivity {
                     case 2:
                         if (sortScores().get(0).getValue() >= finalScore) {
                             Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            gameEnded.putExtra("playersNumber", playersNumber);
+                            gameEnded.putExtra("finalScore", finalScore);
+                            gameEnded.putExtra("firstPlayerName", sortScores().get(1).getKey());
+                            gameEnded.putExtra("firstPlayerScore", sortScores().get(1).getValue());
+                            gameEnded.putExtra("secondPlayerName", sortScores().get(0).getKey());
+                            gameEnded.putExtra("secondPlayerScore", sortScores().get(0).getValue());
                             startActivity(gameEnded);
                         }
 
@@ -522,6 +528,14 @@ public class RummyScoreTaking extends AppCompatActivity {
                     case 3:
                         if (sortScores().get(1).getValue() >= finalScore) {
                             Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            gameEnded.putExtra("playersNumber", playersNumber);
+                            gameEnded.putExtra("finalScore", finalScore);
+                            gameEnded.putExtra("firstPlayerName", sortScores().get(2).getKey());
+                            gameEnded.putExtra("firstPlayerScore", sortScores().get(2).getValue());
+                            gameEnded.putExtra("secondPlayerName", sortScores().get(1).getKey());
+                            gameEnded.putExtra("secondPlayerScore", sortScores().get(1).getValue());
+                            gameEnded.putExtra("thirdPlayerName", sortScores().get(0).getKey());
+                            gameEnded.putExtra("thirdPlayerScore", sortScores().get(0).getValue());
                             startActivity(gameEnded);
                         }
 
@@ -529,6 +543,16 @@ public class RummyScoreTaking extends AppCompatActivity {
                     case 4:
                         if (sortScores().get(2).getValue() >= finalScore) {
                             Intent gameEnded = new Intent(getApplicationContext(), RummyGameEnded.class);
+                            gameEnded.putExtra("playersNumber", playersNumber);
+                            gameEnded.putExtra("finalScore", finalScore);
+                            gameEnded.putExtra("firstPlayerName", sortScores().get(3).getKey());
+                            gameEnded.putExtra("firstPlayerScore", sortScores().get(3).getValue());
+                            gameEnded.putExtra("secondPlayerName", sortScores().get(2).getKey());
+                            gameEnded.putExtra("secondPlayerScore", sortScores().get(2).getValue());
+                            gameEnded.putExtra("thirdPlayerName", sortScores().get(1).getKey());
+                            gameEnded.putExtra("thirdPlayerScore", sortScores().get(1).getValue());
+                            gameEnded.putExtra("fourthPlayerName", sortScores().get(0).getKey());
+                            gameEnded.putExtra("fourthPlayerScore", sortScores().get(0).getValue());
                             startActivity(gameEnded);
                         }
 

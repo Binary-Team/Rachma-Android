@@ -104,19 +104,19 @@ public class RummySetting extends AppCompatActivity {
                 switch (playersNumber) {
 
                     case 2:
-                        rummyScoreTaking.putExtra("player1Name", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("player2Name", player2Name.getText().toString());
+                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
                         break;
                     case 3:
-                        rummyScoreTaking.putExtra("player1Name", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("player2Name", player2Name.getText().toString());
-                        rummyScoreTaking.putExtra("player3Name", player3Name.getText().toString());
+                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                        rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
                         break;
                     case 4:
-                        rummyScoreTaking.putExtra("player1Name", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("player2Name", player2Name.getText().toString());
-                        rummyScoreTaking.putExtra("player3Name", player3Name.getText().toString());
-                        rummyScoreTaking.putExtra("player4Name", player4Name.getText().toString());
+                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                        rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+                        rummyScoreTaking.putExtra("fourthPlayerName", player4Name.getText().toString());
                         break;
 
                 }
