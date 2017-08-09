@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,7 +58,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
         team1player2TV.setText(team1Player2);
         team2player1TV.setText(team2Player1);
         team2player2TV.setText(team2Player2);
-
+        final CheckBox beloteTeam1 = (CheckBox) findViewById(R.id.beloteTeam1);
+        final CheckBox beloteTeam2 = (CheckBox) findViewById(R.id.beloteTeam2);
 
 
 
@@ -79,6 +81,10 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setAdapter(mAdapter2);
+
+
+        //Text Change
+
 
         final Button addScore = (Button) findViewById(R.id.addscorebt);
         addScore.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +118,6 @@ public class BeloteScoreBoard extends AppCompatActivity {
                         ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
                     } else if (ScoreTeam1Entred % 10 >= 5 && ScoreTeam1Entred % 10 <= 7) {
                         ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
-                        ScoreTeam2Rounded += 10;
                     } else {
                         ScoreTeam1Rounded = ScoreTeam1Entred - ScoreTeam1Entred % 10;
                     }
@@ -121,9 +126,30 @@ public class BeloteScoreBoard extends AppCompatActivity {
                         ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
                     } else if (ScoreTeam2Entred % 10 >= 5 && ScoreTeam2Entred % 10 <= 7) {
                         ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
-                        ScoreTeam1Rounded += 10;
                     } else {
                         ScoreTeam2Rounded = ScoreTeam2Entred - ScoreTeam2Entred % 10;
+                    }
+                    if (beloteTeam1.isChecked() && beloteTeam2.isChecked()) {
+                        Toast.makeText(getApplicationContext(), "Only One Team Can Have Belote !", Toast.LENGTH_SHORT).show();
+                        beloteTeam1.setChecked(false);
+                        beloteTeam2.setChecked(false);
+                        ScoreTeam1Rounded = 0;
+                        ScoreTeam2Rounded = 0;
+
+                    }
+
+                    if (beloteTeam1.isChecked()) {
+                        if (ScoreTeam1Entred == 0)
+                            ScoreTeam2Rounded += 20;
+                        else
+                            ScoreTeam1Rounded += 20;
+                    }
+
+                    if (beloteTeam2.isChecked()) {
+                        if (ScoreTeam2Entred == 0)
+                            ScoreTeam1Rounded += 20;
+                        else
+                            ScoreTeam2Rounded += 20;
                     }
 
 
@@ -164,6 +190,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     mAdapter1.notifyDataSetChanged();
                     scoreListTeam2.add(ScoreTeam2.toString());
                     mAdapter2.notifyDataSetChanged();
+                    beloteTeam1.setChecked(false);
+                    beloteTeam2.setChecked(false);
                     scoreTeam1.setText("");
                     scoreTeam2.setText("");
 
