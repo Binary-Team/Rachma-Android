@@ -112,6 +112,7 @@
         android:background="@drawable/round_shape"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.862"
@@ -127,6 +128,7 @@
         android:background="@drawable/round_shape"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
@@ -182,7 +184,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/beloteTeam2"
         android:layout_width="79dp"
         android:layout_height="31dp"
         android:layout_marginBottom="8dp"
@@ -199,7 +201,7 @@
         app:layout_constraintVertical_bias="0.613" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/beloteTeam1"
         android:layout_width="79dp"
         android:layout_height="31dp"
         android:layout_marginRight="8dp"
