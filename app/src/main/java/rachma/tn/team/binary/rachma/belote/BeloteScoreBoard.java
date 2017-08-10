@@ -91,8 +91,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (scoreTeam1.getText().toString().length() == 0 && scoreTeam2.getText().toString().length() == 0) {
-                    Toast.makeText(getApplicationContext(), "Put at least one Team Score" +
-                            "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_scores_required), Toast.LENGTH_SHORT).show();
                 } else {
                     //Score Team 1 Configuration
                     if (scoreTeam1.getText().toString().length() > 0) {
@@ -129,14 +128,16 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     } else {
                         ScoreTeam2Rounded = ScoreTeam2Entred - ScoreTeam2Entred % 10;
                     }
+                    //belote check box config
                     if (beloteTeam1.isChecked() && beloteTeam2.isChecked()) {
-                        Toast.makeText(getApplicationContext(), "Only One Team Can Have Belote !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.only_one_belote), Toast.LENGTH_SHORT).show();
                         beloteTeam1.setChecked(false);
                         beloteTeam2.setChecked(false);
                         ScoreTeam1Rounded = 0;
                         ScoreTeam2Rounded = 0;
 
                     }
+                    //belote team1
 
                     if (beloteTeam1.isChecked()) {
                         if (ScoreTeam1Entred == 0)
@@ -144,7 +145,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
                         else
                             ScoreTeam1Rounded += 20;
                     }
-
+                    //belote team2
                     if (beloteTeam2.isChecked()) {
                         if (ScoreTeam2Entred == 0)
                             ScoreTeam1Rounded += 20;
@@ -152,7 +153,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
                             ScoreTeam2Rounded += 20;
                     }
 
-
+                    //add Score
                     ScoreTeam1 = ScoreTeam1 + ScoreTeam1Rounded;
                     ScoreTeam2 = ScoreTeam2 + ScoreTeam2Rounded;
                     //end of  game for team 1

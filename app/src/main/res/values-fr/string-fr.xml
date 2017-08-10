@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rachma</string>
+    <string name="score">score</string>
+    <string name="save_score">Enregistrer score</string>
+    <string name="lost">Lost</string>
+    <string name="cheat_all_the_players_lost">Do not cheat ! \nAll the players lost the game ?</string>
+    <string name="cheat_all_the_players_won">Do not cheat ! \nAll the players won the game ?</string>
+    <string name="cheat_no_player_won">Do not cheat ! \nNo player won the game ?</string>
+    <string name="won">Won</string>
+    <string name="only_one_belote">Une seule équipe peut avoir le Belote !</string>
+    <string name="two_scores_required">Mets au moins le score d une seule équipe</string>
+
+</resources>
