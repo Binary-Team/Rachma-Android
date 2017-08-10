@@ -29,6 +29,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     EditText player1Score, player2Score, player3Score, player4Score;
     TextView firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     TextView player1nameTV, player2nameTV, player3nameTV, player4nameTV;
+    TextView firstPlaceTV, secondPlaceTV, thirdPlaceTV, fourthPlaceTV;
     Button saveScore;
     Integer playersNumber;
     String player1Name, player2Name, player3Name, player4Name;
@@ -60,6 +61,12 @@ public class RummyScoreTaking extends AppCompatActivity {
         player2Score = (EditText) findViewById(R.id.player2Score);
         player3Score = (EditText) findViewById(R.id.player3Score);
         player4Score = (EditText) findViewById(R.id.player4Score);
+
+        //  places textviews
+        firstPlaceTV = (TextView) findViewById(R.id.firstPlace);
+        secondPlaceTV = (TextView) findViewById(R.id.secondPlace);
+        thirdPlaceTV = (TextView) findViewById(R.id.thirdPlace);
+        fourthPlaceTV = (TextView) findViewById(R.id.fourthPlace);
 
 
         // get players names
@@ -158,6 +165,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                 //won
                 player3Won.setVisibility(View.GONE);
                 player4Won.setVisibility(View.GONE);
+                // places
+                thirdPlaceTV.setVisibility(View.GONE);
+                fourthPlaceTV.setVisibility(View.GONE);
 
                 break;
             case 3:
@@ -183,6 +193,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                 //won
                 player3Won.setVisibility(View.VISIBLE);
                 player4Won.setVisibility(View.GONE);
+                // places
+                thirdPlaceTV.setVisibility(View.VISIBLE);
+                fourthPlaceTV.setVisibility(View.GONE);
                 break;
             case 4:
                 rummyPlayers.add(new RummyPlayer(player1Name, 0));
@@ -209,6 +222,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                 //won
                 player3Won.setVisibility(View.VISIBLE);
                 player4Won.setVisibility(View.VISIBLE);
+                // places
+                thirdPlaceTV.setVisibility(View.VISIBLE);
+                fourthPlaceTV.setVisibility(View.VISIBLE);
+
                 break;
 
         }
@@ -367,6 +384,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                         else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
                             Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
 
+                            // cheat4: more than one player won the game
+                        else if (calculateNumberOfPlayersThatWon() > 1)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+
                             //everything seems ok , save the scores
                         else {
                             // add score
@@ -397,6 +418,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                             // cheat3: no player won the game
                         else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
                             Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                            // cheat4: more than one player won the game
+                        else if (calculateNumberOfPlayersThatWon() > 1)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
 
                             //everything seems ok , save the scores
                         else {
@@ -430,6 +455,11 @@ public class RummyScoreTaking extends AppCompatActivity {
                             // cheat3: no player won the game
                         else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
                             Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                            // cheat4: more than one player won the game
+                        else if (calculateNumberOfPlayersThatWon() > 1)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+
 
                             //everything seems ok , save the scores
                         else {
@@ -617,6 +647,56 @@ public class RummyScoreTaking extends AppCompatActivity {
             player4Lost.setVisibility(View.GONE);
             player4Won.setVisibility(View.GONE);
         }
+    }
+
+
+    private Integer calculateNumberOfPlayersThatWon() {
+
+        Integer numberOfPlayersThatWon = 0;
+
+        switch (playersNumber) {
+
+            case 2:
+
+                if (player1Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player2Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+
+                break;
+            case 3:
+                if (player1Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player2Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player3Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+
+                break;
+            case 4:
+                if (player1Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player2Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player3Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+                if (player4Won.isChecked()) {
+                    numberOfPlayersThatWon++;
+                }
+
+                break;
+
+        }
+
+        return numberOfPlayersThatWon;
     }
 
 
