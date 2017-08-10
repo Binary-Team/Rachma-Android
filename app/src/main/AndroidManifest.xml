@@ -17,15 +17,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".rummy.RummySetting" />
-        <activity android:name=".belote.BeloteSetting" />
-        <activity android:name=".rummy.RummyScoreboard" />
-        <activity android:name=".belote.BeloteScoreBoard" />
-        <activity android:name=".belote.Winner" />
+        <activity
+            android:name=".rummy.RummySetting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".belote.BeloteSetting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rummy.RummyScoreboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".belote.BeloteScoreBoard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".belote.Winner"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".rummy.RummyScoreTaking"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".rummy.RummyGameEnded"></activity>
+        <activity
+            android:name=".rummy.RummyGameEnded"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
