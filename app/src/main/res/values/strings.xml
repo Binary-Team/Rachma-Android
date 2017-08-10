@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Rachma</string>
     <string name="score">score</string>
-    <string name="save_score">Save score</string>
+    <string name="save_score">Save round score</string>
     <string name="lost">Lost</string>
     <string name="cheat_all_the_players_lost">Do not cheat ! \nAll the players lost the game ?</string>
     <string name="cheat_all_the_players_won">Do not cheat ! \nAll the players won the game ?</string>
     <string name="cheat_no_player_won">Do not cheat ! \nNo player won the game ?</string>
     <string name="cheat_more_than_one_player_won">Do not cheat ! \nMore than one player won the game ?</string>
     <string name="won">Won</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="are_you_sure_to_quit">Are you sure to quit ? \n You will lose all the saved rounds</string>
+    <string name="quit_score_taking">Quit score taking</string>
+
 </resources>

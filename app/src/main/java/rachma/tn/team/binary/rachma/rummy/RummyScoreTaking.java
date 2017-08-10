@@ -1,8 +1,10 @@
 package rachma.tn.team.binary.rachma.rummy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -699,5 +701,40 @@ public class RummyScoreTaking extends AppCompatActivity {
         return numberOfPlayersThatWon;
     }
 
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(getResources().getString(R.string.quit_score_taking));
+        alertDialog.setMessage(getResources().getString(R.string.are_you_sure_to_quit));
+        alertDialog.setCancelable(true);
+
+        alertDialog.setPositiveButton(
+                getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        moveTaskToBack(true);
+                    }
+                });
+        alertDialog.setPositiveButton(
+                getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //moveTaskToBack(true);
+                        finish();
+                    }
+                });
+
+        alertDialog.setNegativeButton(
+                getResources().getString(R.string.no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = alertDialog.create();
+        alert11.show();
+    }
 
 }
