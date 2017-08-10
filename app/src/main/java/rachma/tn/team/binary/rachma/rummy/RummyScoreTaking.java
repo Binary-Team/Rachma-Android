@@ -372,115 +372,164 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                     case 2:
 
-                        // check if there is cheat
+                        // if input is empty , ask the user to insert it
+                        if (player1Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
 
-                        // cheat1: all the players lost the game
-                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                        if (player2Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
 
-                            // cheat2: all the players won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                        // all the inputs are not emplty ==> do next step
 
-                            // cheat3: no player won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+                        if (player1Score.getText().toString().length() != 0 && player2Score.getText().toString().length() != 0) {
 
-                            // cheat4: more than one player won the game
-                        else if (calculateNumberOfPlayersThatWon() > 1)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                            // check if there is cheat
 
-                            //everything seems ok , save the scores
-                        else {
-                            // add score
-                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                            //total score
-                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                            //sort scores
-                            scoresSorted = sortScores();
-                            //update TextViews
-                            firstPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                            secondPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            // cheat1: all the players lost the game
+                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                                // cheat2: all the players won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                                // cheat3: no player won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                                // cheat4: more than one player won the game
+                            else if (calculateNumberOfPlayersThatWon() > 1)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+
+                                //everything seems ok , save the scores
+                            else {
+                                // add score
+                                rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                                //total score
+                                totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                                totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                                //sort scores
+                                scoresSorted = sortScores();
+                                //update TextViews
+                                firstPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                                secondPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            }
                         }
                         break;
                     case 3:
 
-                        // check if there is cheat
+                        // if input is empty , ask the user to insert it
+                        if (player1Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
 
-                        // cheat1: all the players lost the game
-                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                        if (player2Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
 
-                            // cheat2: all the players won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                        if (player3Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_LONG).show();
 
-                            // cheat3: no player won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
 
-                            // cheat4: more than one player won the game
-                        else if (calculateNumberOfPlayersThatWon() > 1)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                        // all the inputs are not emplty ==> do next step
 
-                            //everything seems ok , save the scores
-                        else {
-                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
-                            //total score
-                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                            totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
-                            //sort scores
-                            scoresSorted = sortScores();
-                            //update TextViews
-                            firstPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
-                            secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                            thirdPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                        if (player1Score.getText().toString().length() != 0 && player2Score.getText().toString().length() != 0 && player3Score.getText().toString().length() != 0) {
+
+
+                            // check if there is cheat
+
+                            // cheat1: all the players lost the game
+                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                                // cheat2: all the players won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                                // cheat3: no player won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                                // cheat4: more than one player won the game
+                            else if (calculateNumberOfPlayersThatWon() > 1)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+
+                                //everything seems ok , save the scores
+                            else {
+                                rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
+                                //total score
+                                totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                                totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                                totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
+                                //sort scores
+                                scoresSorted = sortScores();
+                                //update TextViews
+                                firstPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                                secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                                thirdPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            }
                         }
                         break;
                     case 4:
 
-                        // check if there is cheat
+                        // if input is empty , ask the user to insert it
+                        if (player1Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
 
-                        // cheat1: all the players lost the game
-                        if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100 && Integer.parseInt(player4Score.getText().toString()) == 100)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                        if (player2Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
 
-                            // cheat2: all the players won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10 && Integer.parseInt(player4Score.getText().toString()) == -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                        if (player3Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_LONG).show();
 
-                            // cheat3: no player won the game
-                        else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
-
-                            // cheat4: more than one player won the game
-                        else if (calculateNumberOfPlayersThatWon() > 1)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                        if (player4Score.getText().toString().length() == 0)
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player4Name, Toast.LENGTH_LONG).show();
 
 
-                            //everything seems ok , save the scores
-                        else {
-                            rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
-                            rummyPlayers.add(new RummyPlayer(player4Name, Integer.parseInt(player4Score.getText().toString())));
-                            //total score
-                            totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
-                            totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
-                            totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
-                            totalScores.put(player4Name, totalScores.get(player4Name) + Integer.parseInt(player4Score.getText().toString()));
-                            //sort scores
-                            scoresSorted = sortScores();
-                            //update TextViews
-                            firstPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
-                            secondPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
-                            thirdPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
-                            fourthPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                        // all the inputs are not emplty ==> do next step
+
+                        if (player1Score.getText().toString().length() != 0 && player2Score.getText().toString().length() != 0 && player3Score.getText().toString().length() != 0 && player4Score.getText().toString().length() != 0) {
+
+
+                            // check if there is cheat
+
+                            // cheat1: all the players lost the game
+                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100 && Integer.parseInt(player4Score.getText().toString()) == 100)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+
+                                // cheat2: all the players won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10 && Integer.parseInt(player4Score.getText().toString()) == -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+
+                                // cheat3: no player won the game
+                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+
+                                // cheat4: more than one player won the game
+                            else if (calculateNumberOfPlayersThatWon() > 1)
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+
+
+                                //everything seems ok , save the scores
+                            else {
+                                rummyPlayers.add(new RummyPlayer(player1Name, Integer.parseInt(player1Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player2Name, Integer.parseInt(player2Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player3Name, Integer.parseInt(player3Score.getText().toString())));
+                                rummyPlayers.add(new RummyPlayer(player4Name, Integer.parseInt(player4Score.getText().toString())));
+                                //total score
+                                totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
+                                totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                                totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
+                                totalScores.put(player4Name, totalScores.get(player4Name) + Integer.parseInt(player4Score.getText().toString()));
+                                //sort scores
+                                scoresSorted = sortScores();
+                                //update TextViews
+                                firstPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
+                                secondPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                                thirdPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                                fourthPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                            }
                         }
                         break;
 

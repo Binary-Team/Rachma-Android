@@ -10,7 +10,8 @@
     <string name="won">Won</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="are_you_sure_to_quit">Are you sure to quit ? \n You will lose all the saved rounds</string>
-    <string name="quit_score_taking">Quit score taking</string>
+    <string name="are_you_sure_to_quit">Are you sure to quit ? \nYou will lose all the saved rounds</string>
+    <string name="quit_score_taking">Quit</string>
+    <string name="please_put_player_score">Please put the score of </string>
 
 </resources>
