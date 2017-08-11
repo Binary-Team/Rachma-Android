@@ -89,10 +89,31 @@ public class BeloteSetting extends AppCompatActivity {
                 Intent beloteScoreBoard = new Intent(getApplication(), BeloteScoreBoard.class);
                 beloteScoreBoard.putExtra("gamesNumber", gamesNumber);
                 beloteScoreBoard.putExtra("pointsPerGames", pointsPerGame);
-                beloteScoreBoard.putExtra("player1Team1", player1Team1.getText().toString());
-                beloteScoreBoard.putExtra("player2Team1", player2Team1.getText().toString());
-                beloteScoreBoard.putExtra("player1Team2", player1Team2.getText().toString());
-                beloteScoreBoard.putExtra("player2  Team2", player2Team2.getText().toString());
+                if (player1Team1.getText().length() == 0) {
+                    beloteScoreBoard.putExtra("player1Team1", getResources().getString(R.string.player) + "1");
+                } else {
+                    beloteScoreBoard.putExtra("player1Team1", player1Team1.getText().toString());
+                }
+                //player 2 Team 1 Name
+                if (player2Team1.getText().length() == 0) {
+                    beloteScoreBoard.putExtra("player2Team1", getResources().getString(R.string.player) + "2");
+                } else {
+                    beloteScoreBoard.putExtra("player2Team1", player2Team1.getText().toString());
+                }
+
+                //player 1 Team 2 Name
+                if (player1Team2.getText().length() == 0) {
+                    beloteScoreBoard.putExtra("player1Team2", getResources().getString(R.string.player) + "1");
+                } else {
+                    beloteScoreBoard.putExtra("player1Team2", player1Team2.getText().toString());
+                }
+                //player 2 Team 2 Name
+                if (player2Team2.getText().length() == 0) {
+                    beloteScoreBoard.putExtra("player2Team2", getResources().getString(R.string.player) + "2");
+                } else {
+                    beloteScoreBoard.putExtra("player2Team2", player2Team2.getText().toString());
+                }
+
                 startActivity(beloteScoreBoard);
 
 
