@@ -95,22 +95,22 @@ public class BeloteScoreBoard extends AppCompatActivity {
                 } else {
                     //Score Team 1 Configuration
                     if (scoreTeam1.getText().toString().length() > 0) {
-                        ScoreTeam1Entred = Integer.decode(scoreTeam1.getText().toString());
+                        ScoreTeam1Entred = Integer.parseInt(scoreTeam1.getText().toString());
                     } else {
-                        if (Integer.decode(scoreTeam2.getText().toString()) > 162)
+                        if (Integer.parseInt(scoreTeam2.getText().toString()) > 162)
                             ScoreTeam1Entred = 0;
                         else
-                            ScoreTeam1Entred = 162 - Integer.decode(scoreTeam2.getText().toString());
+                            ScoreTeam1Entred = 162 - Integer.parseInt(scoreTeam2.getText().toString());
                     }
 
                     //Score Team2 Configuration
                     if (scoreTeam2.getText().toString().length() > 0) {
-                        ScoreTeam2Entred = Integer.decode(scoreTeam2.getText().toString());
+                        ScoreTeam2Entred = Integer.parseInt(scoreTeam2.getText().toString());
                     } else {
-                        if (Integer.decode(scoreTeam1.getText().toString()) > 162)
+                        if (Integer.parseInt(scoreTeam1.getText().toString()) > 162)
                             ScoreTeam2Entred = 0;
                         else
-                            ScoreTeam2Entred = 162 - Integer.decode(scoreTeam1.getText().toString());
+                            ScoreTeam2Entred = 162 - Integer.parseInt(scoreTeam1.getText().toString());
                     }
                     Integer ScoreTeam1Rounded = 0, ScoreTeam2Rounded = 0;
                     if (ScoreTeam1Entred % 10 > 7) {
