@@ -13,5 +13,6 @@
     <string name="are_you_sure_to_quit">Are you sure to quit ? \nYou will lose all the saved rounds</string>
     <string name="quit_score_taking">Quit</string>
     <string name="please_put_player_score">Please put the score of </string>
+    <string name="player">Player</string>
 
 </resources>

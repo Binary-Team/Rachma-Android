@@ -141,6 +141,7 @@
                         android:id="@+id/player1name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="name"
                         android:textColor="@color/white"
                         android:textSize="30sp" />
 

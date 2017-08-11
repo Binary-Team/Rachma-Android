@@ -104,19 +104,68 @@ public class RummySetting extends AppCompatActivity {
                 switch (playersNumber) {
 
                     case 2:
-                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                        // if player name is empty set it to default
+
+                        //player1
+                        if (player1Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
+                        else
+                            rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        //player2
+                        if (player2Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
+                        else
+                            rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
                         break;
                     case 3:
-                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
-                        rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+                        // if player name is empty set it to default
+
+                        //player1
+                        if (player1Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
+                        else
+                            rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        //player2
+                        if (player2Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
+                        else
+                            rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+
+                        //player3
+                        if (player3Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("thirdPlayerName", getResources().getString(R.string.player) + "3");
+                        else
+                            rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+
+
                         break;
                     case 4:
-                        rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
-                        rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
-                        rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
-                        rummyScoreTaking.putExtra("fourthPlayerName", player4Name.getText().toString());
+                        // if player name is empty set it to default
+
+                        //player1
+                        if (player1Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
+                        else
+                            rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                        //player2
+                        if (player2Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
+                        else
+                            rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+
+                        //player3
+                        if (player3Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("thirdPlayerName", getResources().getString(R.string.player) + "3");
+                        else
+                            rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+
+                        //player4
+                        if (player4Name.getText().toString().length() == 0)
+                            rummyScoreTaking.putExtra("fourthPlayerName", getResources().getString(R.string.player) + "4");
+                        else
+                            rummyScoreTaking.putExtra("fourthPlayerName", player4Name.getText().toString());
+
+
                         break;
 
                 }
