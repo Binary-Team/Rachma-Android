@@ -14,5 +14,6 @@
     <string name="quit_score_taking">Quit</string>
     <string name="please_put_player_score">Please put the score of </string>
     <string name="player">Player</string>
+    <string name="invalid_score">Invalide Score</string>
 
 </resources>

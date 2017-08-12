@@ -21,6 +21,7 @@ import java.util.List;
 import rachma.tn.team.binary.rachma.R;
 import rachma.tn.team.binary.rachma.adapter.BeloteScoreboardAdapter;
 
+
 public class BeloteScoreBoard extends AppCompatActivity {
     String team1Player1, team1Player2, team2Player1, team2Player2;
     Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0, GamesWonTeam1 = 0, GamesWonTeam2 = 0, ScoreTeam1Entred, ScoreTeam2Entred;
@@ -62,7 +63,6 @@ public class BeloteScoreBoard extends AppCompatActivity {
         final CheckBox beloteTeam2 = (CheckBox) findViewById(R.id.beloteTeam2);
 
 
-
         // RecyclerView
         recyclerView1 = (RecyclerView) findViewById(R.id.recyclerView1);
         mAdapter1 = new BeloteScoreboardAdapter(scoreListTeam1);
@@ -83,9 +83,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.setAdapter(mAdapter2);
 
 
-        //Text Change
-
-
+        //Score Add & Verification
         final Button addScore = (Button) findViewById(R.id.addscorebt);
         addScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +95,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     if (scoreTeam1.getText().toString().length() > 0) {
                         ScoreTeam1Entred = Integer.parseInt(scoreTeam1.getText().toString());
                     } else {
-                        if (Integer.parseInt(scoreTeam2.getText().toString()) > 162)
+                        if (Integer.parseInt(scoreTeam2.getText().toString()) >= 162)
                             ScoreTeam1Entred = 0;
                         else
                             ScoreTeam1Entred = 162 - Integer.parseInt(scoreTeam2.getText().toString());
@@ -107,100 +105,112 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     if (scoreTeam2.getText().toString().length() > 0) {
                         ScoreTeam2Entred = Integer.parseInt(scoreTeam2.getText().toString());
                     } else {
-                        if (Integer.parseInt(scoreTeam1.getText().toString()) > 162)
+                        if (Integer.parseInt(scoreTeam1.getText().toString()) >= 162)
                             ScoreTeam2Entred = 0;
                         else
                             ScoreTeam2Entred = 162 - Integer.parseInt(scoreTeam1.getText().toString());
                     }
-                    Integer ScoreTeam1Rounded = 0, ScoreTeam2Rounded = 0;
-                    if (ScoreTeam1Entred % 10 > 7) {
-                        ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
-                    } else if (ScoreTeam1Entred % 10 >= 5 && ScoreTeam1Entred % 10 <= 7) {
-                        ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
+
+                    //Score Rules Verification
+                    if (ScoreTeam2Entred + ScoreTeam1Entred > 162 && ((ScoreTeam1Entred != 500 && ScoreTeam1Entred != 320 && ScoreTeam1Entred != 640 && ScoreTeam1Entred != 250 && ScoreTeam2Entred != 500 && ScoreTeam2Entred != 320 && ScoreTeam2Entred != 640 && ScoreTeam1Entred != 250))) {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.invalid_score), Toast.LENGTH_SHORT).show();
+                    } else if (ScoreTeam2Entred + ScoreTeam1Entred < 163 && ScoreTeam2Entred + ScoreTeam1Entred != 162) {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.invalid_score), Toast.LENGTH_SHORT).show();
+
                     } else {
-                        ScoreTeam1Rounded = ScoreTeam1Entred - ScoreTeam1Entred % 10;
-                    }
-                    //Round Score Team2
-                    if (ScoreTeam2Entred % 10 > 7) {
-                        ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
-                    } else if (ScoreTeam2Entred % 10 >= 5 && ScoreTeam2Entred % 10 <= 7) {
-                        ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
-                    } else {
-                        ScoreTeam2Rounded = ScoreTeam2Entred - ScoreTeam2Entred % 10;
-                    }
-                    //belote check box config
-                    if (beloteTeam1.isChecked() && beloteTeam2.isChecked()) {
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.only_one_belote), Toast.LENGTH_SHORT).show();
+
+
+                        //Round Score Team2
+                        Integer ScoreTeam1Rounded = 0, ScoreTeam2Rounded = 0;
+                        if (ScoreTeam1Entred % 10 > 7) {
+                            ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
+                        } else if (ScoreTeam1Entred % 10 >= 5 && ScoreTeam1Entred % 10 <= 7) {
+                            ScoreTeam1Rounded = ScoreTeam1Entred + 10 - ScoreTeam1Entred % 10;
+                        } else {
+                            ScoreTeam1Rounded = ScoreTeam1Entred - ScoreTeam1Entred % 10;
+                        }
+                        //Round Score Team2
+                        if (ScoreTeam2Entred % 10 > 7) {
+                            ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
+                        } else if (ScoreTeam2Entred % 10 >= 5 && ScoreTeam2Entred % 10 <= 7) {
+                            ScoreTeam2Rounded = ScoreTeam2Entred + 10 - ScoreTeam2Entred % 10;
+                        } else {
+                            ScoreTeam2Rounded = ScoreTeam2Entred - ScoreTeam2Entred % 10;
+                        }
+                        //belote check box config
+                        if (beloteTeam1.isChecked() && beloteTeam2.isChecked()) {
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.only_one_belote), Toast.LENGTH_SHORT).show();
+                            beloteTeam1.setChecked(false);
+                            beloteTeam2.setChecked(false);
+                            ScoreTeam1Rounded = 0;
+                            ScoreTeam2Rounded = 0;
+
+                        }
+                        //belote team1
+
+                        if (beloteTeam1.isChecked()) {
+                            if (ScoreTeam1Entred == 0)
+                                ScoreTeam2Rounded += 20;
+                            else
+                                ScoreTeam1Rounded += 20;
+                        }
+                        //belote team2
+                        if (beloteTeam2.isChecked()) {
+                            if (ScoreTeam2Entred == 0)
+                                ScoreTeam1Rounded += 20;
+                            else
+                                ScoreTeam2Rounded += 20;
+                        }
+
+                        //add Score
+                        ScoreTeam1 = ScoreTeam1 + ScoreTeam1Rounded;
+                        ScoreTeam2 = ScoreTeam2 + ScoreTeam2Rounded;
+                        //end of  game for team 1
+                        if (ScoreTeam1 >= pointsPerGame && ScoreTeam1 > ScoreTeam2) {
+                            GamesWonTeam1++;
+                            gamesWonTeam1.setText(GamesWonTeam1.toString());
+                            ScoreTeam1 = 0;
+                            ScoreTeam2 = 0;
+                        }
+                        //end of  game for team 2
+                        if (ScoreTeam2 >= pointsPerGame && ScoreTeam2 > ScoreTeam1) {
+                            GamesWonTeam2++;
+                            gamesWonTeam2.setText(GamesWonTeam2.toString());
+                            ScoreTeam1 = 0;
+                            ScoreTeam2 = 0;
+                        }
+
+                        if (GamesWonTeam1 >= gamesNumber) {
+                            Intent winner = new Intent(getApplicationContext(), Winner.class);
+                            winner.putExtra("WinnerTeam", "Team1");
+                            winner.putExtra("winner1", team1Player1);
+                            winner.putExtra("winner2", team1Player2);
+                            startActivity(winner);
+                        }
+                        if (GamesWonTeam2 >= gamesNumber) {
+                            Intent winner = new Intent(getApplicationContext(), Winner.class);
+                            winner.putExtra("WinnerTeam", "Team2");
+                            winner.putExtra("Winner1", team2Player1);
+                            winner.putExtra("Winner2", team2Player2);
+                            startActivity(winner);
+                        }
+
+
+                        scoreListTeam1.add(ScoreTeam1.toString());
+                        mAdapter1.notifyDataSetChanged();
+                        scoreListTeam2.add(ScoreTeam2.toString());
+                        mAdapter2.notifyDataSetChanged();
                         beloteTeam1.setChecked(false);
                         beloteTeam2.setChecked(false);
-                        ScoreTeam1Rounded = 0;
-                        ScoreTeam2Rounded = 0;
+                        scoreTeam1.setText("");
+                        scoreTeam2.setText("");
+
 
                     }
-                    //belote team1
-
-                    if (beloteTeam1.isChecked()) {
-                        if (ScoreTeam1Entred == 0)
-                            ScoreTeam2Rounded += 20;
-                        else
-                            ScoreTeam1Rounded += 20;
-                    }
-                    //belote team2
-                    if (beloteTeam2.isChecked()) {
-                        if (ScoreTeam2Entred == 0)
-                            ScoreTeam1Rounded += 20;
-                        else
-                            ScoreTeam2Rounded += 20;
-                    }
-
-                    //add Score
-                    ScoreTeam1 = ScoreTeam1 + ScoreTeam1Rounded;
-                    ScoreTeam2 = ScoreTeam2 + ScoreTeam2Rounded;
-                    //end of  game for team 1
-                    if (ScoreTeam1 >= pointsPerGame && ScoreTeam1 > ScoreTeam2) {
-                        GamesWonTeam1++;
-                        gamesWonTeam1.setText(GamesWonTeam1.toString());
-                        ScoreTeam1 = 0;
-                        ScoreTeam2 = 0;
-                    }
-                    //end of  game for team 2
-                    if (ScoreTeam2 >= pointsPerGame && ScoreTeam2 > ScoreTeam1) {
-                        GamesWonTeam2++;
-                        gamesWonTeam2.setText(GamesWonTeam2.toString());
-                        ScoreTeam1 = 0;
-                        ScoreTeam2 = 0;
-                    }
-
-                    if (GamesWonTeam1 >= gamesNumber) {
-                        Intent winner = new Intent(getApplicationContext(), Winner.class);
-                        winner.putExtra("WinnerTeam", "Team1");
-                        winner.putExtra("winner1", team1Player1);
-                        winner.putExtra("winner2", team1Player2);
-                        startActivity(winner);
-                    }
-                    if (GamesWonTeam2 >= gamesNumber) {
-                        Intent winner = new Intent(getApplicationContext(), Winner.class);
-                        winner.putExtra("WinnerTeam", "Team2");
-                        winner.putExtra("Winner1", team2Player1);
-                        winner.putExtra("Winner2", team2Player2);
-                        startActivity(winner);
-                    }
-
-
-                    scoreListTeam1.add(ScoreTeam1.toString());
-                    mAdapter1.notifyDataSetChanged();
-                    scoreListTeam2.add(ScoreTeam2.toString());
-                    mAdapter2.notifyDataSetChanged();
-                    beloteTeam1.setChecked(false);
-                    beloteTeam2.setChecked(false);
-                    scoreTeam1.setText("");
-                    scoreTeam2.setText("");
-
-
                 }
+
             }
         });
-
 
 
     }
