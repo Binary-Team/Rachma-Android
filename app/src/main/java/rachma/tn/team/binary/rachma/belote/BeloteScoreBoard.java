@@ -1,8 +1,10 @@
 package rachma.tn.team.binary.rachma.belote;
 //Author: Mohamed Amine Znaidi
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -29,6 +31,43 @@ public class BeloteScoreBoard extends AppCompatActivity {
     List<String> scoreListTeam2 = new ArrayList<>();
     private RecyclerView recyclerView1, recyclerView2;
     private BeloteScoreboardAdapter mAdapter1, mAdapter2;
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(getResources().getString(R.string.quit_score_taking));
+        alertDialog.setMessage(getResources().getString(R.string.are_you_sure_to_quit));
+        alertDialog.setCancelable(true);
+
+        alertDialog.setPositiveButton(
+                getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        moveTaskToBack(true);
+                    }
+                });
+        alertDialog.setPositiveButton(
+                getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //moveTaskToBack(true);
+                        finish();
+                    }
+                });
+
+        alertDialog.setNegativeButton(
+                getResources().getString(R.string.no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = alertDialog.create();
+        alert11.show();
+    }
+
 
 
     @Override
@@ -82,6 +121,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setAdapter(mAdapter2);
 
+        // onBackPressed();
 
         //Score Add & Verification
         final Button addScore = (Button) findViewById(R.id.addscorebt);
@@ -114,9 +154,12 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     //Score Rules Verification
                     if (ScoreTeam2Entred + ScoreTeam1Entred > 162 && ((ScoreTeam1Entred != 500 && ScoreTeam1Entred != 320 && ScoreTeam1Entred != 640 && ScoreTeam1Entred != 250 && ScoreTeam2Entred != 500 && ScoreTeam2Entred != 320 && ScoreTeam2Entred != 640 && ScoreTeam1Entred != 250))) {
                         Toast.makeText(getApplicationContext(), getResources().getString(R.string.invalid_score), Toast.LENGTH_SHORT).show();
+                        scoreTeam1.setText("");
+                        scoreTeam2.setText("");
                     } else if (ScoreTeam2Entred + ScoreTeam1Entred < 163 && ScoreTeam2Entred + ScoreTeam1Entred != 162) {
                         Toast.makeText(getApplicationContext(), getResources().getString(R.string.invalid_score), Toast.LENGTH_SHORT).show();
-
+                        scoreTeam1.setText("");
+                        scoreTeam2.setText("");
                     } else {
 
 
