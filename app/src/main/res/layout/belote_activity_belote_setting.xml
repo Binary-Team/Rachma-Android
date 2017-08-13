@@ -9,11 +9,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="102dp"
+                android:layout_gravity="center"
+
+                android:src="@drawable/rachma" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Belote Setting"
+                android:textColor="@color/colorAccent"
+                android:textSize="40dp"
+                android:textStyle="bold"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
             <EditText
@@ -42,6 +77,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -72,6 +108,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:weightSum="3">
 
             <LinearLayout
@@ -85,6 +122,7 @@
                     android:id="@+id/increaseGamesNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
                     android:background="#00000000"
                     android:rotation="180"
                     android:src="@drawable/changeplayersnumber" />
@@ -143,6 +181,7 @@
                     android:id="@+id/increasePointsNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
                     android:background="#00000000"
                     android:rotation="180"
                     android:src="@drawable/changeplayersnumber" />
@@ -159,8 +198,8 @@
                 android:id="@+id/pointpergame"
                 android:layout_width="113dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-
                 android:fontFamily="monospace"
                 android:text="2000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -172,6 +211,7 @@
                 android:id="@+id/pointPerGame"
                 android:layout_width="135dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:fontFamily="monospace"
                 android:text="Points"
@@ -180,22 +220,24 @@
                 android:textSize="36sp"
                 android:textStyle="bold" />
         </LinearLayout>
+        </LinearLayout>
 
 
         <Button
+
             android:id="@+id/doneBeloteSetting"
             android:layout_width="140dp"
             android:layout_height="60dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
             android:fontFamily="monospace"
             android:text="Done"
+
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
+
 
 </android.support.v7.widget.LinearLayoutCompat>
