@@ -74,8 +74,6 @@ public class BeloteScoreBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.belote_activity_belote_score_board);
-
-
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
         final TextView gamesWonTeam2 = (TextView) findViewById(R.id.gamesWonTeam2);
         final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
@@ -121,7 +119,6 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setAdapter(mAdapter2);
 
-        // onBackPressed();
 
         //Score Add & Verification
         final Button addScore = (Button) findViewById(R.id.addscorebt);
@@ -245,6 +242,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
                         mAdapter2.notifyDataSetChanged();
                         beloteTeam1.setChecked(false);
                         beloteTeam2.setChecked(false);
+                        recyclerView1.smoothScrollToPosition(View.FOCUS_DOWN);
+                        recyclerView2.smoothScrollToPosition(View.FOCUS_DOWN);
                         scoreTeam1.setText("");
                         scoreTeam2.setText("");
 

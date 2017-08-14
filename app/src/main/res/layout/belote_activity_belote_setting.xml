@@ -19,8 +19,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="102dp"
+                android:layout_width="250dp"
+                android:layout_height="75dp"
                 android:layout_gravity="center"
 
                 android:src="@drawable/rachma" />
@@ -29,8 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginBottom="25dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="7dp"
                 android:text="Belote Setting"
                 android:textColor="@color/colorAccent"
                 android:textSize="40dp"
@@ -60,7 +60,7 @@
                 android:gravity="center"
                 android:hint="Player 1 name"
                 android:padding="10dp"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/black" />
 
             <EditText
                 android:id="@+id/team2player1"
@@ -71,13 +71,13 @@
                 android:gravity="center"
                 android:hint="Player 3 name"
                 android:padding="10dp"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -90,7 +90,7 @@
                 android:gravity="center"
                 android:hint="Player 2 name"
                 android:padding="10dp"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/black" />
 
 
             <EditText
@@ -102,13 +102,13 @@
                 android:gravity="center"
                 android:hint="Player 4 name"
                 android:padding="10dp"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="10dp"
             android:weightSum="3">
 
             <LinearLayout
@@ -144,7 +144,7 @@
                 android:fontFamily="monospace"
                 android:text="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -157,7 +157,7 @@
                 android:fontFamily="monospace"
                 android:text="Games"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="36dp"
                 android:textStyle="bold" />
 
@@ -203,7 +203,7 @@
                 android:fontFamily="monospace"
                 android:text="2000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -216,7 +216,7 @@
                 android:fontFamily="monospace"
                 android:text="Points"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="36sp"
                 android:textStyle="bold" />
         </LinearLayout>
