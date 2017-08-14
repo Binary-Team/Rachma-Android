@@ -140,7 +140,7 @@
                     <!-- Player 1 -->
 
                     <TextView
-                        android:id="@+id/player1name"
+                        android:id="@+id/player1nameScoreTaking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
@@ -155,7 +155,7 @@
                         android:weightSum="2">
 
                         <EditText
-                            android:id="@+id/player1Score"
+                            android:id="@+id/player1ScoreScoreTaking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -193,7 +193,7 @@
                     <!-- Player 2 -->
 
                     <TextView
-                        android:id="@+id/player2name"
+                        android:id="@+id/player2nameScoreTaking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
@@ -210,7 +210,7 @@
 
 
                         <EditText
-                            android:id="@+id/player2Score"
+                            android:id="@+id/player2ScoreScoreTaking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -244,7 +244,7 @@
                     <!-- Player 3 -->
 
                     <TextView
-                        android:id="@+id/player3name"
+                        android:id="@+id/player3nameScoreTaking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
@@ -260,7 +260,7 @@
 
 
                         <EditText
-                            android:id="@+id/player3Score"
+                            android:id="@+id/player3ScoreScoreTaking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -295,7 +295,7 @@
                     <!-- Player 4 -->
 
                     <TextView
-                        android:id="@+id/player4name"
+                        android:id="@+id/player4nameScoreTaking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
@@ -310,7 +310,7 @@
                         android:weightSum="2">
 
                         <EditText
-                            android:id="@+id/player4Score"
+                            android:id="@+id/player4ScoreScoreTaking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"

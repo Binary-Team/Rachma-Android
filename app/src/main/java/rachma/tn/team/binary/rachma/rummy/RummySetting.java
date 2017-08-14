@@ -34,7 +34,7 @@ public class RummySetting extends AppCompatActivity {
         player4Name = (EditText) findViewById(R.id.player4Name);
 
 
-        done = (Button) findViewById(R.id.done);
+        done = (Button) findViewById(R.id.doneRummySetting);
 
 
 

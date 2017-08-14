@@ -53,16 +53,16 @@ public class RummyScoreTaking extends AppCompatActivity {
         playersNumber = getIntent().getExtras().getInt("playersNumber");
 
         // players name
-        player1nameTV = (TextView) findViewById(R.id.player1name);
-        player2nameTV = (TextView) findViewById(R.id.player2name);
-        player3nameTV = (TextView) findViewById(R.id.player3name);
-        player4nameTV = (TextView) findViewById(R.id.player4name);
+        player1nameTV = (TextView) findViewById(R.id.player1nameScoreTaking);
+        player2nameTV = (TextView) findViewById(R.id.player2nameScoreTaking);
+        player3nameTV = (TextView) findViewById(R.id.player3nameScoreTaking);
+        player4nameTV = (TextView) findViewById(R.id.player4nameScoreTaking);
 
         // players score
-        player1Score = (EditText) findViewById(R.id.player1Score);
-        player2Score = (EditText) findViewById(R.id.player2Score);
-        player3Score = (EditText) findViewById(R.id.player3Score);
-        player4Score = (EditText) findViewById(R.id.player4Score);
+        player1Score = (EditText) findViewById(R.id.player1ScoreScoreTaking);
+        player2Score = (EditText) findViewById(R.id.player2ScoreScoreTaking);
+        player3Score = (EditText) findViewById(R.id.player3ScoreScoreTaking);
+        player4Score = (EditText) findViewById(R.id.player4ScoreScoreTaking);
 
         //  places textviews
         firstPlaceTV = (TextView) findViewById(R.id.firstPlace);
