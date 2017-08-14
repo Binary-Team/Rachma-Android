@@ -550,21 +550,32 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                 if (sortScores().get(0).getValue() >= finalScore) {
                     // first player loose
-                    fourthPlayer.setTextColor(Color.RED);
+                    if (playersNumber == 3)
+                        thirdPlayer.setTextColor(Color.RED);
+
+                    else if (playersNumber == 4)
+                        fourthPlayer.setTextColor(Color.RED);
                     setPlayerBloxInvisible(sortScores().get(0).getKey());
                 }
+
 
                 try {
                     // check 3rd player
                     if (sortScores().get(1).getValue() >= finalScore) {
                         // second player loose
-                        thirdPlayer.setTextColor(Color.RED);
+                        if (playersNumber == 2)
+                            secondPlayer.setTextColor(Color.RED);
+
+                        else if (playersNumber == 3)
+                            thirdPlayer.setTextColor(Color.RED);
+
                         setPlayerBloxInvisible(sortScores().get(1).getKey());
 
                     }
                 } catch (IndexOutOfBoundsException e) {
 
                 }
+
 
                 // check 2nd player
                 try {

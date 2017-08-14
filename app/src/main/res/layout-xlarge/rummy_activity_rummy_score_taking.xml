@@ -185,7 +185,7 @@
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/won"
                             android:textColor="@color/white"
-                            android:textSize="" />
+                            android:textSize="@dimen/text_small" />
 
                     </LinearLayout>
 
