@@ -29,14 +29,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="1"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/firstPlayer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <!-- Second place -->
@@ -51,14 +51,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="2"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/secondPlayer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <!-- Third place -->
@@ -73,14 +73,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="3"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/thirdPlayer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -96,14 +96,14 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="4"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/fourthPlayer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
 
@@ -115,7 +115,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/white" />
+            android:background="@color/black" />
 
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -142,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="30sp" />
 
                     <LinearLayout
@@ -158,7 +158,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/round_shape"
+                            android:background="@drawable/round_shape_white"
                             android:focusable="true"
                             android:gravity="center"
                             android:hint="@string/score"
@@ -174,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/lost"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                         <CheckBox
                             android:id="@+id/player1won"
@@ -182,7 +182,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/won"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -194,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="30sp" />
 
 
@@ -212,7 +212,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/round_shape"
+                            android:background="@drawable/round_shape_white"
                             android:gravity="center"
                             android:hint="@string/score"
                             android:inputType="number"
@@ -226,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/lost"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                         <CheckBox
                             android:id="@+id/player2won"
@@ -234,7 +234,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/won"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -245,7 +245,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="30sp" />
 
                     <LinearLayout
@@ -262,7 +262,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/round_shape"
+                            android:background="@drawable/round_shape_white"
                             android:gravity="center"
                             android:hint="@string/score"
                             android:inputType="number"
@@ -276,7 +276,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/lost"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                         <CheckBox
                             android:id="@+id/player3won"
@@ -284,7 +284,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/won"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -296,7 +296,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="30sp" />
 
                     <LinearLayout
@@ -312,7 +312,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/round_shape"
+                            android:background="@drawable/round_shape_white"
                             android:gravity="center"
                             android:hint="@string/score"
                             android:inputType="number"
@@ -326,7 +326,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/lost"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
 
                             />
 
@@ -336,7 +336,7 @@
                             android:layout_height="wrap_content"
                             android:button="@drawable/custom_checkbox"
                             android:text="@string/won"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -353,7 +353,8 @@
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape"
                     android:padding="10dp"
-                    android:text="@string/save_score" />
+                    android:text="@string/save_score"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
         </ScrollView>
