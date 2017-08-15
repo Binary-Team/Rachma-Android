@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,6 +74,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.belote_activity_belote_score_board);
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
         final TextView gamesWonTeam2 = (TextView) findViewById(R.id.gamesWonTeam2);
@@ -118,6 +120,12 @@ public class BeloteScoreBoard extends AppCompatActivity {
         recyclerView2.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setAdapter(mAdapter2);
+        final ScrollView scroll = (ScrollView) findViewById(R.id.scroll);
+        // scroll.fullScroll(View.SCROLL_INDICATOR_TOP);
+        //scroll.fullScroll(ScrollView.FOCUS_DOWN);
+
+
+
 
 
         //Score Add & Verification

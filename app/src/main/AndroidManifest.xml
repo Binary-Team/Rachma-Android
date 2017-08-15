@@ -35,7 +35,7 @@
         <activity
             android:name=".rummy.RummyScoreTaking"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".rummy.RummyGameEnded"
             android:screenOrientation="portrait"></activity>
