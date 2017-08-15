@@ -14,7 +14,7 @@
     <string name="quit_score_taking">Quit</string>
     <string name="please_put_player_score">Please put the score of </string>
     <string name="player">Player</string>
-    <string name="invalid_score">Invalide Score</string>
+    <string name="invalid_score">Invalid Score</string>
     <string name="two_scores_required">Put at least the score of one team</string>
     <string name="only_one_belote">Only one team could make the Belote !</string>
 </resources>

@@ -3,11 +3,19 @@
     <string name="app_name">Rachma</string>
     <string name="score">score</string>
     <string name="save_score">Enregistrer score</string>
-    <string name="lost">Lost</string>
-    <string name="cheat_all_the_players_lost">Do not cheat ! \nAll the players lost the game ?</string>
-    <string name="cheat_all_the_players_won">Do not cheat ! \nAll the players won the game ?</string>
-    <string name="cheat_no_player_won">Do not cheat ! \nNo player won the game ?</string>
-    <string name="won">Won</string>
+    <string name="lost">a perdu</string>
+    <string name="cheat_all_the_players_lost">Ne triche pas ! \nTous les joueurs ont perdu ?</string>
+    <string name="cheat_all_the_players_won">Ne triche pas ! \nTous les joueurs ont gagné ?</string>
+    <string name="cheat_more_than_one_player_won">Ne triche pas ! \nPlus qu\'un joueur a gagné ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="are_you_sure_to_quit">Etes vous sur de quitter ? \nVous allez perdre tous les données du jeux</string>
+    <string name="quit_score_taking">Quitter</string>
+    <string name="please_put_player_score">Veuillez insérer le score de </string>
+    <string name="player">Joueur</string>
+    <string name="invalid_score">Score invalide</string>
+    <string name="cheat_no_player_won">Ne triche pas ! \nAucun joueur n'a gagné ?</string>
+    <string name="won">a gagné</string>
     <string name="only_one_belote">Une seule équipe peut avoir le Belote !</string>
     <string name="two_scores_required">Mets au moins le score d une seule équipe</string>
 
