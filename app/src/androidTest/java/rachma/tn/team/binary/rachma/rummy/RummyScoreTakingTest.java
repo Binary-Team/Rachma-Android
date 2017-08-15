@@ -132,5 +132,31 @@ public class RummyScoreTakingTest {
     }
 
 
+    @Test
+    public void testAddScore() {
+
+        // set scores
+        onView(withId(R.id.player1won)).perform(scrollTo(), click());
+        onView(ViewMatchers.withId(R.id.player1won)).check(matches(isChecked()));
+        onView(ViewMatchers.withId(R.id.player1lost)).check(matches(not(isChecked())));
+
+        onView(withId(R.id.player2lost)).perform(scrollTo(), click());
+        onView(ViewMatchers.withId(R.id.player2lost)).check(matches(isChecked()));
+        onView(ViewMatchers.withId(R.id.player2won)).check(matches(not(isChecked())));
+
+        onView(withId(R.id.player3ScoreScoreTaking)).perform(scrollTo(), typeText(String.valueOf(600)), closeSoftKeyboard());
+
+
+        onView(withId(R.id.saveScores)).perform(scrollTo(), click());
+
+
+        // check leaderboard
+        onView(ViewMatchers.withId(R.id.firstPlayer)).check(matches(withText("A -10")));
+        onView(ViewMatchers.withId(R.id.secondPlayer)).check(matches(withText("B 100")));
+        onView(ViewMatchers.withId(R.id.thirdPlayer)).check(matches(withText("C 600")));
+
+
+    }
+
 }
 
