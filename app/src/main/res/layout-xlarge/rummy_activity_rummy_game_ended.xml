@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name2"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
 
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name3"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name4"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
         <TextView
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_small" />
 
     </LinearLayout>

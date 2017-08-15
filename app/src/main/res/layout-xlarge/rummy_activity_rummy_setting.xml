@@ -57,7 +57,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:text="2"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 
             <TextView
@@ -66,7 +66,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:text="players"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="@dimen/text_small" />
 
         </LinearLayout>
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
+                android:background="@drawable/round_shape_white"
                 android:gravity="center"
                 android:hint="Player 1 name"
                 android:padding="10dp"
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/round_shape"
+                android:background="@drawable/round_shape_white"
                 android:gravity="center"
                 android:hint="Player 2 name"
                 android:padding="10dp"
@@ -174,7 +174,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:text="500"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="@dimen/text_big" />
 
             <TextView
@@ -183,7 +183,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:text="final score"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="@dimen/text_small" />
 
         </LinearLayout>
