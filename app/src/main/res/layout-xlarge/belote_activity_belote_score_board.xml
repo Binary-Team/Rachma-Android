@@ -21,8 +21,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="75dp"
+                android:layout_width="375dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
 
                 android:src="@drawable/rachma" />
@@ -30,10 +30,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="281dp"
+            android:layout_height="600dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
+            android:layout_weight="11.60"
             android:background="@drawable/paper"
             android:orientation="vertical">
 
@@ -50,7 +51,7 @@
                     android:gravity="center"
                     android:text="Team1"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_small"
                     android:textStyle="bold" />
 
                 <TextView
@@ -61,7 +62,7 @@
                     android:text="0"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_small"
                     android:textStyle="bold" />
 
                 <TextView
@@ -71,7 +72,7 @@
                     android:gravity="center"
                     android:text="Team1"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_small"
                     android:textStyle="bold" />
 
                 <TextView
@@ -82,7 +83,7 @@
                     android:text="0"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_small"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -105,6 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textColor="@color/bluebt"
+                        android:textSize="35dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -113,6 +115,7 @@
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textColor="@color/bluebt"
+                        android:textSize="35dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -129,6 +132,7 @@
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textColor="@color/bluebt"
+                        android:textSize="35dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -137,6 +141,7 @@
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textColor="@color/bluebt"
+                        android:textSize="35dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -190,8 +195,8 @@
 
                 <EditText
                     android:id="@+id/scoreTeam1"
-                    android:layout_width="84dp"
-                    android:layout_height="35dp"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/round_shape_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -200,12 +205,14 @@
 
                 <CheckBox
                     android:id="@+id/beloteTeam1"
-                    android:layout_width="79dp"
-                    android:layout_height="31dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/round_shape"
                     android:text="belote"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -217,8 +224,8 @@
 
                 <EditText
                     android:id="@+id/scoreTeam2"
-                    android:layout_width="79dp"
-                    android:layout_height="35dp"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/round_shape_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -230,12 +237,14 @@
 
                 <CheckBox
                     android:id="@+id/beloteTeam2"
-                    android:layout_width="79dp"
-                    android:layout_height="31dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/round_shape"
                     android:text="Belote"
                     android:textColor="@android:color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="25dp" />
             </LinearLayout>
@@ -252,6 +261,7 @@
             android:text="Add Score"
             android:textAlignment="center"
             android:textColor="@android:color/white"
+            android:textSize="30dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="25dp" />

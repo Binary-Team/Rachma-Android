@@ -22,12 +22,10 @@ public class Winner extends AppCompatActivity {
         Winner2 = getIntent().getExtras().getString("Winner2");
 
         TextView winnerTeam = (TextView) findViewById(R.id.winnerteam);
-        TextView cup = (TextView) findViewById(R.id.cup);
         TextView winner1 = (TextView) findViewById(R.id.winner1);
         TextView winner2 = (TextView) findViewById(R.id.winner2);
 
         winnerTeam.setText(WinnerTeam);
-        cup.setText(WinnerTeam);
         winner1.setText(Winner1);
         winner2.setText(Winner2);
 
