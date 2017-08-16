@@ -8,9 +8,25 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:orientation="vertical"
-
         >
 
+        <!--Rachma-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/rachma" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/leaderboard"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold" />
 
         <!-- Scoreboard sorted by higher score-->
         <LinearLayout
