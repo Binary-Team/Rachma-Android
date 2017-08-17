@@ -228,16 +228,17 @@ public class BeloteScoreBoard extends AppCompatActivity {
                             ScoreTeam2 = 0;
                         }
 
+
                         if (GamesWonTeam1 >= gamesNumber) {
                             Intent winner = new Intent(getApplicationContext(), Winner.class);
-                            winner.putExtra("WinnerTeam", "Team1");
+                            winner.putExtra("WinnerTeam", R.string.team1);
                             winner.putExtra("winner1", team1Player1);
                             winner.putExtra("winner2", team1Player2);
                             startActivity(winner);
                         }
                         if (GamesWonTeam2 >= gamesNumber) {
                             Intent winner = new Intent(getApplicationContext(), Winner.class);
-                            winner.putExtra("WinnerTeam", "Team2");
+                            winner.putExtra("WinnerTeam", R.string.team2);
                             winner.putExtra("Winner1", team2Player1);
                             winner.putExtra("Winner2", team2Player2);
                             startActivity(winner);
