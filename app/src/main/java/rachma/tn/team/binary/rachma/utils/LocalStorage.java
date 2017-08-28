@@ -87,29 +87,37 @@ public class LocalStorage extends SQLiteOpenHelper {
 
 
     // save player name
-    public void savePlayerName(String playerName) {
+    public Boolean savePlayerName(String playerName) {
+
+        Boolean success;
 
         // Create and/or open the database for writing
-
         SQLiteDatabase db = getWritableDatabase();
 
 
-        // It's a good idea to wrap our insert in a transaction. This helps with performance and ensures
-        // consistency of the database.
-        db.beginTransaction();
-        try {
+        if (!playerNameAlreadyExists(playerName)) {
+            // It's a good idea to wrap our insert in a transaction. This helps with performance and ensures
+            // consistency of the database.
+            db.beginTransaction();
+            try {
 
-            ContentValues values = new ContentValues();
-            values.put(PLAYER_NAME, playerName);
+                ContentValues values = new ContentValues();
+                values.put(PLAYER_NAME, playerName);
 
-            db.insertOrThrow(TABLE_PLAYERS_NAMES, null, values);
-            db.setTransactionSuccessful();
-        } catch (Exception e) {
-            Log.d(TAG, "Error while trying to add post to database");
-        } finally {
-            db.endTransaction();
-        }
+                db.insertOrThrow(TABLE_PLAYERS_NAMES, null, values);
+                db.setTransactionSuccessful();
+                success = true;
+            } catch (Exception e) {
+                Log.d(TAG, "Error while trying to add post to database");
+                success = false;
+            } finally {
+                db.endTransaction();
+            }
+        } else
+            // player name already exists
+            success = false;
 
+        return success;
     }
 
 
@@ -144,5 +152,15 @@ public class LocalStorage extends SQLiteOpenHelper {
             }
         }
         return playerName;
+    }
+
+
+    public Boolean playerNameAlreadyExists(String playerName) {
+
+        if (findPlayerName(playerName).equals(playerName))
+            return true;
+        else
+            return false;
+
     }
 }
