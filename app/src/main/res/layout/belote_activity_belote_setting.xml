@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="3">
 
@@ -31,9 +31,9 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="7dp"
-                android:text="Belote Setting"
+                android:text="@string/belote_setting"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp"
+                android:textSize="@dimen/text_small"
                 android:textStyle="bold"
 
                 />
@@ -48,6 +48,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/team1"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/team2"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
@@ -58,7 +88,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_shape_white"
                 android:gravity="center"
-                android:hint="Player 1 name"
+                android:hint="@string/player1"
                 android:padding="10dp"
                 android:textColor="@android:color/black" />
 
@@ -69,7 +99,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_shape_white"
                 android:gravity="center"
-                android:hint="Player 3 name"
+                android:hint="@string/player3"
                 android:padding="10dp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
@@ -88,7 +118,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_shape_white"
                 android:gravity="center"
-                android:hint="Player 2 name"
+                android:hint="@string/player2"
                 android:padding="10dp"
                 android:textColor="@android:color/black" />
 
@@ -100,7 +130,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_shape_white"
                 android:gravity="center"
-                android:hint="Player 4 name"
+                android:hint="@string/player4"
                 android:padding="10dp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
@@ -155,10 +185,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:fontFamily="monospace"
-                android:text="Games"
+                android:text="@string/games"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/black"
-                android:textSize="36dp"
+                android:textSize="36sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -231,7 +261,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
             android:fontFamily="monospace"
-            android:text="Done"
+            android:text="@string/next"
 
             android:textAlignment="center"
             android:textColor="@android:color/white"

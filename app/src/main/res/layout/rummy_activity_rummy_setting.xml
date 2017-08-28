@@ -221,7 +221,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:background="@drawable/round_shape"
-            android:text="done"
+            android:text="@string/next"
             android:textColor="@color/colorPrimary" />
 
     </LinearLayout>

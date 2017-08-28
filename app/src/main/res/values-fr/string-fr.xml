@@ -18,8 +18,18 @@
     <string name="won">a gagné</string>
     <string name="only_one_belote">Une seule équipe peut avoir le Belote !</string>
     <string name="two_scores_required">Mets au moins le score d une seule équipe</string>
-    <string name="RummySetting">Parametre Rummy</string>
+    <string name="RummySetting">Rummy paramètre</string>
     <string name="leaderboard">Classement</string>
     <string name="congratulation">Félicitations !</string>
+    <string name="team1">Equipe 1</string>
+    <string name="team2">Equipe 2</string>
+    <string name="add_score">Ajouter Scores</string>
+    <string name="belote_setting">Belote paramètre</string>
+    <string name="player1">Nom Joueur 1</string>
+    <string name="player2">Nom Joueur 2</string>
+    <string name="player3">Nom Joueur 3</string>
+    <string name="player4">Nom Joueur 4</string>
+    <string name="games">Manches</string>
+    <string name="next">Suivant</string>
 
 </resources>

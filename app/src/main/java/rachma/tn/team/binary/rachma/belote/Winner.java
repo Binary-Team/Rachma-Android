@@ -3,6 +3,7 @@ package rachma.tn.team.binary.rachma.belote;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +21,9 @@ public class Winner extends AppCompatActivity {
         WinnerTeam = getIntent().getExtras().getString("WinnerTeam");
         Winner1 = getIntent().getExtras().getString("Winner1");
         Winner2 = getIntent().getExtras().getString("Winner2");
+        Log.i(WinnerTeam, "winnteam ");
+        Log.i(Winner1, "winner1 ");
+        Log.i(Winner2, "winner2 ");
 
         TextView winnerTeam = (TextView) findViewById(R.id.winnerteam);
         TextView winner1 = (TextView) findViewById(R.id.winner1);

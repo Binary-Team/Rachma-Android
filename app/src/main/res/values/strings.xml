@@ -20,4 +20,14 @@
     <string name="RummySetting">Rummy Setting</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="congratulation">Congratulations !</string>
+    <string name="team1">Team 1</string>
+    <string name="team2">Team 2</string>
+    <string name="add_score">Add Score</string>
+    <string name="belote_setting">Belote Setting</string>
+    <string name="player1">Player 1 Name</string>
+    <string name="player2">Player 2 Name</string>
+    <string name="player3">Player 3 Name</string>
+    <string name="player4">Player 3 Name</string>
+    <string name="games">Manches</string>
+    <string name="next">Next</string>
 </resources>

@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="1">
 
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Team1"
+                    android:text="@string/team1"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Team1"
+                    android:text="@string/team2"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -99,13 +99,6 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/team1player2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView"
-                        android:textColor="@color/bluebt"
-                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/team1player1"
@@ -114,6 +107,15 @@
                         android:text="TextView"
                         android:textColor="@color/bluebt"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/team1player2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textColor="@color/bluebt"
+                        android:textStyle="bold" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -249,7 +251,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
             android:padding="10dp"
-            android:text="Add Score"
+            android:text="@string/add_score"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textStyle="bold"
