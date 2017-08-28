@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.utils.LocalStorage;
 
 //Author Marwen Doukh
 
@@ -97,6 +98,8 @@ public class RummySetting extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+
                 Intent rummyScoreTaking = new Intent(getApplicationContext(), RummyScoreTaking.class);
                 rummyScoreTaking.putExtra("playersNumber", playersNumber);
                 rummyScoreTaking.putExtra("finalScore", finalScore);
@@ -109,13 +112,17 @@ public class RummySetting extends AppCompatActivity {
                         //player1
                         if (player1Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                            localStorage.savePlayerName(player1Name.getText().toString());
+                        }
                         //player2
                         if (player2Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                            localStorage.savePlayerName(player2Name.getText().toString());
+                        }
                         break;
                     case 3:
                         // if player name is empty set it to default
@@ -123,19 +130,25 @@ public class RummySetting extends AppCompatActivity {
                         //player1
                         if (player1Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                            localStorage.savePlayerName(player1Name.getText().toString());
+                        }
                         //player2
                         if (player2Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                            localStorage.savePlayerName(player2Name.getText().toString());
+                        }
 
                         //player3
                         if (player3Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("thirdPlayerName", getResources().getString(R.string.player) + "3");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+                            localStorage.savePlayerName(player3Name.getText().toString());
+                        }
 
 
                         break;
@@ -145,25 +158,33 @@ public class RummySetting extends AppCompatActivity {
                         //player1
                         if (player1Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("firstPlayerName", getResources().getString(R.string.player) + "1");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("firstPlayerName", player1Name.getText().toString());
+                            localStorage.savePlayerName(player1Name.getText().toString());
+                        }
                         //player2
                         if (player2Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("secondPlayerName", getResources().getString(R.string.player) + "2");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("secondPlayerName", player2Name.getText().toString());
+                            localStorage.savePlayerName(player2Name.getText().toString());
+                        }
 
                         //player3
                         if (player3Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("thirdPlayerName", getResources().getString(R.string.player) + "3");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("thirdPlayerName", player3Name.getText().toString());
+                            localStorage.savePlayerName(player3Name.getText().toString());
+                        }
 
                         //player4
                         if (player4Name.getText().toString().length() == 0)
                             rummyScoreTaking.putExtra("fourthPlayerName", getResources().getString(R.string.player) + "4");
-                        else
+                        else {
                             rummyScoreTaking.putExtra("fourthPlayerName", player4Name.getText().toString());
+                            localStorage.savePlayerName(player4Name.getText().toString());
+                        }
 
 
                         break;
