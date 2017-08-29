@@ -27,10 +27,10 @@ public class LocalStorageTest {
         LocalStorage localStorage = LocalStorage.getInstance(InstrumentationRegistry.getTargetContext());
 
         localStorage.savePlayerName(playerName);
-        String result = localStorage.findPlayerName(playerName);
+        String[] result = localStorage.findPlayerName(playerName);
 
 
-        assertThat(result, is(playerName));
+        assertThat(result[0], is(playerName));
 
     }
 

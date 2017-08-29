@@ -3,9 +3,12 @@ package rachma.tn.team.binary.rachma.rummy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -21,7 +24,7 @@ public class RummySetting extends AppCompatActivity {
     TextView playersNumberTV, finalScoreTV;
     ImageButton increasePlayersNumber, decreasePlayersNumber, increaseFinalScore, decreaseFinalScore;
     Button done;
-    EditText player1Name, player2Name, player3Name, player4Name;
+    AutoCompleteTextView player1Name, player2Name, player3Name, player4Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,10 @@ public class RummySetting extends AppCompatActivity {
         setContentView(R.layout.rummy_activity_rummy_setting);
 
         // players names
-        player1Name = (EditText) findViewById(R.id.player1Name);
-        player2Name = (EditText) findViewById(R.id.player2Name);
-        player3Name = (EditText) findViewById(R.id.player3Name);
-        player4Name = (EditText) findViewById(R.id.player4Name);
+        player1Name = (AutoCompleteTextView) findViewById(R.id.player1Name);
+        player2Name = (AutoCompleteTextView) findViewById(R.id.player2Name);
+        player3Name = (AutoCompleteTextView) findViewById(R.id.player3Name);
+        player4Name = (AutoCompleteTextView) findViewById(R.id.player4Name);
 
 
         done = (Button) findViewById(R.id.doneRummySetting);
@@ -91,6 +94,94 @@ public class RummySetting extends AppCompatActivity {
             }
         });
 
+
+        // autocomplete player names
+        player1Name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player1Name.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player1Name.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player2Name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player2Name.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player2Name.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player3Name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player3Name.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player3Name.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player4Name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player4Name.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player4Name.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
         // move to Rummy scoreboard

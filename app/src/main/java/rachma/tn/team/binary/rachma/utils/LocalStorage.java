@@ -122,25 +122,26 @@ public class LocalStorage extends SQLiteOpenHelper {
 
 
     // find saved player names
-    public String findPlayerName(String playerName) {
+    public String[] findPlayerName(String playerName) {
 
-        String playerNameFound = "";
+        Integer i = 0;
 
-        String FIND_PLAYER_NAME_QUERY =
-                String.format("SELECT * FROM %s WHERE %s='%s'",
-                        TABLE_PLAYERS_NAMES,
-                        PLAYER_NAME,
-                        playerName);
+        String FIND_PLAYER_NAME_QUERY = new String("SELECT * from " + TABLE_PLAYERS_NAMES + " WHERE " + PLAYER_NAME + " Like \"" + playerName + "%\" ");
+
 
         // "getReadableDatabase()" and "getWriteableDatabase()" return the same object (except under low
         // disk space scenarios)
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(FIND_PLAYER_NAME_QUERY, null);
+
+        String[] playerNamesFound = new String[cursor.getCount()];
+
         try {
             if (cursor.moveToFirst()) {
                 do {
 
-                    playerNameFound = cursor.getString(cursor.getColumnIndex(PLAYER_NAME));
+                    playerNamesFound[i] = cursor.getString(cursor.getColumnIndex(PLAYER_NAME));
+                    i++;
 
                 } while (cursor.moveToNext());
             }
@@ -151,13 +152,15 @@ public class LocalStorage extends SQLiteOpenHelper {
                 cursor.close();
             }
         }
-        return playerName;
+        return playerNamesFound;
     }
 
 
     public Boolean playerNameAlreadyExists(String playerName) {
 
-        if (findPlayerName(playerName).equals(playerName))
+        if (findPlayerName(playerName).length == 0)
+            return false;
+        else if (findPlayerName(playerName)[0].equals(playerName))
             return true;
         else
             return false;

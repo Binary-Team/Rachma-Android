@@ -105,7 +105,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/player1Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:padding="10dp"
                 android:textColor="@color/colorPrimary" />
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/player2Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
 
                 />
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/player3Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                 android:textColor="@color/colorPrimary"
                 android:visibility="gone" />
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/player4Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
