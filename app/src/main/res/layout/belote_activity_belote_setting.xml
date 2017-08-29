@@ -81,7 +81,7 @@
                 android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
-            <EditText
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/team1player1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                 android:padding="10dp"
                 android:textColor="@android:color/black" />
 
-            <EditText
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/team2player1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/team1player2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                 android:textColor="@android:color/black" />
 
 
-            <EditText
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/team2player2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

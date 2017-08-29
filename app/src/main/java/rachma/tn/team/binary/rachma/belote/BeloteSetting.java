@@ -3,13 +3,17 @@ package rachma.tn.team.binary.rachma.belote;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.utils.LocalStorage;
 
 //@Author Mohamed Amine Znaidi
 public class BeloteSetting extends AppCompatActivity {
@@ -17,7 +21,7 @@ public class BeloteSetting extends AppCompatActivity {
     TextView gamesNumberTV, pointsPerGameTV;
     Button done;
     ImageButton increaseGamesNumber, decreaseGamesNumber, increasePointsPerGame, decreasePointsPerGame;
-    EditText player1Team1, player2Team1, player1Team2, player2Team2;
+    AutoCompleteTextView player1Team1, player2Team1, player1Team2, player2Team2;
     Integer pointsPerGame = 2000, gamesNumber = 2;
 
     @Override
@@ -29,10 +33,10 @@ public class BeloteSetting extends AppCompatActivity {
         pointsPerGameTV = (TextView) findViewById(R.id.pointpergame);
         done = (Button) findViewById(R.id.doneBeloteSetting);
 
-        player1Team1 = (EditText) findViewById(R.id.team1player1);
-        player2Team1 = (EditText) findViewById(R.id.team1player2);
-        player1Team2 = (EditText) findViewById(R.id.team2player1);
-        player2Team2 = (EditText) findViewById(R.id.team2player2);
+        player1Team1 = (AutoCompleteTextView) findViewById(R.id.team1player1);
+        player2Team1 = (AutoCompleteTextView) findViewById(R.id.team1player2);
+        player1Team2 = (AutoCompleteTextView) findViewById(R.id.team2player1);
+        player2Team2 = (AutoCompleteTextView) findViewById(R.id.team2player2);
 
         increaseGamesNumber = (ImageButton) findViewById(R.id.increaseGamesNumber);
         decreaseGamesNumber = (ImageButton) findViewById(R.id.decreaseGamesNumber);
@@ -82,6 +86,97 @@ public class BeloteSetting extends AppCompatActivity {
                 }
             }
         });
+
+
+        // autocomplete player names
+
+        player1Team1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player1Team1.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player1Team1.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player2Team1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player2Team1.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player2Team1.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player1Team2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player1Team2.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player1Team2.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        player2Team2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                String[] names = localStorage.findPlayerName(player2Team2.getText().toString());
+                // Create the adapter and set it to the AutoCompleteTextView
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                player2Team2.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
