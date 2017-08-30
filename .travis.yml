@@ -13,9 +13,14 @@ android:
     - sys-img-armeabi-v7a-android-22
 script:
 - chmod +x ./gradlew
-- ./gradlew clean build
+- echo "Travis branch is $TRAVIS_BRANCH"    #Print out which branch it is.
+- echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"    #Print out pull request number.
+- android-wait-for-emulator             #Run wait for the emulator script.
+- adb devices                           #Display list of devices
+- adb shell input keyevent 82 &
+- ./gradlew connectedAndroidTest -PdisablePreDex --stacktrace
 
 licenses:
     - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
+    - 'android-sdk-license-.26'
     - 'google-gdk-license-.+'
