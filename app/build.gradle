@@ -16,8 +16,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled = true
+        }
+
     }
 }
+apply plugin: "jacoco"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

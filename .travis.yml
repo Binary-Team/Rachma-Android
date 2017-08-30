@@ -28,6 +28,8 @@ android:
         - android-25
         - android-19
         - android-21
+        - android-26
+
 
         # Additional components
         - extra-google-google_play_services
