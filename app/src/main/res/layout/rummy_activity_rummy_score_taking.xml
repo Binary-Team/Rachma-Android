@@ -1,105 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/main.appbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffea00"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/main.collapsing"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipChildren="true"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        <!--Rachma-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/rachma" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/leaderboard"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold" />
 
-            <!--  scroll|exitUntilCollapsed
-             Scoreboard sorted by higher score-->
-
-
-            <include layout="@layout/activity_choose_game_frame" />
-
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-
-        <!-- Second place -->
-
-
+        <!-- Scoreboard sorted by higher score-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            >
-        <TextView
-            android:id="@+id/secondPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:text="2"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-            <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/secondPlayer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#c8e6c9"
-                    android:gravity="center"
-                    android:text="second player"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-        </LinearLayout>
-
-
-        <!-- First place -->
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-
-            >
+            <!-- First place -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -109,7 +47,7 @@
                     android:fontFamily="serif"
                     android:text="1"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/text_small" />
 
                 <TextView
                     android:id="@+id/firstPlayer"
@@ -117,45 +55,91 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black" />
             </LinearLayout>
-        </android.support.v7.widget.CardView>
 
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:orientation="vertical">
-
-
-            <TextView
+            <!-- Second place -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="7dp"
-                android:text="@string/leaderboard"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/text_small"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-    -->
+                <TextView
+                    android:id="@+id/secondPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/secondPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <!-- Third place -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/thirdPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/thirdPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Fourth place -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fourthPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/fourthPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
 
-    <!-- separate scoreboard and score input -->
+        </LinearLayout>
 
 
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
-        >
+        <!-- separate scoreboard and score input -->
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/black" />
+
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -176,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:text="name"
                         android:textColor="@color/black"
-                        android:textSize="30sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -228,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:text="name"
                         android:textColor="@color/black"
-                        android:textSize="30sp" />
+                        android:textSize="@dimen/text_small" />
 
 
                     <LinearLayout
@@ -279,7 +263,7 @@
                         android:layout_height="wrap_content"
                         android:text="name"
                         android:textColor="@color/black"
-                        android:textSize="30sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -330,7 +314,7 @@
                         android:layout_height="wrap_content"
                         android:text="name"
                         android:textColor="@color/black"
-                        android:textSize="30sp" />
+                        android:textSize="@dimen/text_small" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -390,8 +374,10 @@
                     android:textColor="@color/white" />
 
             </LinearLayout>
+        </ScrollView>
 
-    </android.support.v4.widget.NestedScrollView>
 
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
+
