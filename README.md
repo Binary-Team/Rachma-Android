@@ -1,5 +1,6 @@
 **Build status:** master [![Build Status](https://travis-ci.org/Binary-Team/Rachma-Android.svg?branch=master)](https://travis-ci.org/Binary-Team/Rachma-Android)
-[![Coverage Status](https://coveralls.io/repos/github/Binary-Team/Rachma-Android/badge.svg?branch=master)](https://coveralls.io/github/Binary-Team/Rachma-Android?branch=master)
+[![codecov](https://codecov.io/gh/Binary-Team/Rachma-Android/branch/master/graph/badge.svg)](https://codecov.io/gh/Binary-Team/Rachma-Android)
+
 
 <br/><br/>
 <img src="/app/src/main/res/drawable/logo.png"  align=center>
