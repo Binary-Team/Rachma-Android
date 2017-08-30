@@ -34,7 +34,7 @@ import static org.hamcrest.core.IsNot.not;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class RummyScoreTakingTest {
+public class RummyScoreTaking4PlayersTest {
 
     @Rule
     public ActivityTestRule<RummyScoreTaking> mActivityRule =
@@ -43,11 +43,13 @@ public class RummyScoreTakingTest {
                 protected Intent getActivityIntent() {
                     Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
                     Intent intent = new Intent(targetContext, RummyScoreTaking.class);
-                    intent.putExtra("playersNumber", 3);
+                    intent.putExtra("playersNumber", 4);
                     intent.putExtra("finalScore", 500);
                     intent.putExtra("firstPlayerName", "A");
                     intent.putExtra("secondPlayerName", "B");
                     intent.putExtra("thirdPlayerName", "C");
+                    intent.putExtra("fourthPlayerName", "D");
+
                     return intent;
                 }
             };
@@ -56,16 +58,20 @@ public class RummyScoreTakingTest {
     @Test
     public void checkInitialGameSetup() {
 
+        onView(withId(R.id.player1nameScoreTaking)).perform(scrollTo());
         onView(ViewMatchers.withId(R.id.player1nameScoreTaking)).check(matches(isDisplayed()));
+        onView(withId(R.id.player2nameScoreTaking)).perform(scrollTo());
         onView(ViewMatchers.withId(R.id.player2nameScoreTaking)).check(matches(isDisplayed()));
+        onView(withId(R.id.player3nameScoreTaking)).perform(scrollTo());
         onView(ViewMatchers.withId(R.id.player3nameScoreTaking)).check(matches(isDisplayed()));
-        onView(ViewMatchers.withId(R.id.player4nameScoreTaking)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.player4nameScoreTaking)).perform(scrollTo());
+        onView(ViewMatchers.withId(R.id.player4nameScoreTaking)).check(matches(isDisplayed()));
 
 
         onView(ViewMatchers.withId(R.id.firstPlace)).check(matches(isDisplayed()));
         onView(ViewMatchers.withId(R.id.secondPlace)).check(matches(isDisplayed()));
         onView(ViewMatchers.withId(R.id.thirdPlace)).check(matches(isDisplayed()));
-        onView(ViewMatchers.withId(R.id.fourthPlayer)).check(matches(not(isDisplayed())));
+        onView(ViewMatchers.withId(R.id.fourthPlace)).check(matches(isDisplayed()));
 
     }
 
@@ -82,6 +88,8 @@ public class RummyScoreTakingTest {
         onView(ViewMatchers.withId(R.id.player2lost)).check(matches(isChecked()));
         onView(withId(R.id.player3lost)).perform(scrollTo(), click());
         onView(ViewMatchers.withId(R.id.player3lost)).check(matches(isChecked()));
+        onView(withId(R.id.player4lost)).perform(scrollTo(), click());
+        onView(ViewMatchers.withId(R.id.player4lost)).check(matches(isChecked()));
 
         onView(withId(R.id.saveScores)).perform(scrollTo(), click());
 
@@ -99,6 +107,8 @@ public class RummyScoreTakingTest {
         onView(ViewMatchers.withId(R.id.player2won)).check(matches(isChecked()));
         onView(withId(R.id.player3won)).perform(scrollTo(), click());
         onView(ViewMatchers.withId(R.id.player3won)).check(matches(isChecked()));
+        onView(withId(R.id.player4won)).perform(scrollTo(), click());
+        onView(ViewMatchers.withId(R.id.player4won)).check(matches(isChecked()));
 
         onView(withId(R.id.saveScores)).perform(scrollTo(), click());
 
@@ -120,6 +130,9 @@ public class RummyScoreTakingTest {
         onView(ViewMatchers.withId(R.id.player3won)).perform(scrollTo(), click());
 
         onView(withId(R.id.player3ScoreScoreTaking)).perform(typeText(String.valueOf(200)), closeSoftKeyboard());
+
+        onView(withId(R.id.player4lost)).perform(scrollTo(), click());
+        onView(ViewMatchers.withId(R.id.player4lost)).check(matches(isChecked()));
 
         onView(withId(R.id.saveScores)).perform(scrollTo(), click());
 
@@ -146,6 +159,8 @@ public class RummyScoreTakingTest {
 
         onView(withId(R.id.player3ScoreScoreTaking)).perform(scrollTo(), typeText(String.valueOf(600)), closeSoftKeyboard());
 
+        onView(withId(R.id.player4ScoreScoreTaking)).perform(scrollTo(), typeText(String.valueOf(700)), closeSoftKeyboard());
+
 
         onView(withId(R.id.saveScores)).perform(scrollTo(), click());
 
@@ -154,6 +169,7 @@ public class RummyScoreTakingTest {
         onView(ViewMatchers.withId(R.id.firstPlayer)).check(matches(withText("A -10")));
         onView(ViewMatchers.withId(R.id.secondPlayer)).check(matches(withText("B 100")));
         onView(ViewMatchers.withId(R.id.thirdPlayer)).check(matches(withText("C 600")));
+        onView(ViewMatchers.withId(R.id.fourthPlayer)).check(matches(withText("D 700")));
 
 
     }
