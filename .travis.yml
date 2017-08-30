@@ -13,3 +13,4 @@ android:
     - sys-img-armeabi-v7a-android-22
 script:
 - chmod +x ./gradlew
+- ./gradlew clean build
