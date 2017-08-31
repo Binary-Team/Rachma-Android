@@ -1,4 +1,16 @@
 version: 2
+
+dependencies:
+  cache_directories:
+    - ~/.gradle
+    - ~/.android
+
+  override:
+    - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
+    - echo y | android update sdk --no-ui --all --filter "android-22, build-tools-22.0.1"
+    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+    - echo y | android update sdk --no-ui --all --filter "extra-android-support"
+
 jobs:
   build:
     working_directory: ~/code
