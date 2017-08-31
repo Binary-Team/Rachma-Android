@@ -91,22 +91,6 @@ public class RummyScoreTaking3PlayersTest {
                 .check(matches(isDisplayed()));
 
 
-        // cheat : all the players won
-
-        onView(withId(R.id.player1won)).perform(scrollTo(), click());
-        onView(ViewMatchers.withId(R.id.player1won)).check(matches(isChecked()));
-        onView(withId(R.id.player2won)).perform(scrollTo(), click());
-        onView(ViewMatchers.withId(R.id.player2won)).check(matches(isChecked()));
-        onView(withId(R.id.player3won)).perform(scrollTo(), click());
-        onView(ViewMatchers.withId(R.id.player3won)).check(matches(isChecked()));
-
-        onView(withId(R.id.saveScores)).perform(scrollTo(), click());
-
-
-        onView(withText(R.string.cheat_all_the_players_won))
-                .inRoot(withDecorView(not(mActivityRule.getActivity().getWindow().getDecorView())))
-                .check(matches(isDisplayed()));
-
 
         // cheat : no player won
 
