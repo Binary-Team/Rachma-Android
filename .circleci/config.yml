@@ -38,21 +38,21 @@ jobs:
       - store_test_results:
           path: app/build/test-results
   test:
-   pre:
+    pre:
     # start the emulator
       - emulator -avd circleci-android22 -no-audio -no-window:
-      background: true
-      parallel: true
+          background: true
+          parallel: true
       # wait for it to have booted
-      - circle-android wait-for-boot
+          - circle-android wait-for-boot
       # unlock the emulator screen
-      - sleep 30
-      - adb shell input keyevent 82
+          - sleep 30
+          - adb shell input keyevent 82
 
-      override:
+          override:
       # run tests against the emulator.
-      - ./gradlew connectedAndroidTest -PdisablePreDex
+          - ./gradlew connectedAndroidTest -PdisablePreDex
 
   test:
     post:
-      - bash <(curl -s https://codecov.io/bash)
+          - bash <(curl -s https://codecov.io/bash)
