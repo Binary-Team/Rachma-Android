@@ -11,8 +11,8 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
     - echo y | android update sdk --no-ui --all --filter "extra-android-support"
 
-
-test:
+jobs:
+  test:
     override:
       # run tests against the emulator.
       - ./gradlew connectedAndroidTest -PdisablePreDex
@@ -26,6 +26,6 @@ test:
       - sleep 30
       - adb shell input keyevent 82
 
-test:
+  test:
     post:
           - bash <(curl -s https://codecov.io/bash)
