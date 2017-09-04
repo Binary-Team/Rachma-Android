@@ -80,7 +80,7 @@ public class BeloteSetting extends AppCompatActivity {
         decreasePointsPerGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pointsPerGame >= 100 && pointsPerGame <= 5000) {
+                if (pointsPerGame > 100 && pointsPerGame <= 5000) {
                     pointsPerGame -= 100;
                     pointsPerGameTV.setText(pointsPerGame.toString());
                 }
