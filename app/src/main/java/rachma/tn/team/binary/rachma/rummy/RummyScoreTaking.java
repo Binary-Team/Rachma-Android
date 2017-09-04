@@ -374,10 +374,10 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                         // if input is empty , ask the user to insert it
                         if (player1Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_SHORT).show();
 
                         if (player2Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_SHORT).show();
 
                         // all the inputs are not emplty ==> do next step
 
@@ -387,19 +387,19 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                             // cheat1: all the players lost the game
                             if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game
                             else if (calculateNumberOfPlayersThatWon() > 1)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_SHORT).show();
 
                                 //everything seems ok , save the scores
                             else {
@@ -421,13 +421,13 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                         // if input is empty , ask the user to insert it
                         if (player1Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_SHORT).show();
 
                         if (player2Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_SHORT).show();
 
                         if (player3Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_SHORT).show();
 
 
                         // all the inputs are not emplty ==> do next step
@@ -439,19 +439,19 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                             // cheat1: all the players lost the game
                             if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game
                             else if (calculateNumberOfPlayersThatWon() > 1)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_SHORT).show();
 
                                 //everything seems ok , save the scores
                             else {
@@ -475,16 +475,16 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                         // if input is empty , ask the user to insert it
                         if (player1Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player1Name, Toast.LENGTH_SHORT).show();
 
                         if (player2Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player2Name, Toast.LENGTH_SHORT).show();
 
                         if (player3Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player3Name, Toast.LENGTH_SHORT).show();
 
                         if (player4Score.getText().toString().length() == 0)
-                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player4Name, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getResources().getString(R.string.please_put_player_score) + " " + player4Name, Toast.LENGTH_SHORT).show();
 
 
                         // all the inputs are not emplty ==> do next step
@@ -496,19 +496,19 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                             // cheat1: all the players lost the game
                             if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100 && Integer.parseInt(player4Score.getText().toString()) == 100)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10 && Integer.parseInt(player4Score.getText().toString()) == -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
                             else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game
                             else if (calculateNumberOfPlayersThatWon() > 1)
-                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_more_than_one_player_won), Toast.LENGTH_SHORT).show();
 
 
                                 //everything seems ok , save the scores
