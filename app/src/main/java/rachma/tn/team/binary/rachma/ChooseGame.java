@@ -3,8 +3,8 @@ package rachma.tn.team.binary.rachma;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.ImageButton;
 
 import rachma.tn.team.binary.rachma.belote.BeloteSetting;
 import rachma.tn.team.binary.rachma.rummy.RummySetting;
@@ -16,8 +16,8 @@ public class ChooseGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_game);
-        ImageButton rummyBt = (ImageButton) findViewById(R.id.rummy);
-        ImageButton beloteBt = (ImageButton) findViewById(R.id.belote);
+        CardView rummyBt = (CardView) findViewById(R.id.rummy);
+        CardView beloteBt = (CardView) findViewById(R.id.belote);
 
         rummyBt.setOnClickListener(new View.OnClickListener() {
             @Override

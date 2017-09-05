@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
+                android:id="@+id/belote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -51,17 +52,13 @@
                         android:textColor="@color/white"
                         android:textSize="25sp" />
 
-                    <ImageButton
-                        android:id="@+id/belote"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="#00000000" />
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
 
             <android.support.v7.widget.CardView
+                android:id="@+id/rummy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -91,11 +88,6 @@
                         android:textColor="@color/white"
                         android:textSize="25sp" />
 
-                    <ImageButton
-                        android:id="@+id/rummy"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="#00000000" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
