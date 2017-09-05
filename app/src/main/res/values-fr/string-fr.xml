@@ -31,5 +31,6 @@
     <string name="player4">Nom Joueur 4</string>
     <string name="games">Manches</string>
     <string name="next">Suivant</string>
+    <string name="undoSaveScore">Annuler le dernier score</string>
 
 </resources>

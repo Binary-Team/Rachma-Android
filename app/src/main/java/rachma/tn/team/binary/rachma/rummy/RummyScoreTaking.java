@@ -6,6 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -39,6 +42,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     HashMap<String, Integer> totalScores = new HashMap<>();
     CheckBox player1Lost, player2Lost, player3Lost, player4Lost;
     CheckBox player1Won, player2Won, player3Won, player4Won;
+    HashMap<String, Integer> scoreOfLastRound = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +155,11 @@ public class RummyScoreTaking extends AppCompatActivity {
                 // set total score to 0
                 totalScores.put(player1Name, 0);
                 totalScores.put(player2Name, 0);
+                // set last round score to 0
+                scoreOfLastRound.put(player1Name, 0);
+                scoreOfLastRound.put(player2Name, 0);
+
+
                 //scores
                 player3Score.setVisibility(View.GONE);
                 player4Score.setVisibility(View.GONE);
@@ -180,6 +189,11 @@ public class RummyScoreTaking extends AppCompatActivity {
                 totalScores.put(player1Name, 0);
                 totalScores.put(player2Name, 0);
                 totalScores.put(player3Name, 0);
+                // set last round score to 0
+                scoreOfLastRound.put(player1Name, 0);
+                scoreOfLastRound.put(player2Name, 0);
+                scoreOfLastRound.put(player3Name, 0);
+
                 //score
                 player3Score.setVisibility(View.VISIBLE);
                 player4Score.setVisibility(View.GONE);
@@ -209,6 +223,12 @@ public class RummyScoreTaking extends AppCompatActivity {
                 totalScores.put(player2Name, 0);
                 totalScores.put(player3Name, 0);
                 totalScores.put(player4Name, 0);
+                // set last round score to 0
+                scoreOfLastRound.put(player1Name, 0);
+                scoreOfLastRound.put(player2Name, 0);
+                scoreOfLastRound.put(player3Name, 0);
+                scoreOfLastRound.put(player4Name, 0);
+
                 //scores
                 player3Score.setVisibility(View.VISIBLE);
                 player4Score.setVisibility(View.VISIBLE);
@@ -409,6 +429,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 //total score
                                 totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
                                 totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
+                                //save score of this round
+                                scoreOfLastRound.put(player1Name, Integer.parseInt(player1Score.getText().toString()));
+                                scoreOfLastRound.put(player2Name, Integer.parseInt(player2Score.getText().toString()));
                                 //sort scores
                                 scoresSorted = sortScores();
                                 //update TextViews
@@ -462,6 +485,10 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 totalScores.put(player1Name, totalScores.get(player1Name) + Integer.parseInt(player1Score.getText().toString()));
                                 totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
                                 totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
+                                //save score of this round
+                                scoreOfLastRound.put(player1Name, Integer.parseInt(player1Score.getText().toString()));
+                                scoreOfLastRound.put(player2Name, Integer.parseInt(player2Score.getText().toString()));
+                                scoreOfLastRound.put(player3Name, Integer.parseInt(player3Score.getText().toString()));
                                 //sort scores
                                 scoresSorted = sortScores();
                                 //update TextViews
@@ -522,6 +549,11 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 totalScores.put(player2Name, totalScores.get(player2Name) + Integer.parseInt(player2Score.getText().toString()));
                                 totalScores.put(player3Name, totalScores.get(player3Name) + Integer.parseInt(player3Score.getText().toString()));
                                 totalScores.put(player4Name, totalScores.get(player4Name) + Integer.parseInt(player4Score.getText().toString()));
+                                //save score of this round
+                                scoreOfLastRound.put(player1Name, Integer.parseInt(player1Score.getText().toString()));
+                                scoreOfLastRound.put(player2Name, Integer.parseInt(player2Score.getText().toString()));
+                                scoreOfLastRound.put(player3Name, Integer.parseInt(player3Score.getText().toString()));
+                                scoreOfLastRound.put(player4Name, Integer.parseInt(player4Score.getText().toString()));
                                 //sort scores
                                 scoresSorted = sortScores();
                                 //update TextViews
@@ -799,6 +831,86 @@ public class RummyScoreTaking extends AppCompatActivity {
 
         AlertDialog alert11 = alertDialog.create();
         alert11.show();
+    }
+
+
+    // option menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.rummy_score_taking_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.undo_save_score:
+                undoLastSavedScore();
+                break;
+            // action with ID action_settings was selected
+            case R.id.action_settings:
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
+
+    private void undoLastSavedScore() {
+
+        List<Map.Entry<String, Integer>> scoresSorted;
+
+        switch (playersNumber) {
+
+            case 2:
+                totalScores.put(player1Name, totalScores.get(player1Name) - scoreOfLastRound.get(player1Name));
+                totalScores.put(player2Name, totalScores.get(player2Name) - scoreOfLastRound.get(player2Name));
+                //sort scores
+                scoresSorted = sortScores();
+                //update TextViews
+                firstPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                secondPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+
+
+                break;
+            case 3:
+                totalScores.put(player1Name, totalScores.get(player1Name) - scoreOfLastRound.get(player1Name));
+                totalScores.put(player2Name, totalScores.get(player2Name) - scoreOfLastRound.get(player2Name));
+                totalScores.put(player3Name, totalScores.get(player3Name) - scoreOfLastRound.get(player3Name));
+                //sort scores
+                scoresSorted = sortScores();
+                //update TextViews
+                firstPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                thirdPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+
+                break;
+            case 4:
+                totalScores.put(player1Name, totalScores.get(player1Name) - scoreOfLastRound.get(player1Name));
+                totalScores.put(player2Name, totalScores.get(player2Name) - scoreOfLastRound.get(player2Name));
+                totalScores.put(player3Name, totalScores.get(player3Name) - scoreOfLastRound.get(player3Name));
+                totalScores.put(player4Name, totalScores.get(player4Name) - scoreOfLastRound.get(player4Name));
+                //sort scores
+                scoresSorted = sortScores();
+                //update TextViews
+                firstPlayer.setText(sortScores().get(3).getKey() + " " + scoresSorted.get(3).getValue());
+                secondPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
+                thirdPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
+                fourthPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+
+
+                break;
+
+        }
+
+
     }
 
 }

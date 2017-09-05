@@ -30,4 +30,5 @@
     <string name="player4">Player 3 Name</string>
     <string name="games">Manches</string>
     <string name="next">Next</string>
+    <string name="undoSaveScore">Undo save score</string>
 </resources>
