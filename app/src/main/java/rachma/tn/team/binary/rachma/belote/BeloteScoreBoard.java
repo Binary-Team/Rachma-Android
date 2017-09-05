@@ -10,6 +10,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -30,6 +33,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
     Integer gamesNumber, pointsPerGame, ScoreTeam1 = 0, ScoreTeam2 = 0, GamesWonTeam1 = 0, GamesWonTeam2 = 0, ScoreTeam1Entred, ScoreTeam2Entred;
     List<String> scoreListTeam1 = new ArrayList<>();
     List<String> scoreListTeam2 = new ArrayList<>();
+    CheckBox beloteTeam1, beloteTeam2;
+    EditText scoreTeam1, scoreTeam2;
     private RecyclerView recyclerView1, recyclerView2;
     private BeloteScoreboardAdapter mAdapter1, mAdapter2;
 
@@ -78,8 +83,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
         setContentView(R.layout.belote_activity_belote_score_board);
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
         final TextView gamesWonTeam2 = (TextView) findViewById(R.id.gamesWonTeam2);
-        final EditText scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
-        final EditText scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
+        scoreTeam1 = (EditText) findViewById(R.id.scoreTeam1);
+        scoreTeam2 = (EditText) findViewById(R.id.scoreTeam2);
         //get Player Names
         team1Player1 = getIntent().getExtras().getString("player1Team1");
         team1Player2 = getIntent().getExtras().getString("player2Team1");
@@ -98,8 +103,8 @@ public class BeloteScoreBoard extends AppCompatActivity {
         team1player2TV.setText(team1Player2);
         team2player1TV.setText(team2Player1);
         team2player2TV.setText(team2Player2);
-        final CheckBox beloteTeam1 = (CheckBox) findViewById(R.id.beloteTeam1);
-        final CheckBox beloteTeam2 = (CheckBox) findViewById(R.id.beloteTeam2);
+        beloteTeam1 = (CheckBox) findViewById(R.id.beloteTeam1);
+        beloteTeam2 = (CheckBox) findViewById(R.id.beloteTeam2);
 
 
         // RecyclerView
@@ -262,6 +267,54 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+
+    // option menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.rummy_score_taking_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.undo_save_score:
+                undoLastSavedScore();
+                break;
+            // action with ID action_settings was selected
+            case R.id.action_settings:
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
+
+    private void undoLastSavedScore() {
+
+        ScoreTeam1 = ScoreTeam1 - (Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 1)) - Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 2)));
+        scoreListTeam1.remove(scoreListTeam1.size() - 1);
+        mAdapter1.notifyDataSetChanged();
+        ScoreTeam2 = ScoreTeam2 - (Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 1)) - Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 2)));
+        scoreListTeam2.remove(scoreListTeam2.size() - 1);
+        mAdapter2.notifyDataSetChanged();
+        beloteTeam1.setChecked(false);
+        beloteTeam2.setChecked(false);
+        recyclerView1.smoothScrollToPosition(View.FOCUS_DOWN);
+        recyclerView2.smoothScrollToPosition(View.FOCUS_DOWN);
+        scoreTeam1.setText("");
+        scoreTeam2.setText("");
 
 
     }
