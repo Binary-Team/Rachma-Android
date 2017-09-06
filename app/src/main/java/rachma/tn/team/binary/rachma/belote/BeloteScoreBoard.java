@@ -162,7 +162,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
                     }
 
                     //Score Rules Verification
-                    if (ScoreTeam2Entred + ScoreTeam1Entred > 162 && ((ScoreTeam1Entred != 500 && ScoreTeam1Entred != 320 && ScoreTeam1Entred != 640 && ScoreTeam1Entred != 250 && ScoreTeam2Entred != 500 && ScoreTeam2Entred != 320 && ScoreTeam2Entred != 640 && ScoreTeam1Entred != 250))) {
+                    if (ScoreTeam2Entred + ScoreTeam1Entred > 162 && ((ScoreTeam1Entred != 500 && ScoreTeam1Entred != 320 && ScoreTeam1Entred != 640 && ScoreTeam1Entred != 250 && ScoreTeam2Entred != 500 && ScoreTeam2Entred != 320 && ScoreTeam2Entred != 640 && ScoreTeam2Entred != 250))) {
                         Toast.makeText(getApplicationContext(), getResources().getString(R.string.invalid_score), Toast.LENGTH_SHORT).show();
                         scoreTeam1.setText("");
                         scoreTeam2.setText("");
