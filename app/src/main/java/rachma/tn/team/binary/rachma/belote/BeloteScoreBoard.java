@@ -303,18 +303,22 @@ public class BeloteScoreBoard extends AppCompatActivity {
 
     private void undoLastSavedScore() {
 
-        ScoreTeam1 = ScoreTeam1 - (Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 1)) - Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 2)));
-        scoreListTeam1.remove(scoreListTeam1.size() - 1);
-        mAdapter1.notifyDataSetChanged();
-        ScoreTeam2 = ScoreTeam2 - (Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 1)) - Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 2)));
-        scoreListTeam2.remove(scoreListTeam2.size() - 1);
-        mAdapter2.notifyDataSetChanged();
-        beloteTeam1.setChecked(false);
-        beloteTeam2.setChecked(false);
-        recyclerView1.smoothScrollToPosition(View.FOCUS_DOWN);
-        recyclerView2.smoothScrollToPosition(View.FOCUS_DOWN);
-        scoreTeam1.setText("");
-        scoreTeam2.setText("");
+        try {
+            ScoreTeam1 = ScoreTeam1 - (Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 1)) - Integer.parseInt(scoreListTeam1.get(scoreListTeam1.size() - 2)));
+            scoreListTeam1.remove(scoreListTeam1.size() - 1);
+            mAdapter1.notifyDataSetChanged();
+            ScoreTeam2 = ScoreTeam2 - (Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 1)) - Integer.parseInt(scoreListTeam2.get(scoreListTeam2.size() - 2)));
+            scoreListTeam2.remove(scoreListTeam2.size() - 1);
+            mAdapter2.notifyDataSetChanged();
+            beloteTeam1.setChecked(false);
+            beloteTeam2.setChecked(false);
+            recyclerView1.smoothScrollToPosition(View.FOCUS_DOWN);
+            recyclerView2.smoothScrollToPosition(View.FOCUS_DOWN);
+            scoreTeam1.setText("");
+            scoreTeam2.setText("");
+        } catch (ArrayIndexOutOfBoundsException e) {
+
+        }
 
 
     }
