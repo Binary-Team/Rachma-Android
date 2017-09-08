@@ -254,8 +254,7 @@ public class RummyScoreTaking extends AppCompatActivity {
 
         HashMap<Integer, List<RummyPlayer>> scoresOfRound0 = new HashMap<Integer, List<RummyPlayer>>();
         scoresOfRound0.put(0, rummyPlayers);
-        round0.add(scoresOfRound0);
-        rummyRounds.setRounds(round0);
+        rummyRounds.setRounds(scoresOfRound0);
 
 
         // autocomplete score when lost checkbox is checked
@@ -568,13 +567,7 @@ public class RummyScoreTaking extends AppCompatActivity {
                 }
 
 
-                RummyRound previousRounds = rummyRounds;
-                HashMap<Integer, List<RummyPlayer>> scoresOfThisRound = new HashMap<Integer, List<RummyPlayer>>();
-                scoresOfThisRound.put(rummyRounds.getRounds().size(), rummyPlayers);
-
-                previousRounds.getRounds().add(scoresOfThisRound);
-                rummyRounds.setRounds(previousRounds.getRounds());
-
+                rummyRounds.addRound(rummyPlayers);
 
                 System.out.println("final socre is " + finalScore);
 
