@@ -40,4 +40,6 @@ dependencies {
     compile 'com.android.support:cardview-v7:26.0.1'
     androidTestCompile 'com.android.support:support-annotations:26.0.1'
     compile 'com.android.support:design:26.0.1'
+    //Charts
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }
