@@ -24,9 +24,6 @@
             android:name=".belote.BeloteSetting"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".rummy.RummyScoreHistory"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".belote.BeloteScoreBoard"
             android:screenOrientation="portrait" />
         <activity
