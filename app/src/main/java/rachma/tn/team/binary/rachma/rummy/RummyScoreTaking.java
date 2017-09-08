@@ -917,7 +917,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     private void scoreHistory() {
         Dialog scoreHistoryDialog = new Dialog(RummyScoreTaking.this);
         scoreHistoryDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        scoreHistoryDialog.setContentView(R.layout.rummy_activity_rummy_scoreboard);
+        scoreHistoryDialog.setContentView(R.layout.rummy_activity_rummy_score_history);
         scoreHistoryDialog.show();
 
         RecyclerView rv = (RecyclerView) scoreHistoryDialog.findViewById(R.id.recycler_view_scoreboard);
