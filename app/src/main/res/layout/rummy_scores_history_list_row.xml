@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--player 1 -->
+    <TextView
+        android:id="@+id/player1NameScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/player1ScoreScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--player 2 -->
+    <TextView
+        android:id="@+id/player2NameScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/player2ScoreScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--player 3 -->
+    <TextView
+        android:id="@+id/player3NameScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/player3ScoreScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--player 4 -->
+    <TextView
+        android:id="@+id/player4NameScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/player4ScoreScoreHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

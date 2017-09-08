@@ -288,11 +288,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
             case R.id.undo_save_score:
                 undoLastSavedScore();
                 break;
-            // action with ID action_settings was selected
-            case R.id.action_settings:
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
+
             default:
                 break;
         }

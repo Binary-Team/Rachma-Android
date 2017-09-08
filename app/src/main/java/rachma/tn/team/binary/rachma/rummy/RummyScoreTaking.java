@@ -1,15 +1,21 @@
 package rachma.tn.team.binary.rachma.rummy;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,6 +31,7 @@ import java.util.Map;
 import java.util.Set;
 
 import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.adapter.RummyScoreHistoryAdapter;
 import rachma.tn.team.binary.rachma.entity.RummyPlayer;
 import rachma.tn.team.binary.rachma.entity.RummyRound;
 
@@ -844,9 +851,8 @@ public class RummyScoreTaking extends AppCompatActivity {
                 undoLastSavedScore();
                 break;
             // action with ID action_settings was selected
-            case R.id.action_settings:
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
+            case R.id.score_history:
+                scoreHistory();
                 break;
             default:
                 break;
@@ -854,6 +860,7 @@ public class RummyScoreTaking extends AppCompatActivity {
 
         return true;
     }
+
 
 
     private void undoLastSavedScore() {
@@ -905,5 +912,28 @@ public class RummyScoreTaking extends AppCompatActivity {
 
 
     }
+
+
+    private void scoreHistory() {
+        Dialog scoreHistoryDialog = new Dialog(RummyScoreTaking.this);
+        scoreHistoryDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        scoreHistoryDialog.setContentView(R.layout.rummy_activity_rummy_scoreboard);
+        scoreHistoryDialog.show();
+
+        RecyclerView rv = (RecyclerView) scoreHistoryDialog.findViewById(R.id.recycler_view_scoreboard);
+        rv.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        rv.setLayoutManager(mLayoutManager);
+        rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        rv.setItemAnimator(new DefaultItemAnimator());
+        RummyScoreHistoryAdapter rummyScoreHistoryAdapter = new RummyScoreHistoryAdapter(rummyRounds, playersNumber);
+        rummyScoreHistoryAdapter.notifyDataSetChanged();
+        rv.setAdapter(rummyScoreHistoryAdapter);
+
+
+        rummyScoreHistoryAdapter.notifyDataSetChanged();
+
+    }
+
 
 }

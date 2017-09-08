@@ -6,8 +6,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,7 @@ import rachma.tn.team.binary.rachma.adapter.BeloteScoreboardAdapter;
 
 //Author Marwen Doukh
 
-public class RummyScoreboard extends AppCompatActivity {
+public class RummyScoreHistory extends AppCompatActivity {
 
     Integer playersNumber;
 
@@ -44,24 +42,9 @@ public class RummyScoreboard extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        // add score
-        Button addScore = (Button) findViewById(R.id.addScore);
-        addScore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scoreList.add("score1");
-                mAdapter.notifyDataSetChanged();
-            }
-        });
 
 
-        /*
-        for (int i =0; i<rummyRounds.getRounds().size();i++) {
 
-                    System.out.println("round "+rummyRounds.getRounds().get(i));
-                }
-
-                */
     }
 }
 

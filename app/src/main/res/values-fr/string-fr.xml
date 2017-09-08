@@ -32,5 +32,7 @@
     <string name="games">Manches</string>
     <string name="next">Suivant</string>
     <string name="undoSaveScore">Annuler le dernier score</string>
+    <string name="score_history">Historique du score</string>
+    <string name="score_keeping">sauvegarde du score</string>
 
 </resources>

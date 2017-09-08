@@ -8,8 +8,10 @@
         android:title="@string/undoSaveScore"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"></item>
+        android:id="@+id/score_history"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="@string/score_history"
+        app:showAsAction="always" />
 
 </menu>
 
