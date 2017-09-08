@@ -1,6 +1,5 @@
 package rachma.tn.team.binary.rachma.rummy;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -108,12 +107,12 @@ public class ScoreStats extends AppCompatActivity {
             } else if (RummyScoreTaking.playersNumber == 4) {
                 //player3
                 player3lineDataSet = new LineDataSet(player3, RummyScoreTaking.player3Name);
-                player3lineDataSet.setColor(ContextCompat.getColor(getApplicationContext(), R.color.player4_chart_color));
-                player3lineDataSet.setCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.player4_chart_color));
+                player3lineDataSet.setColor(ContextCompat.getColor(getApplicationContext(), R.color.player3_chart_color));
+                player3lineDataSet.setCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.player3_chart_color));
                 //player4
                 player4lineDataSet = new LineDataSet(player4, RummyScoreTaking.player4Name);
-                player4lineDataSet.setColor(Color.GREEN);
-                player4lineDataSet.setCircleColor(Color.GREEN);
+                player4lineDataSet.setColor(ContextCompat.getColor(getApplicationContext(), R.color.player4_chart_color));
+                player4lineDataSet.setCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.player4_chart_color));
             }
 
             ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
