@@ -38,13 +38,13 @@ import rachma.tn.team.binary.rachma.entity.RummyRound;
 public class RummyScoreTaking extends AppCompatActivity {
 
     static RummyRound rummyRounds;
+    static Integer playersNumber;
+    static String player1Name, player2Name, player3Name, player4Name;
     EditText player1Score, player2Score, player3Score, player4Score;
     TextView firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     TextView player1nameTV, player2nameTV, player3nameTV, player4nameTV;
     TextView firstPlaceTV, secondPlaceTV, thirdPlaceTV, fourthPlaceTV;
     Button saveScore;
-    Integer playersNumber;
-    String player1Name, player2Name, player3Name, player4Name;
     Integer finalScore;
     HashMap<String, Integer> totalScores = new HashMap<>();
     CheckBox player1Lost, player2Lost, player3Lost, player4Lost;
@@ -846,13 +846,14 @@ public class RummyScoreTaking extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // action with ID action_refresh was selected
             case R.id.undo_save_score:
                 undoLastSavedScore();
                 break;
-            // action with ID action_settings was selected
             case R.id.score_history:
                 scoreHistory();
+                break;
+            case R.id.score_stats:
+                startActivity(new Intent(getApplicationContext(), ScoreStats.class));
                 break;
             default:
                 break;

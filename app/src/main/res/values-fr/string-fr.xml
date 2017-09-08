@@ -34,5 +34,6 @@
     <string name="undoSaveScore">Annuler le dernier score</string>
     <string name="score_history">Historique du score</string>
     <string name="score_keeping">sauvegarde du score</string>
+    <string name="score_stats">Statisques des scores</string>
 
 </resources>

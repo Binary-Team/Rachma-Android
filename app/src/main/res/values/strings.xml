@@ -33,4 +33,5 @@
     <string name="undoSaveScore">Undo save score</string>
     <string name="score_history">Score history</string>
     <string name="score_keeping">Score keeping</string>
+    <string name="score_stats">Score stats</string>
 </resources>

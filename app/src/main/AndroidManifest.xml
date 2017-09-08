@@ -36,7 +36,12 @@
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".rummy.RummyGameEnded"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".rummy.ScoreStats"
+            android:label="@string/score_stats"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
