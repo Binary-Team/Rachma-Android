@@ -2,10 +2,13 @@ package rachma.tn.team.binary.rachma.rummy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -17,7 +20,7 @@ import rachma.tn.team.binary.rachma.utils.LocalStorage;
 
 //Author Marwen Doukh
 
-public class RummySetting extends AppCompatActivity {
+public class RummySetting extends Fragment {
 
     Integer playersNumber = 2;
     Integer finalScore = 500;
@@ -27,25 +30,37 @@ public class RummySetting extends AppCompatActivity {
     AutoCompleteTextView player1Name, player2Name, player3Name, player4Name;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.rummy_activity_rummy_setting);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View mView = inflater.inflate(R.layout.rummy_activity_rummy_setting, null);
         // players names
-        player1Name = (AutoCompleteTextView) findViewById(R.id.player1Name);
-        player2Name = (AutoCompleteTextView) findViewById(R.id.player2Name);
-        player3Name = (AutoCompleteTextView) findViewById(R.id.player3Name);
-        player4Name = (AutoCompleteTextView) findViewById(R.id.player4Name);
+        player1Name = (AutoCompleteTextView) mView.findViewById(R.id.player1Name);
+        player2Name = (AutoCompleteTextView) mView.findViewById(R.id.player2Name);
+        player3Name = (AutoCompleteTextView) mView.findViewById(R.id.player3Name);
+        player4Name = (AutoCompleteTextView) mView.findViewById(R.id.player4Name);
 
-
-        done = (Button) findViewById(R.id.doneRummySetting);
-
-
+        done = (Button) mView.findViewById(R.id.doneRummySetting);
 
         // Increase/Decrease players number
-        playersNumberTV = (TextView) findViewById(R.id.playersNumber);
-        increasePlayersNumber = (ImageButton) findViewById(R.id.increasePlayersNumber);
-        decreasePlayersNumber = (ImageButton) findViewById(R.id.decreasePlayersNumber);
+        playersNumberTV = (TextView) mView.findViewById(R.id.playersNumber);
+        increasePlayersNumber = (ImageButton) mView.findViewById(R.id.increasePlayersNumber);
+        decreasePlayersNumber = (ImageButton) mView.findViewById(R.id.decreasePlayersNumber);
+        // final score
+
+        finalScoreTV = (TextView) mView.findViewById(R.id.finalScore);
+        increaseFinalScore = (ImageButton) mView.findViewById(R.id.increaseFinalScore);
+        decreaseFinalScore = (ImageButton) mView.findViewById(R.id.decreaseFinalScore);
+
+        return mView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+
 
         increasePlayersNumber.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +85,7 @@ public class RummySetting extends AppCompatActivity {
         });
 
 
-        // final score
 
-        finalScoreTV = (TextView) findViewById(R.id.finalScore);
-        increaseFinalScore = (ImageButton) findViewById(R.id.increaseFinalScore);
-        decreaseFinalScore = (ImageButton) findViewById(R.id.decreaseFinalScore);
 
         increaseFinalScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,10 +115,10 @@ public class RummySetting extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                LocalStorage localStorage = LocalStorage.getInstance(getActivity());
                 String[] names = localStorage.findPlayerName(player1Name.getText().toString());
                 // Create the adapter and set it to the AutoCompleteTextView
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
                 player1Name.setAdapter(adapter);
             }
 
@@ -126,10 +137,10 @@ public class RummySetting extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                LocalStorage localStorage = LocalStorage.getInstance(getActivity());
                 String[] names = localStorage.findPlayerName(player2Name.getText().toString());
                 // Create the adapter and set it to the AutoCompleteTextView
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
                 player2Name.setAdapter(adapter);
             }
 
@@ -148,10 +159,10 @@ public class RummySetting extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                LocalStorage localStorage = LocalStorage.getInstance(getActivity());
                 String[] names = localStorage.findPlayerName(player3Name.getText().toString());
                 // Create the adapter and set it to the AutoCompleteTextView
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
                 player3Name.setAdapter(adapter);
             }
 
@@ -170,10 +181,10 @@ public class RummySetting extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                LocalStorage localStorage = LocalStorage.getInstance(getActivity());
                 String[] names = localStorage.findPlayerName(player4Name.getText().toString());
                 // Create the adapter and set it to the AutoCompleteTextView
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.player_names_suggestion, R.id.playerNameSuggestion, names);
                 player4Name.setAdapter(adapter);
             }
 
@@ -189,9 +200,9 @@ public class RummySetting extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                LocalStorage localStorage = LocalStorage.getInstance(getApplicationContext());
+                LocalStorage localStorage = LocalStorage.getInstance(getActivity());
 
-                Intent rummyScoreTaking = new Intent(getApplicationContext(), RummyScoreTaking.class);
+                Intent rummyScoreTaking = new Intent(getActivity(), RummyScoreTaking.class);
                 rummyScoreTaking.putExtra("playersNumber", playersNumber);
                 rummyScoreTaking.putExtra("finalScore", finalScore);
 
