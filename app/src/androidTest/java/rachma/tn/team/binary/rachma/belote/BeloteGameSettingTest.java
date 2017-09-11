@@ -20,7 +20,7 @@ import rachma.tn.team.binary.rachma.MainActivity;
 public class BeloteGameSettingTest {
 
     @Rule
-    public ActivityTestRule<BeloteSetting> mActivityRule =
+    public ActivityTestRule<MainActivity> mActivityRule =
             new ActivityTestRule(MainActivity.class);
 
     @Test
