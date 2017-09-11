@@ -20,6 +20,12 @@
             android:layout_height="wrap_content"
             android:text="belote" />
 
+        <TextView
+            android:id="@+id/settings_navigation_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="settings" />
+
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

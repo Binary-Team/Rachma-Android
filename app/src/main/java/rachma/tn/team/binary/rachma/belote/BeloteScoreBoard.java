@@ -4,6 +4,7 @@ package rachma.tn.team.binary.rachma.belote;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -37,6 +38,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
     EditText scoreTeam1, scoreTeam2;
     private RecyclerView recyclerView1, recyclerView2;
     private BeloteScoreboardAdapter mAdapter1, mAdapter2;
+
 
     @Override
     public void onBackPressed() {
@@ -79,6 +81,12 @@ public class BeloteScoreBoard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.belote_activity_belote_score_board);
         final TextView gamesWonTeam1 = (TextView) findViewById(R.id.gamesWonTeam1);
@@ -288,7 +296,9 @@ public class BeloteScoreBoard extends AppCompatActivity {
             case R.id.undo_save_score:
                 undoLastSavedScore();
                 break;
-
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             default:
                 break;
         }
@@ -315,7 +325,5 @@ public class BeloteScoreBoard extends AppCompatActivity {
         } catch (ArrayIndexOutOfBoundsException e) {
 
         }
-
-
     }
 }

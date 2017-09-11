@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -55,6 +56,11 @@ public class RummyScoreTaking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rummy_activity_rummy_score_taking);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
         // get final score
         finalScore = getIntent().getExtras().getInt("finalScore");
@@ -855,6 +861,9 @@ public class RummyScoreTaking extends AppCompatActivity {
             case R.id.score_stats:
                 startActivity(new Intent(getApplicationContext(), ScoreStats.class));
                 break;
+            case android.R.id.home:
+                onBackPressed();
+
             default:
                 break;
         }
