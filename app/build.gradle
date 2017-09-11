@@ -32,20 +32,21 @@ dependencies {
     // Testing-only dependencies
     // CardView
     //Charts
-    compile 'com.android.support:appcompat-v7:26.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:recyclerview-v7:26.0.1'
-    compile 'com.android.support:cardview-v7:26.0.1'
-    compile 'com.android.support:design:26.0.1'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test:runner:1.0.0'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-contrib:3.0.0') {
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support'
         exclude module: 'support-annotations'
         exclude module: 'recyclerview-v7'
     }
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:26.0.1'
+    compile 'com.android.support:cardview-v7:26.0.1'
+    compile 'com.android.support:design:26.0.1'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.android.support:support-v4:26.0.1'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:1.0.0'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.0'
     androidTestCompile 'com.android.support:support-annotations:26.0.1'
 }

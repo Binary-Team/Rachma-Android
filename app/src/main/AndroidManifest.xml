@@ -19,12 +19,11 @@
         <activity android:name=".ChooseGame">
 
         </activity>
+
         <activity
-            android:name=".rummy.RummySetting"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".belote.BeloteSetting"
-            android:screenOrientation="portrait" />
+            android:name=".SettingsActivity"
+            android:label="@string/settings" />
+
         <activity
             android:name=".belote.BeloteScoreBoard"
             android:screenOrientation="portrait" />

@@ -35,5 +35,13 @@
     <string name="score_history">Historique du score</string>
     <string name="score_keeping">sauvegarde du score</string>
     <string name="score_stats">Statisques des scores</string>
+    <string name="preferences_rummy">Rummy</string>
+    <string name="preferences_winner_score">Score du vainquer</string>
+    <string name="pref_summary_winner_score">Le score a attribuer au vainquer</string>
+    <string name="preferences_loser_score">Score du perdant</string>
+    <string name="pref_summary_loser_score">Le score a attribuer au perdant</string>
+    <string name="preferences_default_rummy_final_score">Le score final par defaut</string>
+    <string name="pref_summary_default_rummy_final_score">Le score final a attribuer par defaut</string>
+    <string name="settings">Parametres</string>
 
 </resources>

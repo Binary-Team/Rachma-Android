@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/preferences_rummy">
+        <EditTextPreference
+            android:defaultValue="-10"
+            android:key="winner_score"
+            android:summary="@string/pref_summary_winner_score"
+            android:title="@string/preferences_winner_score" />
+
+        <EditTextPreference
+            android:defaultValue="100"
+            android:key="loser_score"
+            android:summary="@string/pref_summary_loser_score"
+            android:title="@string/preferences_loser_score" />
+
+        <EditTextPreference
+            android:defaultValue="100"
+            android:key="defaut_rummy_final_score"
+            android:summary="@string/pref_summary_default_rummy_final_score"
+            android:title="@string/preferences_default_rummy_final_score" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
+
