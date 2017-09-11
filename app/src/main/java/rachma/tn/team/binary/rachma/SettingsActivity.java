@@ -6,6 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    public final static String RUMMY_WINNER_SCORE = "rummy_winner_score";
+    public final static String RUMMY_LOSER_SCORE = "rummy_loser_score";
+    public final static String RUMMY_DEFAULT_FINAL_SCORE = "rummy_defaut_final_score";
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

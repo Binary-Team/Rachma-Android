@@ -3,8 +3,10 @@ package rachma.tn.team.binary.rachma.rummy;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +34,7 @@ import java.util.Map;
 import java.util.Set;
 
 import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.SettingsActivity;
 import rachma.tn.team.binary.rachma.adapter.RummyScoreHistoryAdapter;
 import rachma.tn.team.binary.rachma.entity.RummyPlayer;
 import rachma.tn.team.binary.rachma.entity.RummyRound;
@@ -51,7 +54,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     CheckBox player1Lost, player2Lost, player3Lost, player4Lost;
     CheckBox player1Won, player2Won, player3Won, player4Won;
     HashMap<String, Integer> scoreOfLastRound = new HashMap<>();
-
+    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,8 @@ public class RummyScoreTaking extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         // get final score
         finalScore = getIntent().getExtras().getInt("finalScore");
@@ -277,7 +282,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player1Lost.isChecked()) {
-                    player1Score.setText("100");
+                    player1Score.setText(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"));
                     player1Score.setEnabled(false);
                     player1Won.setChecked(false);
                 } else
@@ -292,7 +297,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player2Lost.isChecked()) {
-                    player2Score.setText("100");
+                    player2Score.setText(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"));
                     player2Score.setEnabled(false);
                     player2Won.setChecked(false);
                 } else
@@ -307,7 +312,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player3Lost.isChecked()) {
-                    player3Score.setText("100");
+                    player3Score.setText(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"));
                     player3Score.setEnabled(false);
                     player3Won.setChecked(false);
                 } else
@@ -322,7 +327,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player4Lost.isChecked()) {
-                    player4Score.setText("100");
+                    player4Score.setText(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"));
                     player4Score.setEnabled(false);
                     player4Won.setChecked(false);
                 } else
@@ -339,7 +344,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player1Won.isChecked()) {
-                    player1Score.setText("-10");
+                    player1Score.setText(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"));
                     player1Score.setEnabled(false);
                     player1Lost.setChecked(false);
                 } else
@@ -353,7 +358,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player2Won.isChecked()) {
-                    player2Score.setText("-10");
+                    player2Score.setText(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"));
                     player2Score.setEnabled(false);
                     player2Lost.setChecked(false);
                 } else
@@ -367,7 +372,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player3Won.isChecked()) {
-                    player3Score.setText("-10");
+                    player3Score.setText(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"));
                     player3Score.setEnabled(false);
                     player3Lost.setChecked(false);
                 } else
@@ -381,7 +386,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (player4Won.isChecked()) {
-                    player4Score.setText("-10");
+                    player4Score.setText(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"));
                     player4Score.setEnabled(false);
                     player4Lost.setChecked(false);
                 } else
@@ -418,15 +423,18 @@ public class RummyScoreTaking extends AppCompatActivity {
                             // check if there is cheat
 
                             // cheat1: all the players lost the game
-                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100)
+                            if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game
@@ -467,21 +475,29 @@ public class RummyScoreTaking extends AppCompatActivity {
 
                         // all the inputs are not emplty ==> do next step
 
-                        if (player1Score.getText().toString().length() != 0 && player2Score.getText().toString().length() != 0 && player3Score.getText().toString().length() != 0) {
+                        if (player1Score.getText().toString().length() != 0
+                                && player2Score.getText().toString().length() != 0
+                                && player3Score.getText().toString().length() != 0) {
 
 
                             // check if there is cheat
 
                             // cheat1: all the players lost the game
-                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100)
+                            if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player3Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player3Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player3Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game
@@ -534,15 +550,24 @@ public class RummyScoreTaking extends AppCompatActivity {
                             // check if there is cheat
 
                             // cheat1: all the players lost the game
-                            if (Integer.parseInt(player1Score.getText().toString()) == 100 && Integer.parseInt(player2Score.getText().toString()) == 100 && Integer.parseInt(player3Score.getText().toString()) == 100 && Integer.parseInt(player4Score.getText().toString()) == 100)
+                            if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player3Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100"))
+                                    && Integer.parseInt(player4Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_LOSER_SCORE, "100")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_lost), Toast.LENGTH_SHORT).show();
 
                                 // cheat2: all the players won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) == -10 && Integer.parseInt(player2Score.getText().toString()) == -10 && Integer.parseInt(player3Score.getText().toString()) == -10 && Integer.parseInt(player4Score.getText().toString()) == -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player3Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player4Score.getText().toString()) == Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_all_the_players_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat3: no player won the game
-                            else if (Integer.parseInt(player1Score.getText().toString()) != -10 && Integer.parseInt(player2Score.getText().toString()) != -10 && Integer.parseInt(player3Score.getText().toString()) != -10 && Integer.parseInt(player4Score.getText().toString()) != -10)
+                            else if (Integer.parseInt(player1Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player2Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player3Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10"))
+                                    && Integer.parseInt(player4Score.getText().toString()) != Integer.parseInt(sharedPref.getString(SettingsActivity.RUMMY_WINNER_SCORE, "-10")))
                                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.cheat_no_player_won), Toast.LENGTH_SHORT).show();
 
                                 // cheat4: more than one player won the game

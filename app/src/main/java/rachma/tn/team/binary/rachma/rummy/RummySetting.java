@@ -1,7 +1,9 @@
 package rachma.tn.team.binary.rachma.rummy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -16,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import rachma.tn.team.binary.rachma.R;
+import rachma.tn.team.binary.rachma.SettingsActivity;
 import rachma.tn.team.binary.rachma.utils.LocalStorage;
 
 //Author Marwen Doukh
@@ -28,6 +31,7 @@ public class RummySetting extends Fragment {
     ImageButton increasePlayersNumber, decreasePlayersNumber, increaseFinalScore, decreaseFinalScore;
     Button done;
     AutoCompleteTextView player1Name, player2Name, player3Name, player4Name;
+    SharedPreferences sharedPref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,9 +62,10 @@ public class RummySetting extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-
-
+        // set final score to default value from shared pref
+        finalScoreTV.setText(sharedPref.getString(SettingsActivity.RUMMY_DEFAULT_FINAL_SCORE, "500"));
 
         increasePlayersNumber.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +88,6 @@ public class RummySetting extends Fragment {
 
             }
         });
-
-
 
 
         increaseFinalScore.setOnClickListener(new View.OnClickListener() {
@@ -298,7 +301,6 @@ public class RummySetting extends Fragment {
             }
 
         });
-
 
 
     }
