@@ -45,4 +45,5 @@
     <string name="rummy">Rummy</string>
     <string name="belote">Belote</string>
     <string name="games_navigation_drawer">Games</string>
+    <string name="home">Home</string>
 </resources>
