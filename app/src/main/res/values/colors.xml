@@ -12,4 +12,6 @@
     <color name="player2_chart_color">#4caf50</color>
     <color name="player3_chart_color">#ef6c00</color>
     <color name="player4_chart_color">#6d4c41</color>
+    <color name="menu_rummy_color">#2D566B</color>
+    <color name="menu_belote_color">#227585</color>
 </resources>

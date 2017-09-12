@@ -43,5 +43,6 @@
     <string name="preferences_default_rummy_final_score">Le score final par defaut</string>
     <string name="pref_summary_default_rummy_final_score">Le score final a attribuer par defaut</string>
     <string name="settings">Parametres</string>
+    <string name="games_navigation_drawer">Jeux</string>
 
 </resources>

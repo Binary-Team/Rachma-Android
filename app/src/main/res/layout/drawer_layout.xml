@@ -4,21 +4,76 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/games_navigation_drawer"
+        android:textSize="20sp" />
+
+    <!-- Rummy -->
+    <LinearLayout
         android:id="@+id/rummy_navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="rummy" />
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <TextView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_circle_rummy_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/rummy" />
+    </LinearLayout>
+
+    <!-- Belote -->
+    <LinearLayout
         android:id="@+id/belote_navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="belote" />
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <TextView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_circle_belote_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/belote" />
+    </LinearLayout>
+
+    <!-- Settings -->
+    <LinearLayout
         android:id="@+id/settings_navigation_drawer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="settings" />
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_settings_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/settings" />
+    </LinearLayout>
+
 
 </LinearLayout>

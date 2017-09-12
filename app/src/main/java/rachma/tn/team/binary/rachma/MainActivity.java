@@ -11,14 +11,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import rachma.tn.team.binary.rachma.belote.BeloteSetting;
 import rachma.tn.team.binary.rachma.rummy.RummySetting;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView rummy, belote, settings;
+    LinearLayout rummy, belote, settings;
     ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
 
@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 
-        rummy = (TextView) findViewById(R.id.rummy_navigation_drawer);
-        belote = (TextView) findViewById(R.id.belote_navigation_drawer);
-        settings = (TextView) findViewById(R.id.settings_navigation_drawer);
+        rummy = (LinearLayout) findViewById(R.id.rummy_navigation_drawer);
+        belote = (LinearLayout) findViewById(R.id.belote_navigation_drawer);
+        settings = (LinearLayout) findViewById(R.id.settings_navigation_drawer);
 
         rummy.setOnClickListener(new View.OnClickListener() {
             @Override
