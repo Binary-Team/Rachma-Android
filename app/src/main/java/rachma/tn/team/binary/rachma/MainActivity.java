@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setActiveMenu(LinearLayout activeLinearLayout) {
-        activeLinearLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
+        activeLinearLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
     }
 
     private void setInctiveMenu(LinearLayout InactiveLinearLayout) {
