@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/undo_save_score"
+        android:icon="@drawable/ic_undo_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/undoSaveScore"
+        app:showAsAction="always" />
+
+    
+    <item
+        android:id="@+id/score_stats"
+        android:icon="@drawable/ic_show_chart_24dp"
+        android:title="@string/score_stats"
+        app:showAsAction="always" />
+
+</menu>
+

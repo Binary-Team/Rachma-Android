@@ -285,7 +285,7 @@ public class BeloteScoreBoard extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.rummy_score_taking_menu, menu);
+        inflater.inflate(R.menu.belote_score_taking_menu, menu);
         return true;
     }
 
