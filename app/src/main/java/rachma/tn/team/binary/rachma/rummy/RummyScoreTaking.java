@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import rachma.tn.team.binary.rachma.R;
 import rachma.tn.team.binary.rachma.SettingsActivity;
@@ -44,6 +48,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     static RummyRound rummyRounds;
     static Integer playersNumber;
     static String player1Name, player2Name, player3Name, player4Name;
+    static TextView stopwatchTV;
     EditText player1Score, player2Score, player3Score, player4Score;
     TextView firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     TextView player1nameTV, player2nameTV, player3nameTV, player4nameTV;
@@ -723,6 +728,10 @@ public class RummyScoreTaking extends AppCompatActivity {
             }
         });
 
+        // start the stopwatch
+        stopwatchTV = (TextView) findViewById(R.id.stopwatch_rummy_scoretaking);
+        startStopWatch();
+
     }
 
 
@@ -970,5 +979,48 @@ public class RummyScoreTaking extends AppCompatActivity {
 
     }
 
+
+    public void changeStopWatchValue(final String elapsedTime) {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // This code will always run on the UI thread, therefore is safe to modify UI elements.
+                stopwatchTV.setText(elapsedTime);
+            }
+        });
+    }
+
+    public void startStopWatch() {
+
+        final long start = SystemClock.uptimeMillis();
+
+        Thread thread = new Thread(new Runnable() {
+
+            public void run() {
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    public void run() {
+                        Log.i("stopwatch", "stopwatch started");
+                        long millis = SystemClock.uptimeMillis() - start;
+                        int seconds = (int) (millis / 1000);
+                        int minutes = seconds / 60;
+                        seconds = seconds % 60;
+
+                        if (seconds < 10) {
+                            // This code will always run on the UI thread, therefore is safe to modify UI elements.
+                            changeStopWatchValue("" + minutes + ":0" + seconds);
+
+                        } else {
+                            changeStopWatchValue("" + minutes + ":" + seconds);
+                        }
+                    }
+                }, 0, 1000);
+
+            }
+        });
+
+        thread.start();
+    }
 
 }
