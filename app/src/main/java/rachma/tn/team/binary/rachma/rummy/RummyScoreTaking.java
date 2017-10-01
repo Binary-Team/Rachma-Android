@@ -42,6 +42,7 @@ import rachma.tn.team.binary.rachma.SettingsActivity;
 import rachma.tn.team.binary.rachma.adapter.RummyScoreHistoryAdapter;
 import rachma.tn.team.binary.rachma.entity.RummyPlayer;
 import rachma.tn.team.binary.rachma.entity.RummyRound;
+import rachma.tn.team.binary.rachma.utils.RoundCalculations;
 
 public class RummyScoreTaking extends AppCompatActivity {
 
@@ -53,6 +54,7 @@ public class RummyScoreTaking extends AppCompatActivity {
     TextView firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     TextView player1nameTV, player2nameTV, player3nameTV, player4nameTV;
     TextView firstPlaceTV, secondPlaceTV, thirdPlaceTV, fourthPlaceTV;
+    TextView roundProgress;
     Button saveScore;
     Integer finalScore;
     HashMap<String, Integer> totalScores = new HashMap<>();
@@ -97,6 +99,8 @@ public class RummyScoreTaking extends AppCompatActivity {
         thirdPlaceTV = (TextView) findViewById(R.id.thirdPlace);
         fourthPlaceTV = (TextView) findViewById(R.id.fourthPlace);
 
+        // round progress textview
+        roundProgress = (TextView) findViewById(R.id.round_progress_rummy_scoretaking);
 
         // get players names
         switch (playersNumber) {
@@ -400,6 +404,7 @@ public class RummyScoreTaking extends AppCompatActivity {
             }
         });
 
+
         // save score Button
         saveScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -462,6 +467,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 //update TextViews
                                 firstPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
                                 secondPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                                // caculate round progress
+                                RoundCalculations roundCalculations = new RoundCalculations();
+                                roundProgress.setText(new RoundCalculations().calculateRoundProgress(sortScores(), finalScore) + "%");
                             }
                         }
                         break;
@@ -528,6 +536,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 firstPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
                                 secondPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
                                 thirdPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                                // caculate round progress
+                                RoundCalculations roundCalculations = new RoundCalculations();
+                                roundProgress.setText(new RoundCalculations().calculateRoundProgress(sortScores(), finalScore) + "%");
                             }
                         }
                         break;
@@ -603,6 +614,9 @@ public class RummyScoreTaking extends AppCompatActivity {
                                 secondPlayer.setText(sortScores().get(2).getKey() + " " + scoresSorted.get(2).getValue());
                                 thirdPlayer.setText(sortScores().get(1).getKey() + " " + scoresSorted.get(1).getValue());
                                 fourthPlayer.setText(sortScores().get(0).getKey() + " " + scoresSorted.get(0).getValue());
+                                // caculate round progress
+                                RoundCalculations roundCalculations = new RoundCalculations();
+                                roundProgress.setText(new RoundCalculations().calculateRoundProgress(sortScores(), finalScore) + "%");
                             }
                         }
                         break;

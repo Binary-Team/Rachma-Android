@@ -24,6 +24,13 @@
             android:text="01:23" />
 
         <TextView
+            android:id="@+id/round_progress_rummy_scoretaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0%" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
