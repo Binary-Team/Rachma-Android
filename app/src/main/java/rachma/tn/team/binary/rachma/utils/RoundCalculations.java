@@ -1,6 +1,7 @@
 package rachma.tn.team.binary.rachma.utils;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by marwen on 10/1/17.
@@ -8,19 +9,19 @@ import java.util.List;
 
 public class RoundCalculations {
 
-    private Float calculateRoundProgress(List<Integer> scores, Integer finalScore) {
+    public Float calculateRoundProgress(List<Map.Entry<String, Integer>> scoresSorted, Integer finalScore) {
 
         Float roundProgress = new Float(0);
 
-        switch (scores.size()) {
+        switch (scoresSorted.size()) {
             case 2:
-                roundProgress = finalScore / scores.get(0).floatValue();
+                roundProgress = ((float) scoresSorted.get(0).getValue() / finalScore) * 100;
                 break;
             case 3:
-                roundProgress = finalScore / scores.get(1).floatValue();
+                roundProgress = ((float) scoresSorted.get(1).getValue() / finalScore) * 100;
                 break;
             case 4:
-                roundProgress = finalScore / scores.get(2).floatValue();
+                roundProgress = ((float) scoresSorted.get(2).getValue() / finalScore) * 100;
                 break;
         }
 
