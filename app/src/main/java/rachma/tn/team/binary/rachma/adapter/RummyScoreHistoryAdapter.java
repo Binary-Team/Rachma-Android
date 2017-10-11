@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rachma.tn.team.binary.rachma.R;
@@ -34,6 +35,8 @@ public class RummyScoreHistoryAdapter extends RecyclerView.Adapter<RummyScoreHis
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+
+        holder.roundNumber.setText(String.valueOf(position + 1));
 
         switch (playersNumber) {
 
@@ -76,9 +79,13 @@ public class RummyScoreHistoryAdapter extends RecyclerView.Adapter<RummyScoreHis
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView player1Score, player2Score, player3Score, player4Score;
         TextView player1Name, player2Name, player3Name, player4Name;
+        LinearLayout player3LinearLayout, player4LinearLayout;
+        TextView roundNumber;
 
         public MyViewHolder(View view) {
             super(view);
+
+            roundNumber = (TextView) view.findViewById(R.id.score_history_round_number);
 
             switch (playersNumber) {
 
@@ -92,25 +99,25 @@ public class RummyScoreHistoryAdapter extends RecyclerView.Adapter<RummyScoreHis
                     player1Score = (TextView) view.findViewById(R.id.player1ScoreScoreHistory);
                     player2Score = (TextView) view.findViewById(R.id.player2ScoreScoreHistory);
                     player3Score = (TextView) view.findViewById(R.id.player3ScoreScoreHistory);
-                    player3Score.setVisibility(View.VISIBLE);
                     player1Name = (TextView) view.findViewById(R.id.player1NameScoreHistory);
                     player2Name = (TextView) view.findViewById(R.id.player2NameScoreHistory);
                     player3Name = (TextView) view.findViewById(R.id.player3NameScoreHistory);
-                    player3Name.setVisibility(View.VISIBLE);
+                    player3LinearLayout = (LinearLayout) view.findViewById(R.id.player3_linear_layout_ScoreHistory);
+                    player3LinearLayout.setVisibility(View.VISIBLE);
                     break;
                 case 4:
                     player1Score = (TextView) view.findViewById(R.id.player1ScoreScoreHistory);
                     player2Score = (TextView) view.findViewById(R.id.player2ScoreScoreHistory);
                     player3Score = (TextView) view.findViewById(R.id.player3ScoreScoreHistory);
-                    player3Score.setVisibility(View.VISIBLE);
                     player4Score = (TextView) view.findViewById(R.id.player4ScoreScoreHistory);
-                    player4Score.setVisibility(View.VISIBLE);
                     player1Name = (TextView) view.findViewById(R.id.player1NameScoreHistory);
                     player2Name = (TextView) view.findViewById(R.id.player2NameScoreHistory);
                     player3Name = (TextView) view.findViewById(R.id.player3NameScoreHistory);
-                    player3Name.setVisibility(View.VISIBLE);
                     player4Name = (TextView) view.findViewById(R.id.player4NameScoreHistory);
-                    player4Name.setVisibility(View.VISIBLE);
+                    player3LinearLayout = (LinearLayout) view.findViewById(R.id.player3_linear_layout_ScoreHistory);
+                    player3LinearLayout.setVisibility(View.VISIBLE);
+                    player4LinearLayout = (LinearLayout) view.findViewById(R.id.player4_linear_layout_ScoreHistory);
+                    player4LinearLayout.setVisibility(View.VISIBLE);
                     break;
 
             }
