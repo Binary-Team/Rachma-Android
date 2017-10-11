@@ -5,69 +5,174 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/text_small"
     android:orientation="vertical"
-    app:cardBackgroundColor="@color/colorAccent">
+    app:cardBackgroundColor="@color/score_history_cardview_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <!--player 1 -->
-    <TextView
-        android:id="@+id/player1NameScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
+        <!-- Round number -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/round_number" />
 
-    <TextView
-        android:id="@+id/player1ScoreScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
+        <TextView
+            android:id="@+id/score_history_round_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="1" />
 
-    <!--player 2 -->
-    <TextView
-        android:id="@+id/player2NameScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
 
-    <TextView
-        android:id="@+id/player2ScoreScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
+        <!-- Player 1 and Player 2 Linearlayout -->
 
-    <!--player 3 -->
-    <TextView
-        android:id="@+id/player3NameScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/player3ScoreScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone" />
+            <!--player 1 -->
 
-    <!--player 4 -->
-    <TextView
-        android:id="@+id/player4NameScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone" />
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/score_history_cardview_margin">
 
-    <TextView
-        android:id="@+id/player4ScoreScoreHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/score_history_cardview_padding">
 
+                    <TextView
+                        android:id="@+id/player1NameScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player1 name" />
+
+                    <TextView
+                        android:id="@+id/player1ScoreScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player1 score" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <!--player 2 -->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/score_history_cardview_margin">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/score_history_cardview_padding">
+
+                    <TextView
+                        android:id="@+id/player2NameScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player2 name" />
+
+                    <TextView
+                        android:id="@+id/player2ScoreScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player2 score" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+        <!-- Player 3 and Player 4 Linearlayout -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--player 3 -->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/score_history_cardview_margin">
+
+                <LinearLayout
+                    android:id="@+id/player3_linear_layout_ScoreHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/score_history_cardview_padding"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/player3NameScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player3 name" />
+
+                    <TextView
+                        android:id="@+id/player3ScoreScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player3 score" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <!--player 4 -->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/score_history_cardview_margin">
+
+                <LinearLayout
+                    android:id="@+id/player4_linear_layout_ScoreHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/score_history_cardview_padding"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/player4NameScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player4 name" />
+
+                    <TextView
+                        android:id="@+id/player4ScoreScoreHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="player4 score" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
     </LinearLayout>
 
 

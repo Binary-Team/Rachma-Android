@@ -2,4 +2,7 @@
 <resources>
     <dimen name="text_small">20sp</dimen>
     <dimen name="text_big">80sp</dimen>
+    <dimen name="score_history_cardview_margin">20dp</dimen>
+    <dimen name="score_history_cardview_padding">10dp</dimen>
+
 </resources>

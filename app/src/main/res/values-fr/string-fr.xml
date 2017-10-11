@@ -45,6 +45,6 @@
     <string name="settings">Parametres</string>
     <string name="games_navigation_drawer">Jeux</string>
     <string name="home">Acceuil</string>
-    <string name="round_number">Round numéro</string>
+    <string name="round_number">Round</string>
 
 </resources>

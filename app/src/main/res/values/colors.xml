@@ -14,4 +14,5 @@
     <color name="player4_chart_color">#6d4c41</color>
     <color name="menu_rummy_color">#2D566B</color>
     <color name="menu_belote_color">#227585</color>
+    <color name="score_history_cardview_background">#BDBDBD</color>
 </resources>
